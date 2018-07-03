@@ -1,0 +1,84 @@
+{
+	"type": "object",
+	"properties": {
+		"settings": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "object"
+				},
+				"rowHeaders": {
+					"type": "boolean"
+				},
+				"colHeaders": {
+					"type": "array"
+				},
+				"afterChange": {
+					"type": "boolean"
+				},
+				"dropdownMenu": {
+					"type": "boolean"
+				},
+				"filters": {
+					"type": "boolean"
+				},
+				"contextMenu": {
+					"type": "boolean"
+				},
+				"minSpareRows": {
+					"type": "boolean"
+				},
+				"columnSorting": {
+					"type": "boolean"
+				},
+				"autoWrapRow": {
+					"type": "boolean"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"rowHeights": {
+					"type": "integer"
+				},
+				"colWidths": {
+					"type": "integer"
+				},
+				"minRows": {
+					"type": "integer"
+				},
+				"columns": {
+					"type": "array",
+					"properties": {
+						"type": {
+							"type": "string"
+						},
+						"format": {
+							"type": "string"
+						},
+						"source": {
+							"type": "array"
+						},
+						"dateFormat": {
+							"type": "string"
+						},
+						"correctFormat": {
+							"type": "boolean"
+						},
+						"defaultDate": {
+							"type": "string"
+						},
+						"strict": {
+							"type": "boolean"
+						},
+						"allowEmpty": {
+							"type": "boolean"
+						}
+
+					}
+				}
+			}
+
+		}
+
+	}
+}
