@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "settings": {
+        "options": {
             "properties": {
                 "allowEmpty": {
                     "type": "boolean"
@@ -51,7 +51,10 @@
                     "type": "string"
                 },
                 "colHeaders": {
-                    "type": "boolean"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "colWidths": {
                     "type": "number"
@@ -178,7 +181,7 @@
                     "type": "number"
                 },
                 "minSpareRows": {
-                    "type": "number"
+                    "type": "boolean"
                 },
                 "noWordWrapClassName": {
                     "type": "string"
@@ -295,12 +298,18 @@
             "type": "object"
         }
     },
+    "allOf": [
+        {
+            "$ref": "#/definitions/options"
+        }
+    ],
     "properties": {
-        "settings": {"$ref": "#/definitions/settings"},
-                "columns": {
-                    "items": {"$ref": "#/definitions/settings"},
-                    "type": "array"
-                }
+        "columns": {
+            "items": {
+                "$ref": "#/definitions/options"
+            },
+            "type": "array"
+        }
     },
     "type": "object"
 }
