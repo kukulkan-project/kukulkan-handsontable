@@ -1,0 +1,304 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "allowEmpty": {
+            "type": "boolean"
+        },
+        "allowHtml": {
+            "type": "boolean"
+        },
+        "allowInsertColumn": {
+            "type": "boolean"
+        },
+        "allowInsertRow": {
+            "type": "boolean"
+        },
+        "allowInvalid": {
+            "type": "boolean"
+        },
+        "allowRemoveColumn": {
+            "type": "boolean"
+        },
+        "allowRemoveRow": {
+            "type": "boolean"
+        },
+        "autoColumnSize": {
+            "type": "boolean"
+        },
+        "autoComplete": {
+            "items": {
+            },
+            "type": "array"
+        },
+        "autoRowSize": {
+            "type": "boolean"
+        },
+        "autoWrapCol": {
+            "type": "boolean"
+        },
+        "autoWrapRow": {
+            "type": "boolean"
+        },
+        "cell": {
+            "items": {
+            },
+            "type": "array"
+        },
+        "checkedTemplate": {
+            "type": "boolean"
+        },
+        "className": {
+            "type": "string"
+        },
+        "colHeaders": {
+            "type": "boolean"
+        },
+        "colWidths": {
+            "type": "number"
+        },
+        "columnHeaderHeight": {
+            "type": "number"
+        },
+        "columnSorting": {
+            "type": "boolean"
+        },
+        "columns": {
+            "items": {
+            },
+            "type": "array"
+        },
+        "commentedCellClassName": {
+            "type": "string"
+        },
+        "comments": {
+            "type": "boolean"
+        },
+        "contextMenu": {
+            "type": "boolean"
+        },
+        "copyColsLimit": {
+            "type": "number"
+        },
+        "copyPaste": {
+            "type": "boolean"
+        },
+        "copyRowsLimit": {
+            "type": "number"
+        },
+        "copyable": {
+            "type": "boolean"
+        },
+        "correctFormat": {
+            "type": "boolean"
+        },
+        "currentColClassName": {
+            "type": "string"
+        },
+        "currentHeaderClassName": {
+            "type": "string"
+        },
+        "currentRowClassName": {
+            "type": "string"
+        },
+        "customBorders": {
+            "type": "boolean"
+        },
+        "data": {
+            "items": {
+            },
+            "type": "array"
+        },
+        "dateFormat": {
+            "type": "string"
+        },
+        "debug": {
+            "type": "boolean"
+        },
+        "defaultDate": {
+            "type": "string"
+        },
+        "disableVisualSelection": {
+            "type": "boolean"
+        },
+        "editor": {
+            "type": "boolean"
+        },
+        "enterBeginsEditing": {
+            "type": "boolean"
+        },
+        "fillHandle": {
+            "type": "boolean"
+        },
+        "filter": {
+            "type": "boolean"
+        },
+        "filteringCaseSensitive": {
+            "type": "boolean"
+        },
+        "fixedRowsTop": {
+            "type": "number"
+        },
+        "fragmentSelection": {
+            "type": "boolean"
+        },
+        "height": {
+            "type": "number"
+        },
+        "invalidCellClassName": {
+            "type": "string"
+        },
+        "language": {
+            "type": "string"
+        },
+        "manualColumnFreeze": {
+            "type": "boolean"
+        },
+        "manualColumnMove": {
+            "type": "boolean"
+        },
+        "manualColumnResize": {
+            "type": "boolean"
+        },
+        "manualRowMove": {
+            "type": "boolean"
+        },
+        "manualRowResize": {
+            "type": "boolean"
+        },
+        "maxCols": {
+            "type": "number"
+        },
+        "maxRows": {
+            "type": "number"
+        },
+        "mergeCells": {
+            "type": "boolean"
+        },
+        "minCols": {
+            "type": "number"
+        },
+        "minRows": {
+            "type": "number"
+        },
+        "minSpareCols": {
+            "type": "number"
+        },
+        "minSpareRows": {
+            "type": "number"
+        },
+        "noWordWrapClassName": {
+            "type": "string"
+        },
+        "observeChanges": {
+            "type": "boolean"
+        },
+        "observeDOMVisibility": {
+            "type": "boolean"
+        },
+        "pasteMode": {
+            "type": "string"
+        },
+        "persistentState": {
+            "type": "boolean"
+        },
+        "placeholderCellClassName": {
+            "type": "string"
+        },
+        "preventOverflow": {
+            "type": "boolean"
+        },
+        "readOnly": {
+            "type": "boolean"
+        },
+        "readOnlyCellClassName": {
+            "type": "string"
+        },
+        "renderAllRows": {
+            "type": "boolean"
+        },
+        "renderer": {
+            "type": "string"
+        },
+        "rowHeaderWidth": {
+            "type": "number"
+        },
+        "rowHeaders": {
+            "type": "boolean"
+        },
+        "rowHeights": {
+            "type": "number"
+        },
+        "search": {
+            "type": "boolean"
+        },
+        "selectionMode": {
+            "enum": [
+                "multiple",
+                "range",
+                "single"
+            ],
+            "type": "string"
+        },
+        "skipColumnOnPaste": {
+            "type": "boolean"
+        },
+        "sortByRelevance": {
+            "type": "boolean"
+        },
+        "sortIndicator": {
+            "type": "boolean"
+        },
+        "source": {
+            "items": {
+            },
+            "type": "array"
+        },
+        "startCols": {
+            "type": "number"
+        },
+        "startRows": {
+            "type": "number"
+        },
+        "stretchH": {
+            "type": "string"
+        },
+        "strict": {
+            "type": "boolean"
+        },
+        "tableClassName": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "trimDropdown": {
+            "type": "boolean"
+        },
+        "trimWhitespace": {
+            "type": "boolean"
+        },
+        "type": {
+            "type": "string"
+        },
+        "uncheckedTemplate": {
+            "type": "boolean"
+        },
+        "undo": {
+            "type": "boolean"
+        },
+        "valid": {
+            "type": "boolean"
+        },
+        "visibleRows": {
+            "type": "number"
+        },
+        "width": {
+            "type": "number"
+        },
+        "wordWrap": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+
