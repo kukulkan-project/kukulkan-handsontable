@@ -1,6 +1,7 @@
 
 package mx.infotec.dads.kukulkan.tables;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,7 +110,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "width",
     "wordWrap"
 })
-public class Settings {
+public class Settings implements Serializable
+{
 
     @JsonProperty("allowEmpty")
     private Boolean allowEmpty;
@@ -299,6 +301,7 @@ public class Settings {
     private Boolean wordWrap;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private final static long serialVersionUID = -1072604410005562884L;
 
     @JsonProperty("allowEmpty")
     public Boolean getAllowEmpty() {
@@ -308,6 +311,11 @@ public class Settings {
     @JsonProperty("allowEmpty")
     public void setAllowEmpty(Boolean allowEmpty) {
         this.allowEmpty = allowEmpty;
+    }
+
+    public Settings withAllowEmpty(Boolean allowEmpty) {
+        this.allowEmpty = allowEmpty;
+        return this;
     }
 
     @JsonProperty("allowHtml")
@@ -320,6 +328,11 @@ public class Settings {
         this.allowHtml = allowHtml;
     }
 
+    public Settings withAllowHtml(Boolean allowHtml) {
+        this.allowHtml = allowHtml;
+        return this;
+    }
+
     @JsonProperty("allowInsertColumn")
     public Boolean getAllowInsertColumn() {
         return allowInsertColumn;
@@ -328,6 +341,11 @@ public class Settings {
     @JsonProperty("allowInsertColumn")
     public void setAllowInsertColumn(Boolean allowInsertColumn) {
         this.allowInsertColumn = allowInsertColumn;
+    }
+
+    public Settings withAllowInsertColumn(Boolean allowInsertColumn) {
+        this.allowInsertColumn = allowInsertColumn;
+        return this;
     }
 
     @JsonProperty("allowInsertRow")
@@ -340,6 +358,11 @@ public class Settings {
         this.allowInsertRow = allowInsertRow;
     }
 
+    public Settings withAllowInsertRow(Boolean allowInsertRow) {
+        this.allowInsertRow = allowInsertRow;
+        return this;
+    }
+
     @JsonProperty("allowInvalid")
     public Boolean getAllowInvalid() {
         return allowInvalid;
@@ -348,6 +371,11 @@ public class Settings {
     @JsonProperty("allowInvalid")
     public void setAllowInvalid(Boolean allowInvalid) {
         this.allowInvalid = allowInvalid;
+    }
+
+    public Settings withAllowInvalid(Boolean allowInvalid) {
+        this.allowInvalid = allowInvalid;
+        return this;
     }
 
     @JsonProperty("allowRemoveColumn")
@@ -360,6 +388,11 @@ public class Settings {
         this.allowRemoveColumn = allowRemoveColumn;
     }
 
+    public Settings withAllowRemoveColumn(Boolean allowRemoveColumn) {
+        this.allowRemoveColumn = allowRemoveColumn;
+        return this;
+    }
+
     @JsonProperty("allowRemoveRow")
     public Boolean getAllowRemoveRow() {
         return allowRemoveRow;
@@ -368,6 +401,11 @@ public class Settings {
     @JsonProperty("allowRemoveRow")
     public void setAllowRemoveRow(Boolean allowRemoveRow) {
         this.allowRemoveRow = allowRemoveRow;
+    }
+
+    public Settings withAllowRemoveRow(Boolean allowRemoveRow) {
+        this.allowRemoveRow = allowRemoveRow;
+        return this;
     }
 
     @JsonProperty("autoColumnSize")
@@ -380,6 +418,11 @@ public class Settings {
         this.autoColumnSize = autoColumnSize;
     }
 
+    public Settings withAutoColumnSize(Boolean autoColumnSize) {
+        this.autoColumnSize = autoColumnSize;
+        return this;
+    }
+
     @JsonProperty("autoComplete")
     public List<Object> getAutoComplete() {
         return autoComplete;
@@ -388,6 +431,11 @@ public class Settings {
     @JsonProperty("autoComplete")
     public void setAutoComplete(List<Object> autoComplete) {
         this.autoComplete = autoComplete;
+    }
+
+    public Settings withAutoComplete(List<Object> autoComplete) {
+        this.autoComplete = autoComplete;
+        return this;
     }
 
     @JsonProperty("autoRowSize")
@@ -400,6 +448,11 @@ public class Settings {
         this.autoRowSize = autoRowSize;
     }
 
+    public Settings withAutoRowSize(Boolean autoRowSize) {
+        this.autoRowSize = autoRowSize;
+        return this;
+    }
+
     @JsonProperty("autoWrapCol")
     public Boolean getAutoWrapCol() {
         return autoWrapCol;
@@ -408,6 +461,11 @@ public class Settings {
     @JsonProperty("autoWrapCol")
     public void setAutoWrapCol(Boolean autoWrapCol) {
         this.autoWrapCol = autoWrapCol;
+    }
+
+    public Settings withAutoWrapCol(Boolean autoWrapCol) {
+        this.autoWrapCol = autoWrapCol;
+        return this;
     }
 
     @JsonProperty("autoWrapRow")
@@ -420,6 +478,11 @@ public class Settings {
         this.autoWrapRow = autoWrapRow;
     }
 
+    public Settings withAutoWrapRow(Boolean autoWrapRow) {
+        this.autoWrapRow = autoWrapRow;
+        return this;
+    }
+
     @JsonProperty("cell")
     public List<Object> getCell() {
         return cell;
@@ -428,6 +491,11 @@ public class Settings {
     @JsonProperty("cell")
     public void setCell(List<Object> cell) {
         this.cell = cell;
+    }
+
+    public Settings withCell(List<Object> cell) {
+        this.cell = cell;
+        return this;
     }
 
     @JsonProperty("checkedTemplate")
@@ -440,6 +508,11 @@ public class Settings {
         this.checkedTemplate = checkedTemplate;
     }
 
+    public Settings withCheckedTemplate(Boolean checkedTemplate) {
+        this.checkedTemplate = checkedTemplate;
+        return this;
+    }
+
     @JsonProperty("className")
     public String getClassName() {
         return className;
@@ -448,6 +521,11 @@ public class Settings {
     @JsonProperty("className")
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public Settings withClassName(String className) {
+        this.className = className;
+        return this;
     }
 
     @JsonProperty("colHeaders")
@@ -460,6 +538,11 @@ public class Settings {
         this.colHeaders = colHeaders;
     }
 
+    public Settings withColHeaders(Boolean colHeaders) {
+        this.colHeaders = colHeaders;
+        return this;
+    }
+
     @JsonProperty("colWidths")
     public Double getColWidths() {
         return colWidths;
@@ -468,6 +551,11 @@ public class Settings {
     @JsonProperty("colWidths")
     public void setColWidths(Double colWidths) {
         this.colWidths = colWidths;
+    }
+
+    public Settings withColWidths(Double colWidths) {
+        this.colWidths = colWidths;
+        return this;
     }
 
     @JsonProperty("columnHeaderHeight")
@@ -480,6 +568,11 @@ public class Settings {
         this.columnHeaderHeight = columnHeaderHeight;
     }
 
+    public Settings withColumnHeaderHeight(Double columnHeaderHeight) {
+        this.columnHeaderHeight = columnHeaderHeight;
+        return this;
+    }
+
     @JsonProperty("columnSorting")
     public Boolean getColumnSorting() {
         return columnSorting;
@@ -488,6 +581,11 @@ public class Settings {
     @JsonProperty("columnSorting")
     public void setColumnSorting(Boolean columnSorting) {
         this.columnSorting = columnSorting;
+    }
+
+    public Settings withColumnSorting(Boolean columnSorting) {
+        this.columnSorting = columnSorting;
+        return this;
     }
 
     @JsonProperty("commentedCellClassName")
@@ -500,6 +598,11 @@ public class Settings {
         this.commentedCellClassName = commentedCellClassName;
     }
 
+    public Settings withCommentedCellClassName(String commentedCellClassName) {
+        this.commentedCellClassName = commentedCellClassName;
+        return this;
+    }
+
     @JsonProperty("comments")
     public Boolean getComments() {
         return comments;
@@ -508,6 +611,11 @@ public class Settings {
     @JsonProperty("comments")
     public void setComments(Boolean comments) {
         this.comments = comments;
+    }
+
+    public Settings withComments(Boolean comments) {
+        this.comments = comments;
+        return this;
     }
 
     @JsonProperty("contextMenu")
@@ -520,6 +628,11 @@ public class Settings {
         this.contextMenu = contextMenu;
     }
 
+    public Settings withContextMenu(Boolean contextMenu) {
+        this.contextMenu = contextMenu;
+        return this;
+    }
+
     @JsonProperty("copyColsLimit")
     public Double getCopyColsLimit() {
         return copyColsLimit;
@@ -528,6 +641,11 @@ public class Settings {
     @JsonProperty("copyColsLimit")
     public void setCopyColsLimit(Double copyColsLimit) {
         this.copyColsLimit = copyColsLimit;
+    }
+
+    public Settings withCopyColsLimit(Double copyColsLimit) {
+        this.copyColsLimit = copyColsLimit;
+        return this;
     }
 
     @JsonProperty("copyPaste")
@@ -540,6 +658,11 @@ public class Settings {
         this.copyPaste = copyPaste;
     }
 
+    public Settings withCopyPaste(Boolean copyPaste) {
+        this.copyPaste = copyPaste;
+        return this;
+    }
+
     @JsonProperty("copyRowsLimit")
     public Double getCopyRowsLimit() {
         return copyRowsLimit;
@@ -548,6 +671,11 @@ public class Settings {
     @JsonProperty("copyRowsLimit")
     public void setCopyRowsLimit(Double copyRowsLimit) {
         this.copyRowsLimit = copyRowsLimit;
+    }
+
+    public Settings withCopyRowsLimit(Double copyRowsLimit) {
+        this.copyRowsLimit = copyRowsLimit;
+        return this;
     }
 
     @JsonProperty("copyable")
@@ -560,6 +688,11 @@ public class Settings {
         this.copyable = copyable;
     }
 
+    public Settings withCopyable(Boolean copyable) {
+        this.copyable = copyable;
+        return this;
+    }
+
     @JsonProperty("correctFormat")
     public Boolean getCorrectFormat() {
         return correctFormat;
@@ -568,6 +701,11 @@ public class Settings {
     @JsonProperty("correctFormat")
     public void setCorrectFormat(Boolean correctFormat) {
         this.correctFormat = correctFormat;
+    }
+
+    public Settings withCorrectFormat(Boolean correctFormat) {
+        this.correctFormat = correctFormat;
+        return this;
     }
 
     @JsonProperty("currentColClassName")
@@ -580,6 +718,11 @@ public class Settings {
         this.currentColClassName = currentColClassName;
     }
 
+    public Settings withCurrentColClassName(String currentColClassName) {
+        this.currentColClassName = currentColClassName;
+        return this;
+    }
+
     @JsonProperty("currentHeaderClassName")
     public String getCurrentHeaderClassName() {
         return currentHeaderClassName;
@@ -588,6 +731,11 @@ public class Settings {
     @JsonProperty("currentHeaderClassName")
     public void setCurrentHeaderClassName(String currentHeaderClassName) {
         this.currentHeaderClassName = currentHeaderClassName;
+    }
+
+    public Settings withCurrentHeaderClassName(String currentHeaderClassName) {
+        this.currentHeaderClassName = currentHeaderClassName;
+        return this;
     }
 
     @JsonProperty("currentRowClassName")
@@ -600,6 +748,11 @@ public class Settings {
         this.currentRowClassName = currentRowClassName;
     }
 
+    public Settings withCurrentRowClassName(String currentRowClassName) {
+        this.currentRowClassName = currentRowClassName;
+        return this;
+    }
+
     @JsonProperty("customBorders")
     public Boolean getCustomBorders() {
         return customBorders;
@@ -608,6 +761,11 @@ public class Settings {
     @JsonProperty("customBorders")
     public void setCustomBorders(Boolean customBorders) {
         this.customBorders = customBorders;
+    }
+
+    public Settings withCustomBorders(Boolean customBorders) {
+        this.customBorders = customBorders;
+        return this;
     }
 
     @JsonProperty("data")
@@ -620,6 +778,11 @@ public class Settings {
         this.data = data;
     }
 
+    public Settings withData(List<Object> data) {
+        this.data = data;
+        return this;
+    }
+
     @JsonProperty("dateFormat")
     public String getDateFormat() {
         return dateFormat;
@@ -628,6 +791,11 @@ public class Settings {
     @JsonProperty("dateFormat")
     public void setDateFormat(String dateFormat) {
         this.dateFormat = dateFormat;
+    }
+
+    public Settings withDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
+        return this;
     }
 
     @JsonProperty("debug")
@@ -640,6 +808,11 @@ public class Settings {
         this.debug = debug;
     }
 
+    public Settings withDebug(Boolean debug) {
+        this.debug = debug;
+        return this;
+    }
+
     @JsonProperty("defaultDate")
     public String getDefaultDate() {
         return defaultDate;
@@ -648,6 +821,11 @@ public class Settings {
     @JsonProperty("defaultDate")
     public void setDefaultDate(String defaultDate) {
         this.defaultDate = defaultDate;
+    }
+
+    public Settings withDefaultDate(String defaultDate) {
+        this.defaultDate = defaultDate;
+        return this;
     }
 
     @JsonProperty("disableVisualSelection")
@@ -660,6 +838,11 @@ public class Settings {
         this.disableVisualSelection = disableVisualSelection;
     }
 
+    public Settings withDisableVisualSelection(Boolean disableVisualSelection) {
+        this.disableVisualSelection = disableVisualSelection;
+        return this;
+    }
+
     @JsonProperty("editor")
     public Boolean getEditor() {
         return editor;
@@ -668,6 +851,11 @@ public class Settings {
     @JsonProperty("editor")
     public void setEditor(Boolean editor) {
         this.editor = editor;
+    }
+
+    public Settings withEditor(Boolean editor) {
+        this.editor = editor;
+        return this;
     }
 
     @JsonProperty("enterBeginsEditing")
@@ -680,6 +868,11 @@ public class Settings {
         this.enterBeginsEditing = enterBeginsEditing;
     }
 
+    public Settings withEnterBeginsEditing(Boolean enterBeginsEditing) {
+        this.enterBeginsEditing = enterBeginsEditing;
+        return this;
+    }
+
     @JsonProperty("fillHandle")
     public Boolean getFillHandle() {
         return fillHandle;
@@ -688,6 +881,11 @@ public class Settings {
     @JsonProperty("fillHandle")
     public void setFillHandle(Boolean fillHandle) {
         this.fillHandle = fillHandle;
+    }
+
+    public Settings withFillHandle(Boolean fillHandle) {
+        this.fillHandle = fillHandle;
+        return this;
     }
 
     @JsonProperty("filter")
@@ -700,6 +898,11 @@ public class Settings {
         this.filter = filter;
     }
 
+    public Settings withFilter(Boolean filter) {
+        this.filter = filter;
+        return this;
+    }
+
     @JsonProperty("filteringCaseSensitive")
     public Boolean getFilteringCaseSensitive() {
         return filteringCaseSensitive;
@@ -708,6 +911,11 @@ public class Settings {
     @JsonProperty("filteringCaseSensitive")
     public void setFilteringCaseSensitive(Boolean filteringCaseSensitive) {
         this.filteringCaseSensitive = filteringCaseSensitive;
+    }
+
+    public Settings withFilteringCaseSensitive(Boolean filteringCaseSensitive) {
+        this.filteringCaseSensitive = filteringCaseSensitive;
+        return this;
     }
 
     @JsonProperty("fixedRowsTop")
@@ -720,6 +928,11 @@ public class Settings {
         this.fixedRowsTop = fixedRowsTop;
     }
 
+    public Settings withFixedRowsTop(Double fixedRowsTop) {
+        this.fixedRowsTop = fixedRowsTop;
+        return this;
+    }
+
     @JsonProperty("fragmentSelection")
     public Boolean getFragmentSelection() {
         return fragmentSelection;
@@ -728,6 +941,11 @@ public class Settings {
     @JsonProperty("fragmentSelection")
     public void setFragmentSelection(Boolean fragmentSelection) {
         this.fragmentSelection = fragmentSelection;
+    }
+
+    public Settings withFragmentSelection(Boolean fragmentSelection) {
+        this.fragmentSelection = fragmentSelection;
+        return this;
     }
 
     @JsonProperty("height")
@@ -740,6 +958,11 @@ public class Settings {
         this.height = height;
     }
 
+    public Settings withHeight(Double height) {
+        this.height = height;
+        return this;
+    }
+
     @JsonProperty("invalidCellClassName")
     public String getInvalidCellClassName() {
         return invalidCellClassName;
@@ -748,6 +971,11 @@ public class Settings {
     @JsonProperty("invalidCellClassName")
     public void setInvalidCellClassName(String invalidCellClassName) {
         this.invalidCellClassName = invalidCellClassName;
+    }
+
+    public Settings withInvalidCellClassName(String invalidCellClassName) {
+        this.invalidCellClassName = invalidCellClassName;
+        return this;
     }
 
     @JsonProperty("language")
@@ -760,6 +988,11 @@ public class Settings {
         this.language = language;
     }
 
+    public Settings withLanguage(String language) {
+        this.language = language;
+        return this;
+    }
+
     @JsonProperty("manualColumnFreeze")
     public Boolean getManualColumnFreeze() {
         return manualColumnFreeze;
@@ -768,6 +1001,11 @@ public class Settings {
     @JsonProperty("manualColumnFreeze")
     public void setManualColumnFreeze(Boolean manualColumnFreeze) {
         this.manualColumnFreeze = manualColumnFreeze;
+    }
+
+    public Settings withManualColumnFreeze(Boolean manualColumnFreeze) {
+        this.manualColumnFreeze = manualColumnFreeze;
+        return this;
     }
 
     @JsonProperty("manualColumnMove")
@@ -780,6 +1018,11 @@ public class Settings {
         this.manualColumnMove = manualColumnMove;
     }
 
+    public Settings withManualColumnMove(Boolean manualColumnMove) {
+        this.manualColumnMove = manualColumnMove;
+        return this;
+    }
+
     @JsonProperty("manualColumnResize")
     public Boolean getManualColumnResize() {
         return manualColumnResize;
@@ -788,6 +1031,11 @@ public class Settings {
     @JsonProperty("manualColumnResize")
     public void setManualColumnResize(Boolean manualColumnResize) {
         this.manualColumnResize = manualColumnResize;
+    }
+
+    public Settings withManualColumnResize(Boolean manualColumnResize) {
+        this.manualColumnResize = manualColumnResize;
+        return this;
     }
 
     @JsonProperty("manualRowMove")
@@ -800,6 +1048,11 @@ public class Settings {
         this.manualRowMove = manualRowMove;
     }
 
+    public Settings withManualRowMove(Boolean manualRowMove) {
+        this.manualRowMove = manualRowMove;
+        return this;
+    }
+
     @JsonProperty("manualRowResize")
     public Boolean getManualRowResize() {
         return manualRowResize;
@@ -808,6 +1061,11 @@ public class Settings {
     @JsonProperty("manualRowResize")
     public void setManualRowResize(Boolean manualRowResize) {
         this.manualRowResize = manualRowResize;
+    }
+
+    public Settings withManualRowResize(Boolean manualRowResize) {
+        this.manualRowResize = manualRowResize;
+        return this;
     }
 
     @JsonProperty("maxCols")
@@ -820,6 +1078,11 @@ public class Settings {
         this.maxCols = maxCols;
     }
 
+    public Settings withMaxCols(Double maxCols) {
+        this.maxCols = maxCols;
+        return this;
+    }
+
     @JsonProperty("maxRows")
     public Double getMaxRows() {
         return maxRows;
@@ -828,6 +1091,11 @@ public class Settings {
     @JsonProperty("maxRows")
     public void setMaxRows(Double maxRows) {
         this.maxRows = maxRows;
+    }
+
+    public Settings withMaxRows(Double maxRows) {
+        this.maxRows = maxRows;
+        return this;
     }
 
     @JsonProperty("mergeCells")
@@ -840,6 +1108,11 @@ public class Settings {
         this.mergeCells = mergeCells;
     }
 
+    public Settings withMergeCells(Boolean mergeCells) {
+        this.mergeCells = mergeCells;
+        return this;
+    }
+
     @JsonProperty("minCols")
     public Double getMinCols() {
         return minCols;
@@ -848,6 +1121,11 @@ public class Settings {
     @JsonProperty("minCols")
     public void setMinCols(Double minCols) {
         this.minCols = minCols;
+    }
+
+    public Settings withMinCols(Double minCols) {
+        this.minCols = minCols;
+        return this;
     }
 
     @JsonProperty("minRows")
@@ -860,6 +1138,11 @@ public class Settings {
         this.minRows = minRows;
     }
 
+    public Settings withMinRows(Double minRows) {
+        this.minRows = minRows;
+        return this;
+    }
+
     @JsonProperty("minSpareCols")
     public Double getMinSpareCols() {
         return minSpareCols;
@@ -868,6 +1151,11 @@ public class Settings {
     @JsonProperty("minSpareCols")
     public void setMinSpareCols(Double minSpareCols) {
         this.minSpareCols = minSpareCols;
+    }
+
+    public Settings withMinSpareCols(Double minSpareCols) {
+        this.minSpareCols = minSpareCols;
+        return this;
     }
 
     @JsonProperty("minSpareRows")
@@ -880,6 +1168,11 @@ public class Settings {
         this.minSpareRows = minSpareRows;
     }
 
+    public Settings withMinSpareRows(Double minSpareRows) {
+        this.minSpareRows = minSpareRows;
+        return this;
+    }
+
     @JsonProperty("noWordWrapClassName")
     public String getNoWordWrapClassName() {
         return noWordWrapClassName;
@@ -888,6 +1181,11 @@ public class Settings {
     @JsonProperty("noWordWrapClassName")
     public void setNoWordWrapClassName(String noWordWrapClassName) {
         this.noWordWrapClassName = noWordWrapClassName;
+    }
+
+    public Settings withNoWordWrapClassName(String noWordWrapClassName) {
+        this.noWordWrapClassName = noWordWrapClassName;
+        return this;
     }
 
     @JsonProperty("observeChanges")
@@ -900,6 +1198,11 @@ public class Settings {
         this.observeChanges = observeChanges;
     }
 
+    public Settings withObserveChanges(Boolean observeChanges) {
+        this.observeChanges = observeChanges;
+        return this;
+    }
+
     @JsonProperty("observeDOMVisibility")
     public Boolean getObserveDOMVisibility() {
         return observeDOMVisibility;
@@ -908,6 +1211,11 @@ public class Settings {
     @JsonProperty("observeDOMVisibility")
     public void setObserveDOMVisibility(Boolean observeDOMVisibility) {
         this.observeDOMVisibility = observeDOMVisibility;
+    }
+
+    public Settings withObserveDOMVisibility(Boolean observeDOMVisibility) {
+        this.observeDOMVisibility = observeDOMVisibility;
+        return this;
     }
 
     @JsonProperty("pasteMode")
@@ -920,6 +1228,11 @@ public class Settings {
         this.pasteMode = pasteMode;
     }
 
+    public Settings withPasteMode(String pasteMode) {
+        this.pasteMode = pasteMode;
+        return this;
+    }
+
     @JsonProperty("persistentState")
     public Boolean getPersistentState() {
         return persistentState;
@@ -928,6 +1241,11 @@ public class Settings {
     @JsonProperty("persistentState")
     public void setPersistentState(Boolean persistentState) {
         this.persistentState = persistentState;
+    }
+
+    public Settings withPersistentState(Boolean persistentState) {
+        this.persistentState = persistentState;
+        return this;
     }
 
     @JsonProperty("placeholderCellClassName")
@@ -940,6 +1258,11 @@ public class Settings {
         this.placeholderCellClassName = placeholderCellClassName;
     }
 
+    public Settings withPlaceholderCellClassName(String placeholderCellClassName) {
+        this.placeholderCellClassName = placeholderCellClassName;
+        return this;
+    }
+
     @JsonProperty("preventOverflow")
     public Boolean getPreventOverflow() {
         return preventOverflow;
@@ -948,6 +1271,11 @@ public class Settings {
     @JsonProperty("preventOverflow")
     public void setPreventOverflow(Boolean preventOverflow) {
         this.preventOverflow = preventOverflow;
+    }
+
+    public Settings withPreventOverflow(Boolean preventOverflow) {
+        this.preventOverflow = preventOverflow;
+        return this;
     }
 
     @JsonProperty("readOnly")
@@ -960,6 +1288,11 @@ public class Settings {
         this.readOnly = readOnly;
     }
 
+    public Settings withReadOnly(Boolean readOnly) {
+        this.readOnly = readOnly;
+        return this;
+    }
+
     @JsonProperty("readOnlyCellClassName")
     public String getReadOnlyCellClassName() {
         return readOnlyCellClassName;
@@ -968,6 +1301,11 @@ public class Settings {
     @JsonProperty("readOnlyCellClassName")
     public void setReadOnlyCellClassName(String readOnlyCellClassName) {
         this.readOnlyCellClassName = readOnlyCellClassName;
+    }
+
+    public Settings withReadOnlyCellClassName(String readOnlyCellClassName) {
+        this.readOnlyCellClassName = readOnlyCellClassName;
+        return this;
     }
 
     @JsonProperty("renderAllRows")
@@ -980,6 +1318,11 @@ public class Settings {
         this.renderAllRows = renderAllRows;
     }
 
+    public Settings withRenderAllRows(Boolean renderAllRows) {
+        this.renderAllRows = renderAllRows;
+        return this;
+    }
+
     @JsonProperty("renderer")
     public String getRenderer() {
         return renderer;
@@ -988,6 +1331,11 @@ public class Settings {
     @JsonProperty("renderer")
     public void setRenderer(String renderer) {
         this.renderer = renderer;
+    }
+
+    public Settings withRenderer(String renderer) {
+        this.renderer = renderer;
+        return this;
     }
 
     @JsonProperty("rowHeaderWidth")
@@ -1000,6 +1348,11 @@ public class Settings {
         this.rowHeaderWidth = rowHeaderWidth;
     }
 
+    public Settings withRowHeaderWidth(Double rowHeaderWidth) {
+        this.rowHeaderWidth = rowHeaderWidth;
+        return this;
+    }
+
     @JsonProperty("rowHeaders")
     public Boolean getRowHeaders() {
         return rowHeaders;
@@ -1008,6 +1361,11 @@ public class Settings {
     @JsonProperty("rowHeaders")
     public void setRowHeaders(Boolean rowHeaders) {
         this.rowHeaders = rowHeaders;
+    }
+
+    public Settings withRowHeaders(Boolean rowHeaders) {
+        this.rowHeaders = rowHeaders;
+        return this;
     }
 
     @JsonProperty("rowHeights")
@@ -1020,6 +1378,11 @@ public class Settings {
         this.rowHeights = rowHeights;
     }
 
+    public Settings withRowHeights(Double rowHeights) {
+        this.rowHeights = rowHeights;
+        return this;
+    }
+
     @JsonProperty("search")
     public Boolean getSearch() {
         return search;
@@ -1028,6 +1391,11 @@ public class Settings {
     @JsonProperty("search")
     public void setSearch(Boolean search) {
         this.search = search;
+    }
+
+    public Settings withSearch(Boolean search) {
+        this.search = search;
+        return this;
     }
 
     @JsonProperty("selectionMode")
@@ -1040,6 +1408,11 @@ public class Settings {
         this.selectionMode = selectionMode;
     }
 
+    public Settings withSelectionMode(Settings.SelectionMode selectionMode) {
+        this.selectionMode = selectionMode;
+        return this;
+    }
+
     @JsonProperty("skipColumnOnPaste")
     public Boolean getSkipColumnOnPaste() {
         return skipColumnOnPaste;
@@ -1048,6 +1421,11 @@ public class Settings {
     @JsonProperty("skipColumnOnPaste")
     public void setSkipColumnOnPaste(Boolean skipColumnOnPaste) {
         this.skipColumnOnPaste = skipColumnOnPaste;
+    }
+
+    public Settings withSkipColumnOnPaste(Boolean skipColumnOnPaste) {
+        this.skipColumnOnPaste = skipColumnOnPaste;
+        return this;
     }
 
     @JsonProperty("sortByRelevance")
@@ -1060,6 +1438,11 @@ public class Settings {
         this.sortByRelevance = sortByRelevance;
     }
 
+    public Settings withSortByRelevance(Boolean sortByRelevance) {
+        this.sortByRelevance = sortByRelevance;
+        return this;
+    }
+
     @JsonProperty("sortIndicator")
     public Boolean getSortIndicator() {
         return sortIndicator;
@@ -1068,6 +1451,11 @@ public class Settings {
     @JsonProperty("sortIndicator")
     public void setSortIndicator(Boolean sortIndicator) {
         this.sortIndicator = sortIndicator;
+    }
+
+    public Settings withSortIndicator(Boolean sortIndicator) {
+        this.sortIndicator = sortIndicator;
+        return this;
     }
 
     @JsonProperty("source")
@@ -1080,6 +1468,11 @@ public class Settings {
         this.source = source;
     }
 
+    public Settings withSource(List<Object> source) {
+        this.source = source;
+        return this;
+    }
+
     @JsonProperty("startCols")
     public Double getStartCols() {
         return startCols;
@@ -1088,6 +1481,11 @@ public class Settings {
     @JsonProperty("startCols")
     public void setStartCols(Double startCols) {
         this.startCols = startCols;
+    }
+
+    public Settings withStartCols(Double startCols) {
+        this.startCols = startCols;
+        return this;
     }
 
     @JsonProperty("startRows")
@@ -1100,6 +1498,11 @@ public class Settings {
         this.startRows = startRows;
     }
 
+    public Settings withStartRows(Double startRows) {
+        this.startRows = startRows;
+        return this;
+    }
+
     @JsonProperty("stretchH")
     public String getStretchH() {
         return stretchH;
@@ -1108,6 +1511,11 @@ public class Settings {
     @JsonProperty("stretchH")
     public void setStretchH(String stretchH) {
         this.stretchH = stretchH;
+    }
+
+    public Settings withStretchH(String stretchH) {
+        this.stretchH = stretchH;
+        return this;
     }
 
     @JsonProperty("strict")
@@ -1120,6 +1528,11 @@ public class Settings {
         this.strict = strict;
     }
 
+    public Settings withStrict(Boolean strict) {
+        this.strict = strict;
+        return this;
+    }
+
     @JsonProperty("tableClassName")
     public String getTableClassName() {
         return tableClassName;
@@ -1128,6 +1541,11 @@ public class Settings {
     @JsonProperty("tableClassName")
     public void setTableClassName(String tableClassName) {
         this.tableClassName = tableClassName;
+    }
+
+    public Settings withTableClassName(String tableClassName) {
+        this.tableClassName = tableClassName;
+        return this;
     }
 
     @JsonProperty("title")
@@ -1140,6 +1558,11 @@ public class Settings {
         this.title = title;
     }
 
+    public Settings withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
     @JsonProperty("trimDropdown")
     public Boolean getTrimDropdown() {
         return trimDropdown;
@@ -1148,6 +1571,11 @@ public class Settings {
     @JsonProperty("trimDropdown")
     public void setTrimDropdown(Boolean trimDropdown) {
         this.trimDropdown = trimDropdown;
+    }
+
+    public Settings withTrimDropdown(Boolean trimDropdown) {
+        this.trimDropdown = trimDropdown;
+        return this;
     }
 
     @JsonProperty("trimWhitespace")
@@ -1160,6 +1588,11 @@ public class Settings {
         this.trimWhitespace = trimWhitespace;
     }
 
+    public Settings withTrimWhitespace(Boolean trimWhitespace) {
+        this.trimWhitespace = trimWhitespace;
+        return this;
+    }
+
     @JsonProperty("type")
     public String getType() {
         return type;
@@ -1168,6 +1601,11 @@ public class Settings {
     @JsonProperty("type")
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Settings withType(String type) {
+        this.type = type;
+        return this;
     }
 
     @JsonProperty("uncheckedTemplate")
@@ -1180,6 +1618,11 @@ public class Settings {
         this.uncheckedTemplate = uncheckedTemplate;
     }
 
+    public Settings withUncheckedTemplate(Boolean uncheckedTemplate) {
+        this.uncheckedTemplate = uncheckedTemplate;
+        return this;
+    }
+
     @JsonProperty("undo")
     public Boolean getUndo() {
         return undo;
@@ -1188,6 +1631,11 @@ public class Settings {
     @JsonProperty("undo")
     public void setUndo(Boolean undo) {
         this.undo = undo;
+    }
+
+    public Settings withUndo(Boolean undo) {
+        this.undo = undo;
+        return this;
     }
 
     @JsonProperty("valid")
@@ -1200,6 +1648,11 @@ public class Settings {
         this.valid = valid;
     }
 
+    public Settings withValid(Boolean valid) {
+        this.valid = valid;
+        return this;
+    }
+
     @JsonProperty("visibleRows")
     public Double getVisibleRows() {
         return visibleRows;
@@ -1208,6 +1661,11 @@ public class Settings {
     @JsonProperty("visibleRows")
     public void setVisibleRows(Double visibleRows) {
         this.visibleRows = visibleRows;
+    }
+
+    public Settings withVisibleRows(Double visibleRows) {
+        this.visibleRows = visibleRows;
+        return this;
     }
 
     @JsonProperty("width")
@@ -1220,6 +1678,11 @@ public class Settings {
         this.width = width;
     }
 
+    public Settings withWidth(Double width) {
+        this.width = width;
+        return this;
+    }
+
     @JsonProperty("wordWrap")
     public Boolean getWordWrap() {
         return wordWrap;
@@ -1230,6 +1693,11 @@ public class Settings {
         this.wordWrap = wordWrap;
     }
 
+    public Settings withWordWrap(Boolean wordWrap) {
+        this.wordWrap = wordWrap;
+        return this;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -1238,6 +1706,11 @@ public class Settings {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    public Settings withAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+        return this;
     }
 
     public enum SelectionMode {
