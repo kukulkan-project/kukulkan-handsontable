@@ -22,17 +22,27 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class CheckboxColumn extends Column {
+public class TimeColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -6992617543627606419L;
+    private static final long serialVersionUID = 4149363459305902922L;
 
-    public CheckboxColumn() {
-        super.withType(CellTypes.CHECKBOX);
+    private String timeFormat;
+
+    public TimeColumn() {
+        super.withType(CellTypes.TIME);
+    }
+
+    public String getTimeFormat() {
+        return timeFormat;
+    }
+
+    public void setTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
     }
 
 }

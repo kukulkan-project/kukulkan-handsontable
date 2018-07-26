@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class SelectColumn extends Column {
+public class DateColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = 7951030937138612164L;
-
-    public SelectColumn() {
-        super.withType(CellTypes.SELECT);
+    private static final long serialVersionUID = -6817365592059473107L;
+    
+    public DateColumn() {
+        super.withType(CellTypes.DATE);
     }
 
 }

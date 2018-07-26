@@ -22,17 +22,57 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class DateColumn extends Column {
+import java.io.Serializable;
+import java.util.Locale;
+
+public class NumericColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -6817365592059473107L;
+    private static final long serialVersionUID = 8966012580478857767L;
 
-    public DateColumn() {
-        super.withType(CellTypes.DATE);
+    private NumericFormat numericFormat;
+
+    public NumericColumn() {
+        super.withType(CellTypes.NUMERIC);
+    }
+
+    public NumericFormat getNumericFormat() {
+        return numericFormat;
+    }
+
+    public void setNumericFormat(NumericFormat numericFormat) {
+        this.numericFormat = numericFormat;
+    }
+
+    public class NumericFormat implements Serializable {
+
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 1L;
+        private String pattern;
+        private Locale culture;
+
+        public String getPattern() {
+            return pattern;
+        }
+
+        public void setPattern(String pattern) {
+            this.pattern = pattern;
+        }
+
+        public Locale getCulture() {
+            return culture;
+        }
+
+        public void setCulture(Locale culture) {
+            this.culture = culture;
+        }
+
     }
 
 }

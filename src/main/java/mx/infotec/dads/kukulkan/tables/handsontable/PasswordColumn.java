@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class DropdownColumn extends Column {
+public class PasswordColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -2271792145455622636L;
+    private static final long serialVersionUID = -4681459366632291354L;
 
-    public DropdownColumn() {
-        super.withType(CellTypes.DROPDOWN);
+    public PasswordColumn() {
+        super.withType(CellTypes.PASSWORD);
     }
 
 }

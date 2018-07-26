@@ -1,5 +1,5 @@
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "data",
-    "columns",
     "allowEmpty",
     "allowHtml",
     "allowInsertColumn",
@@ -111,13 +110,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "width",
     "wordWrap"
 })
-public class Handsontable implements Serializable
-{
+public class Column implements Serializable {
 
     @JsonProperty("data")
-    private List<Object> data = null;
-    @JsonProperty("columns")
-    private List<Column> columns = null;
+    private String data;
     @JsonProperty("allowEmpty")
     private Boolean allowEmpty;
     @JsonProperty("allowHtml")
@@ -263,7 +259,7 @@ public class Handsontable implements Serializable
     @JsonProperty("search")
     private Boolean search;
     @JsonProperty("selectionMode")
-    private Handsontable.SelectionMode selectionMode;
+    private Column.SelectionMode selectionMode;
     @JsonProperty("skipColumnOnPaste")
     private Boolean skipColumnOnPaste;
     @JsonProperty("sortByRelevance")
@@ -304,35 +300,24 @@ public class Handsontable implements Serializable
     private Boolean wordWrap;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = -4356141459297412102L;
+    private static final long serialVersionUID = 6809658289801168645L;
 
+    public Column() {
+        this.withType(CellTypes.TEXT);
+    }
+    
     @JsonProperty("data")
-    public List<Object> getData() {
+    public String getData() {
         return data;
     }
 
     @JsonProperty("data")
-    public void setData(List<Object> data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Handsontable withData(List<Object> data) {
+    public Column withData(String data) {
         this.data = data;
-        return this;
-    }
-
-    @JsonProperty("columns")
-    public List<Column> getColumns() {
-        return columns;
-    }
-
-    @JsonProperty("columns")
-    public void setColumns(List<Column> columns) {
-        this.columns = columns;
-    }
-
-    public Handsontable withColumns(List<Column> columns) {
-        this.columns = columns;
         return this;
     }
 
@@ -346,7 +331,7 @@ public class Handsontable implements Serializable
         this.allowEmpty = allowEmpty;
     }
 
-    public Handsontable withAllowEmpty(Boolean allowEmpty) {
+    public Column withAllowEmpty(Boolean allowEmpty) {
         this.allowEmpty = allowEmpty;
         return this;
     }
@@ -361,7 +346,7 @@ public class Handsontable implements Serializable
         this.allowHtml = allowHtml;
     }
 
-    public Handsontable withAllowHtml(Boolean allowHtml) {
+    public Column withAllowHtml(Boolean allowHtml) {
         this.allowHtml = allowHtml;
         return this;
     }
@@ -376,7 +361,7 @@ public class Handsontable implements Serializable
         this.allowInsertColumn = allowInsertColumn;
     }
 
-    public Handsontable withAllowInsertColumn(Boolean allowInsertColumn) {
+    public Column withAllowInsertColumn(Boolean allowInsertColumn) {
         this.allowInsertColumn = allowInsertColumn;
         return this;
     }
@@ -391,7 +376,7 @@ public class Handsontable implements Serializable
         this.allowInsertRow = allowInsertRow;
     }
 
-    public Handsontable withAllowInsertRow(Boolean allowInsertRow) {
+    public Column withAllowInsertRow(Boolean allowInsertRow) {
         this.allowInsertRow = allowInsertRow;
         return this;
     }
@@ -406,7 +391,7 @@ public class Handsontable implements Serializable
         this.allowInvalid = allowInvalid;
     }
 
-    public Handsontable withAllowInvalid(Boolean allowInvalid) {
+    public Column withAllowInvalid(Boolean allowInvalid) {
         this.allowInvalid = allowInvalid;
         return this;
     }
@@ -421,7 +406,7 @@ public class Handsontable implements Serializable
         this.allowRemoveColumn = allowRemoveColumn;
     }
 
-    public Handsontable withAllowRemoveColumn(Boolean allowRemoveColumn) {
+    public Column withAllowRemoveColumn(Boolean allowRemoveColumn) {
         this.allowRemoveColumn = allowRemoveColumn;
         return this;
     }
@@ -436,7 +421,7 @@ public class Handsontable implements Serializable
         this.allowRemoveRow = allowRemoveRow;
     }
 
-    public Handsontable withAllowRemoveRow(Boolean allowRemoveRow) {
+    public Column withAllowRemoveRow(Boolean allowRemoveRow) {
         this.allowRemoveRow = allowRemoveRow;
         return this;
     }
@@ -451,7 +436,7 @@ public class Handsontable implements Serializable
         this.autoColumnSize = autoColumnSize;
     }
 
-    public Handsontable withAutoColumnSize(Boolean autoColumnSize) {
+    public Column withAutoColumnSize(Boolean autoColumnSize) {
         this.autoColumnSize = autoColumnSize;
         return this;
     }
@@ -466,7 +451,7 @@ public class Handsontable implements Serializable
         this.autoComplete = autoComplete;
     }
 
-    public Handsontable withAutoComplete(List<Object> autoComplete) {
+    public Column withAutoComplete(List<Object> autoComplete) {
         this.autoComplete = autoComplete;
         return this;
     }
@@ -481,7 +466,7 @@ public class Handsontable implements Serializable
         this.autoRowSize = autoRowSize;
     }
 
-    public Handsontable withAutoRowSize(Boolean autoRowSize) {
+    public Column withAutoRowSize(Boolean autoRowSize) {
         this.autoRowSize = autoRowSize;
         return this;
     }
@@ -496,7 +481,7 @@ public class Handsontable implements Serializable
         this.autoWrapCol = autoWrapCol;
     }
 
-    public Handsontable withAutoWrapCol(Boolean autoWrapCol) {
+    public Column withAutoWrapCol(Boolean autoWrapCol) {
         this.autoWrapCol = autoWrapCol;
         return this;
     }
@@ -511,7 +496,7 @@ public class Handsontable implements Serializable
         this.autoWrapRow = autoWrapRow;
     }
 
-    public Handsontable withAutoWrapRow(Boolean autoWrapRow) {
+    public Column withAutoWrapRow(Boolean autoWrapRow) {
         this.autoWrapRow = autoWrapRow;
         return this;
     }
@@ -526,7 +511,7 @@ public class Handsontable implements Serializable
         this.cell = cell;
     }
 
-    public Handsontable withCell(List<Object> cell) {
+    public Column withCell(List<Object> cell) {
         this.cell = cell;
         return this;
     }
@@ -541,7 +526,7 @@ public class Handsontable implements Serializable
         this.checkedTemplate = checkedTemplate;
     }
 
-    public Handsontable withCheckedTemplate(Boolean checkedTemplate) {
+    public Column withCheckedTemplate(Boolean checkedTemplate) {
         this.checkedTemplate = checkedTemplate;
         return this;
     }
@@ -556,7 +541,7 @@ public class Handsontable implements Serializable
         this.className = className;
     }
 
-    public Handsontable withClassName(String className) {
+    public Column withClassName(String className) {
         this.className = className;
         return this;
     }
@@ -571,7 +556,7 @@ public class Handsontable implements Serializable
         this.colHeaders = colHeaders;
     }
 
-    public Handsontable withColHeaders(List<String> colHeaders) {
+    public Column withColHeaders(List<String> colHeaders) {
         this.colHeaders = colHeaders;
         return this;
     }
@@ -586,7 +571,7 @@ public class Handsontable implements Serializable
         this.colWidths = colWidths;
     }
 
-    public Handsontable withColWidths(Double colWidths) {
+    public Column withColWidths(Double colWidths) {
         this.colWidths = colWidths;
         return this;
     }
@@ -601,7 +586,7 @@ public class Handsontable implements Serializable
         this.columnHeaderHeight = columnHeaderHeight;
     }
 
-    public Handsontable withColumnHeaderHeight(Double columnHeaderHeight) {
+    public Column withColumnHeaderHeight(Double columnHeaderHeight) {
         this.columnHeaderHeight = columnHeaderHeight;
         return this;
     }
@@ -616,7 +601,7 @@ public class Handsontable implements Serializable
         this.columnSorting = columnSorting;
     }
 
-    public Handsontable withColumnSorting(Boolean columnSorting) {
+    public Column withColumnSorting(Boolean columnSorting) {
         this.columnSorting = columnSorting;
         return this;
     }
@@ -631,7 +616,7 @@ public class Handsontable implements Serializable
         this.commentedCellClassName = commentedCellClassName;
     }
 
-    public Handsontable withCommentedCellClassName(String commentedCellClassName) {
+    public Column withCommentedCellClassName(String commentedCellClassName) {
         this.commentedCellClassName = commentedCellClassName;
         return this;
     }
@@ -646,7 +631,7 @@ public class Handsontable implements Serializable
         this.comments = comments;
     }
 
-    public Handsontable withComments(Boolean comments) {
+    public Column withComments(Boolean comments) {
         this.comments = comments;
         return this;
     }
@@ -661,7 +646,7 @@ public class Handsontable implements Serializable
         this.contextMenu = contextMenu;
     }
 
-    public Handsontable withContextMenu(Boolean contextMenu) {
+    public Column withContextMenu(Boolean contextMenu) {
         this.contextMenu = contextMenu;
         return this;
     }
@@ -676,7 +661,7 @@ public class Handsontable implements Serializable
         this.copyColsLimit = copyColsLimit;
     }
 
-    public Handsontable withCopyColsLimit(Double copyColsLimit) {
+    public Column withCopyColsLimit(Double copyColsLimit) {
         this.copyColsLimit = copyColsLimit;
         return this;
     }
@@ -691,7 +676,7 @@ public class Handsontable implements Serializable
         this.copyPaste = copyPaste;
     }
 
-    public Handsontable withCopyPaste(Boolean copyPaste) {
+    public Column withCopyPaste(Boolean copyPaste) {
         this.copyPaste = copyPaste;
         return this;
     }
@@ -706,7 +691,7 @@ public class Handsontable implements Serializable
         this.copyRowsLimit = copyRowsLimit;
     }
 
-    public Handsontable withCopyRowsLimit(Double copyRowsLimit) {
+    public Column withCopyRowsLimit(Double copyRowsLimit) {
         this.copyRowsLimit = copyRowsLimit;
         return this;
     }
@@ -721,7 +706,7 @@ public class Handsontable implements Serializable
         this.copyable = copyable;
     }
 
-    public Handsontable withCopyable(Boolean copyable) {
+    public Column withCopyable(Boolean copyable) {
         this.copyable = copyable;
         return this;
     }
@@ -736,7 +721,7 @@ public class Handsontable implements Serializable
         this.correctFormat = correctFormat;
     }
 
-    public Handsontable withCorrectFormat(Boolean correctFormat) {
+    public Column withCorrectFormat(Boolean correctFormat) {
         this.correctFormat = correctFormat;
         return this;
     }
@@ -751,7 +736,7 @@ public class Handsontable implements Serializable
         this.currentColClassName = currentColClassName;
     }
 
-    public Handsontable withCurrentColClassName(String currentColClassName) {
+    public Column withCurrentColClassName(String currentColClassName) {
         this.currentColClassName = currentColClassName;
         return this;
     }
@@ -766,7 +751,7 @@ public class Handsontable implements Serializable
         this.currentHeaderClassName = currentHeaderClassName;
     }
 
-    public Handsontable withCurrentHeaderClassName(String currentHeaderClassName) {
+    public Column withCurrentHeaderClassName(String currentHeaderClassName) {
         this.currentHeaderClassName = currentHeaderClassName;
         return this;
     }
@@ -781,7 +766,7 @@ public class Handsontable implements Serializable
         this.currentRowClassName = currentRowClassName;
     }
 
-    public Handsontable withCurrentRowClassName(String currentRowClassName) {
+    public Column withCurrentRowClassName(String currentRowClassName) {
         this.currentRowClassName = currentRowClassName;
         return this;
     }
@@ -796,7 +781,7 @@ public class Handsontable implements Serializable
         this.customBorders = customBorders;
     }
 
-    public Handsontable withCustomBorders(Boolean customBorders) {
+    public Column withCustomBorders(Boolean customBorders) {
         this.customBorders = customBorders;
         return this;
     }
@@ -811,7 +796,7 @@ public class Handsontable implements Serializable
         this.dateFormat = dateFormat;
     }
 
-    public Handsontable withDateFormat(String dateFormat) {
+    public Column withDateFormat(String dateFormat) {
         this.dateFormat = dateFormat;
         return this;
     }
@@ -826,7 +811,7 @@ public class Handsontable implements Serializable
         this.debug = debug;
     }
 
-    public Handsontable withDebug(Boolean debug) {
+    public Column withDebug(Boolean debug) {
         this.debug = debug;
         return this;
     }
@@ -841,7 +826,7 @@ public class Handsontable implements Serializable
         this.defaultDate = defaultDate;
     }
 
-    public Handsontable withDefaultDate(String defaultDate) {
+    public Column withDefaultDate(String defaultDate) {
         this.defaultDate = defaultDate;
         return this;
     }
@@ -856,7 +841,7 @@ public class Handsontable implements Serializable
         this.disableVisualSelection = disableVisualSelection;
     }
 
-    public Handsontable withDisableVisualSelection(Boolean disableVisualSelection) {
+    public Column withDisableVisualSelection(Boolean disableVisualSelection) {
         this.disableVisualSelection = disableVisualSelection;
         return this;
     }
@@ -871,7 +856,7 @@ public class Handsontable implements Serializable
         this.editor = editor;
     }
 
-    public Handsontable withEditor(Boolean editor) {
+    public Column withEditor(Boolean editor) {
         this.editor = editor;
         return this;
     }
@@ -886,7 +871,7 @@ public class Handsontable implements Serializable
         this.enterBeginsEditing = enterBeginsEditing;
     }
 
-    public Handsontable withEnterBeginsEditing(Boolean enterBeginsEditing) {
+    public Column withEnterBeginsEditing(Boolean enterBeginsEditing) {
         this.enterBeginsEditing = enterBeginsEditing;
         return this;
     }
@@ -901,7 +886,7 @@ public class Handsontable implements Serializable
         this.fillHandle = fillHandle;
     }
 
-    public Handsontable withFillHandle(Boolean fillHandle) {
+    public Column withFillHandle(Boolean fillHandle) {
         this.fillHandle = fillHandle;
         return this;
     }
@@ -916,7 +901,7 @@ public class Handsontable implements Serializable
         this.filter = filter;
     }
 
-    public Handsontable withFilter(Boolean filter) {
+    public Column withFilter(Boolean filter) {
         this.filter = filter;
         return this;
     }
@@ -931,7 +916,7 @@ public class Handsontable implements Serializable
         this.filteringCaseSensitive = filteringCaseSensitive;
     }
 
-    public Handsontable withFilteringCaseSensitive(Boolean filteringCaseSensitive) {
+    public Column withFilteringCaseSensitive(Boolean filteringCaseSensitive) {
         this.filteringCaseSensitive = filteringCaseSensitive;
         return this;
     }
@@ -946,7 +931,7 @@ public class Handsontable implements Serializable
         this.fixedRowsTop = fixedRowsTop;
     }
 
-    public Handsontable withFixedRowsTop(Double fixedRowsTop) {
+    public Column withFixedRowsTop(Double fixedRowsTop) {
         this.fixedRowsTop = fixedRowsTop;
         return this;
     }
@@ -961,7 +946,7 @@ public class Handsontable implements Serializable
         this.fragmentSelection = fragmentSelection;
     }
 
-    public Handsontable withFragmentSelection(Boolean fragmentSelection) {
+    public Column withFragmentSelection(Boolean fragmentSelection) {
         this.fragmentSelection = fragmentSelection;
         return this;
     }
@@ -976,7 +961,7 @@ public class Handsontable implements Serializable
         this.height = height;
     }
 
-    public Handsontable withHeight(Double height) {
+    public Column withHeight(Double height) {
         this.height = height;
         return this;
     }
@@ -991,7 +976,7 @@ public class Handsontable implements Serializable
         this.invalidCellClassName = invalidCellClassName;
     }
 
-    public Handsontable withInvalidCellClassName(String invalidCellClassName) {
+    public Column withInvalidCellClassName(String invalidCellClassName) {
         this.invalidCellClassName = invalidCellClassName;
         return this;
     }
@@ -1006,7 +991,7 @@ public class Handsontable implements Serializable
         this.language = language;
     }
 
-    public Handsontable withLanguage(String language) {
+    public Column withLanguage(String language) {
         this.language = language;
         return this;
     }
@@ -1021,7 +1006,7 @@ public class Handsontable implements Serializable
         this.manualColumnFreeze = manualColumnFreeze;
     }
 
-    public Handsontable withManualColumnFreeze(Boolean manualColumnFreeze) {
+    public Column withManualColumnFreeze(Boolean manualColumnFreeze) {
         this.manualColumnFreeze = manualColumnFreeze;
         return this;
     }
@@ -1036,7 +1021,7 @@ public class Handsontable implements Serializable
         this.manualColumnMove = manualColumnMove;
     }
 
-    public Handsontable withManualColumnMove(Boolean manualColumnMove) {
+    public Column withManualColumnMove(Boolean manualColumnMove) {
         this.manualColumnMove = manualColumnMove;
         return this;
     }
@@ -1051,7 +1036,7 @@ public class Handsontable implements Serializable
         this.manualColumnResize = manualColumnResize;
     }
 
-    public Handsontable withManualColumnResize(Boolean manualColumnResize) {
+    public Column withManualColumnResize(Boolean manualColumnResize) {
         this.manualColumnResize = manualColumnResize;
         return this;
     }
@@ -1066,7 +1051,7 @@ public class Handsontable implements Serializable
         this.manualRowMove = manualRowMove;
     }
 
-    public Handsontable withManualRowMove(Boolean manualRowMove) {
+    public Column withManualRowMove(Boolean manualRowMove) {
         this.manualRowMove = manualRowMove;
         return this;
     }
@@ -1081,7 +1066,7 @@ public class Handsontable implements Serializable
         this.manualRowResize = manualRowResize;
     }
 
-    public Handsontable withManualRowResize(Boolean manualRowResize) {
+    public Column withManualRowResize(Boolean manualRowResize) {
         this.manualRowResize = manualRowResize;
         return this;
     }
@@ -1096,7 +1081,7 @@ public class Handsontable implements Serializable
         this.maxCols = maxCols;
     }
 
-    public Handsontable withMaxCols(Double maxCols) {
+    public Column withMaxCols(Double maxCols) {
         this.maxCols = maxCols;
         return this;
     }
@@ -1111,7 +1096,7 @@ public class Handsontable implements Serializable
         this.maxRows = maxRows;
     }
 
-    public Handsontable withMaxRows(Double maxRows) {
+    public Column withMaxRows(Double maxRows) {
         this.maxRows = maxRows;
         return this;
     }
@@ -1126,7 +1111,7 @@ public class Handsontable implements Serializable
         this.mergeCells = mergeCells;
     }
 
-    public Handsontable withMergeCells(Boolean mergeCells) {
+    public Column withMergeCells(Boolean mergeCells) {
         this.mergeCells = mergeCells;
         return this;
     }
@@ -1141,7 +1126,7 @@ public class Handsontable implements Serializable
         this.minCols = minCols;
     }
 
-    public Handsontable withMinCols(Double minCols) {
+    public Column withMinCols(Double minCols) {
         this.minCols = minCols;
         return this;
     }
@@ -1156,7 +1141,7 @@ public class Handsontable implements Serializable
         this.minRows = minRows;
     }
 
-    public Handsontable withMinRows(Double minRows) {
+    public Column withMinRows(Double minRows) {
         this.minRows = minRows;
         return this;
     }
@@ -1171,7 +1156,7 @@ public class Handsontable implements Serializable
         this.minSpareCols = minSpareCols;
     }
 
-    public Handsontable withMinSpareCols(Double minSpareCols) {
+    public Column withMinSpareCols(Double minSpareCols) {
         this.minSpareCols = minSpareCols;
         return this;
     }
@@ -1186,7 +1171,7 @@ public class Handsontable implements Serializable
         this.minSpareRows = minSpareRows;
     }
 
-    public Handsontable withMinSpareRows(Boolean minSpareRows) {
+    public Column withMinSpareRows(Boolean minSpareRows) {
         this.minSpareRows = minSpareRows;
         return this;
     }
@@ -1201,7 +1186,7 @@ public class Handsontable implements Serializable
         this.noWordWrapClassName = noWordWrapClassName;
     }
 
-    public Handsontable withNoWordWrapClassName(String noWordWrapClassName) {
+    public Column withNoWordWrapClassName(String noWordWrapClassName) {
         this.noWordWrapClassName = noWordWrapClassName;
         return this;
     }
@@ -1216,7 +1201,7 @@ public class Handsontable implements Serializable
         this.observeChanges = observeChanges;
     }
 
-    public Handsontable withObserveChanges(Boolean observeChanges) {
+    public Column withObserveChanges(Boolean observeChanges) {
         this.observeChanges = observeChanges;
         return this;
     }
@@ -1231,7 +1216,7 @@ public class Handsontable implements Serializable
         this.observeDOMVisibility = observeDOMVisibility;
     }
 
-    public Handsontable withObserveDOMVisibility(Boolean observeDOMVisibility) {
+    public Column withObserveDOMVisibility(Boolean observeDOMVisibility) {
         this.observeDOMVisibility = observeDOMVisibility;
         return this;
     }
@@ -1246,7 +1231,7 @@ public class Handsontable implements Serializable
         this.pasteMode = pasteMode;
     }
 
-    public Handsontable withPasteMode(String pasteMode) {
+    public Column withPasteMode(String pasteMode) {
         this.pasteMode = pasteMode;
         return this;
     }
@@ -1261,7 +1246,7 @@ public class Handsontable implements Serializable
         this.persistentState = persistentState;
     }
 
-    public Handsontable withPersistentState(Boolean persistentState) {
+    public Column withPersistentState(Boolean persistentState) {
         this.persistentState = persistentState;
         return this;
     }
@@ -1276,7 +1261,7 @@ public class Handsontable implements Serializable
         this.placeholderCellClassName = placeholderCellClassName;
     }
 
-    public Handsontable withPlaceholderCellClassName(String placeholderCellClassName) {
+    public Column withPlaceholderCellClassName(String placeholderCellClassName) {
         this.placeholderCellClassName = placeholderCellClassName;
         return this;
     }
@@ -1291,7 +1276,7 @@ public class Handsontable implements Serializable
         this.preventOverflow = preventOverflow;
     }
 
-    public Handsontable withPreventOverflow(Boolean preventOverflow) {
+    public Column withPreventOverflow(Boolean preventOverflow) {
         this.preventOverflow = preventOverflow;
         return this;
     }
@@ -1306,7 +1291,7 @@ public class Handsontable implements Serializable
         this.readOnly = readOnly;
     }
 
-    public Handsontable withReadOnly(Boolean readOnly) {
+    public Column withReadOnly(Boolean readOnly) {
         this.readOnly = readOnly;
         return this;
     }
@@ -1321,7 +1306,7 @@ public class Handsontable implements Serializable
         this.readOnlyCellClassName = readOnlyCellClassName;
     }
 
-    public Handsontable withReadOnlyCellClassName(String readOnlyCellClassName) {
+    public Column withReadOnlyCellClassName(String readOnlyCellClassName) {
         this.readOnlyCellClassName = readOnlyCellClassName;
         return this;
     }
@@ -1336,7 +1321,7 @@ public class Handsontable implements Serializable
         this.renderAllRows = renderAllRows;
     }
 
-    public Handsontable withRenderAllRows(Boolean renderAllRows) {
+    public Column withRenderAllRows(Boolean renderAllRows) {
         this.renderAllRows = renderAllRows;
         return this;
     }
@@ -1351,7 +1336,7 @@ public class Handsontable implements Serializable
         this.renderer = renderer;
     }
 
-    public Handsontable withRenderer(String renderer) {
+    public Column withRenderer(String renderer) {
         this.renderer = renderer;
         return this;
     }
@@ -1366,7 +1351,7 @@ public class Handsontable implements Serializable
         this.rowHeaderWidth = rowHeaderWidth;
     }
 
-    public Handsontable withRowHeaderWidth(Double rowHeaderWidth) {
+    public Column withRowHeaderWidth(Double rowHeaderWidth) {
         this.rowHeaderWidth = rowHeaderWidth;
         return this;
     }
@@ -1381,7 +1366,7 @@ public class Handsontable implements Serializable
         this.rowHeaders = rowHeaders;
     }
 
-    public Handsontable withRowHeaders(Boolean rowHeaders) {
+    public Column withRowHeaders(Boolean rowHeaders) {
         this.rowHeaders = rowHeaders;
         return this;
     }
@@ -1396,7 +1381,7 @@ public class Handsontable implements Serializable
         this.rowHeights = rowHeights;
     }
 
-    public Handsontable withRowHeights(Double rowHeights) {
+    public Column withRowHeights(Double rowHeights) {
         this.rowHeights = rowHeights;
         return this;
     }
@@ -1411,22 +1396,22 @@ public class Handsontable implements Serializable
         this.search = search;
     }
 
-    public Handsontable withSearch(Boolean search) {
+    public Column withSearch(Boolean search) {
         this.search = search;
         return this;
     }
 
     @JsonProperty("selectionMode")
-    public Handsontable.SelectionMode getSelectionMode() {
+    public Column.SelectionMode getSelectionMode() {
         return selectionMode;
     }
 
     @JsonProperty("selectionMode")
-    public void setSelectionMode(Handsontable.SelectionMode selectionMode) {
+    public void setSelectionMode(Column.SelectionMode selectionMode) {
         this.selectionMode = selectionMode;
     }
 
-    public Handsontable withSelectionMode(Handsontable.SelectionMode selectionMode) {
+    public Column withSelectionMode(Column.SelectionMode selectionMode) {
         this.selectionMode = selectionMode;
         return this;
     }
@@ -1441,7 +1426,7 @@ public class Handsontable implements Serializable
         this.skipColumnOnPaste = skipColumnOnPaste;
     }
 
-    public Handsontable withSkipColumnOnPaste(Boolean skipColumnOnPaste) {
+    public Column withSkipColumnOnPaste(Boolean skipColumnOnPaste) {
         this.skipColumnOnPaste = skipColumnOnPaste;
         return this;
     }
@@ -1456,7 +1441,7 @@ public class Handsontable implements Serializable
         this.sortByRelevance = sortByRelevance;
     }
 
-    public Handsontable withSortByRelevance(Boolean sortByRelevance) {
+    public Column withSortByRelevance(Boolean sortByRelevance) {
         this.sortByRelevance = sortByRelevance;
         return this;
     }
@@ -1471,7 +1456,7 @@ public class Handsontable implements Serializable
         this.sortIndicator = sortIndicator;
     }
 
-    public Handsontable withSortIndicator(Boolean sortIndicator) {
+    public Column withSortIndicator(Boolean sortIndicator) {
         this.sortIndicator = sortIndicator;
         return this;
     }
@@ -1486,7 +1471,7 @@ public class Handsontable implements Serializable
         this.source = source;
     }
 
-    public Handsontable withSource(List<Object> source) {
+    public Column withSource(List<Object> source) {
         this.source = source;
         return this;
     }
@@ -1501,7 +1486,7 @@ public class Handsontable implements Serializable
         this.startCols = startCols;
     }
 
-    public Handsontable withStartCols(Double startCols) {
+    public Column withStartCols(Double startCols) {
         this.startCols = startCols;
         return this;
     }
@@ -1516,7 +1501,7 @@ public class Handsontable implements Serializable
         this.startRows = startRows;
     }
 
-    public Handsontable withStartRows(Double startRows) {
+    public Column withStartRows(Double startRows) {
         this.startRows = startRows;
         return this;
     }
@@ -1531,7 +1516,7 @@ public class Handsontable implements Serializable
         this.stretchH = stretchH;
     }
 
-    public Handsontable withStretchH(String stretchH) {
+    public Column withStretchH(String stretchH) {
         this.stretchH = stretchH;
         return this;
     }
@@ -1546,7 +1531,7 @@ public class Handsontable implements Serializable
         this.strict = strict;
     }
 
-    public Handsontable withStrict(Boolean strict) {
+    public Column withStrict(Boolean strict) {
         this.strict = strict;
         return this;
     }
@@ -1561,7 +1546,7 @@ public class Handsontable implements Serializable
         this.tableClassName = tableClassName;
     }
 
-    public Handsontable withTableClassName(String tableClassName) {
+    public Column withTableClassName(String tableClassName) {
         this.tableClassName = tableClassName;
         return this;
     }
@@ -1576,7 +1561,7 @@ public class Handsontable implements Serializable
         this.title = title;
     }
 
-    public Handsontable withTitle(String title) {
+    public Column withTitle(String title) {
         this.title = title;
         return this;
     }
@@ -1591,7 +1576,7 @@ public class Handsontable implements Serializable
         this.trimDropdown = trimDropdown;
     }
 
-    public Handsontable withTrimDropdown(Boolean trimDropdown) {
+    public Column withTrimDropdown(Boolean trimDropdown) {
         this.trimDropdown = trimDropdown;
         return this;
     }
@@ -1606,7 +1591,7 @@ public class Handsontable implements Serializable
         this.trimWhitespace = trimWhitespace;
     }
 
-    public Handsontable withTrimWhitespace(Boolean trimWhitespace) {
+    public Column withTrimWhitespace(Boolean trimWhitespace) {
         this.trimWhitespace = trimWhitespace;
         return this;
     }
@@ -1621,7 +1606,7 @@ public class Handsontable implements Serializable
         this.type = type;
     }
 
-    public Handsontable withType(String type) {
+    public Column withType(String type) {
         this.type = type;
         return this;
     }
@@ -1636,7 +1621,7 @@ public class Handsontable implements Serializable
         this.uncheckedTemplate = uncheckedTemplate;
     }
 
-    public Handsontable withUncheckedTemplate(Boolean uncheckedTemplate) {
+    public Column withUncheckedTemplate(Boolean uncheckedTemplate) {
         this.uncheckedTemplate = uncheckedTemplate;
         return this;
     }
@@ -1651,7 +1636,7 @@ public class Handsontable implements Serializable
         this.undo = undo;
     }
 
-    public Handsontable withUndo(Boolean undo) {
+    public Column withUndo(Boolean undo) {
         this.undo = undo;
         return this;
     }
@@ -1666,7 +1651,7 @@ public class Handsontable implements Serializable
         this.valid = valid;
     }
 
-    public Handsontable withValid(Boolean valid) {
+    public Column withValid(Boolean valid) {
         this.valid = valid;
         return this;
     }
@@ -1681,7 +1666,7 @@ public class Handsontable implements Serializable
         this.visibleRows = visibleRows;
     }
 
-    public Handsontable withVisibleRows(Double visibleRows) {
+    public Column withVisibleRows(Double visibleRows) {
         this.visibleRows = visibleRows;
         return this;
     }
@@ -1696,7 +1681,7 @@ public class Handsontable implements Serializable
         this.width = width;
     }
 
-    public Handsontable withWidth(Double width) {
+    public Column withWidth(Double width) {
         this.width = width;
         return this;
     }
@@ -1711,7 +1696,7 @@ public class Handsontable implements Serializable
         this.wordWrap = wordWrap;
     }
 
-    public Handsontable withWordWrap(Boolean wordWrap) {
+    public Column withWordWrap(Boolean wordWrap) {
         this.wordWrap = wordWrap;
         return this;
     }
@@ -1726,7 +1711,7 @@ public class Handsontable implements Serializable
         this.additionalProperties.put(name, value);
     }
 
-    public Handsontable withAdditionalProperty(String name, Object value) {
+    public Column withAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }
@@ -1737,10 +1722,10 @@ public class Handsontable implements Serializable
         RANGE("range"),
         SINGLE("single");
         private final String value;
-        private final static Map<String, Handsontable.SelectionMode> CONSTANTS = new HashMap<String, Handsontable.SelectionMode>();
+        private final static Map<String, Column.SelectionMode> CONSTANTS = new HashMap<String, Column.SelectionMode>();
 
         static {
-            for (Handsontable.SelectionMode c: values()) {
+            for (Column.SelectionMode c: values()) {
                 CONSTANTS.put(c.value, c);
             }
         }
@@ -1760,8 +1745,8 @@ public class Handsontable implements Serializable
         }
 
         @JsonCreator
-        public static Handsontable.SelectionMode fromValue(String value) {
-            Handsontable.SelectionMode constant = CONSTANTS.get(value);
+        public static Column.SelectionMode fromValue(String value) {
+            Column.SelectionMode constant = CONSTANTS.get(value);
             if (constant == null) {
                 throw new IllegalArgumentException(value);
             } else {

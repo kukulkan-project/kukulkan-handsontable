@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class AutocompleteColumn extends Column {
+public class DropdownColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -2938138034268683701L;
+    private static final long serialVersionUID = -2271792145455622636L;
 
-    public AutocompleteColumn() {
-        super.withType(CellTypes.AUTOCOMPLETE);
+    public DropdownColumn() {
+        super.withType(CellTypes.DROPDOWN);
     }
 
 }

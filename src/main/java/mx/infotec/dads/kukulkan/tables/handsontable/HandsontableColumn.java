@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class PasswordColumn extends Column {
+public class HandsontableColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -4681459366632291354L;
+    private static final long serialVersionUID = 3799296294498262977L;
 
-    public PasswordColumn() {
-        super.withType(CellTypes.PASSWORD);
+    public HandsontableColumn() {
+        super.withType(CellTypes.HANDSONTABLE);
     }
 
 }

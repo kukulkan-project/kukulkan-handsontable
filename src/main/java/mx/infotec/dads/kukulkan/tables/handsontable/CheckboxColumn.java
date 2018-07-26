@@ -22,28 +22,17 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public final class CellTypes {
+public class CheckboxColumn extends Column {
 
-    public static final String TEXT = "text";
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6992617543627606419L;
 
-    public static final String NUMERIC = "numeric";
-
-    public static final String DATE = "date";
-
-    public static final String TIME = "time";
-
-    public static final String CHECKBOX = "checkbox";
-
-    public static final String SELECT = "select";
-
-    public static final String DROPDOWN = "dropdown";
-
-    public static final String AUTOCOMPLETE = "autocomplte";
-
-    public static final String PASSWORD = "password";
-
-    public static final String HANDSONTABLE = "handsontable";
+    public CheckboxColumn() {
+        super.withType(CellTypes.CHECKBOX);
+    }
 
 }
