@@ -110,8 +110,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "width",
     "wordWrap"
 })
-public class Column implements Serializable
-{
+public class Column implements Serializable {
 
     @JsonProperty("data")
     private String data;
@@ -301,7 +300,7 @@ public class Column implements Serializable
     private Boolean wordWrap;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 6809658289801168645L;
+    private static final long serialVersionUID = 6809658289801168645L;
 
     @JsonProperty("data")
     public String getData() {

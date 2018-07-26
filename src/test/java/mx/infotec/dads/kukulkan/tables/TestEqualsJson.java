@@ -1,12 +1,13 @@
-import java.lang.reflect.Array;
+package mx.infotec.dads.kukulkan.tables;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import junit.framework.TestCase;
-import mx.infotec.dads.kukulkan.tables.Column;
-import mx.infotec.dads.kukulkan.tables.Handsontable;
 
 /*
  *  
@@ -33,10 +34,12 @@ import mx.infotec.dads.kukulkan.tables.Handsontable;
  */
 
 public class TestEqualsJson extends TestCase {
+    
+    private Handsontable table;
 
     @Test
     public void testFluentApi() {
-        Handsontable table = new Handsontable();
+        table = new Handsontable();
         
         List<String> colHeaders = new ArrayList<>();
         colHeaders.add("ID");
@@ -64,6 +67,11 @@ public class TestEqualsJson extends TestCase {
             .withMinRows(20.0)
             .withData(new ArrayList<>())
             .withColumns(columns);
+    }
+    
+    public void testDeserialization() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValueAsString(table);
     }
 
 }
