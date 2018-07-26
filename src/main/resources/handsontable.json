@@ -1,4 +1,5 @@
 {
+    "$id": "handsontableOptions",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
         "options": {
@@ -64,6 +65,22 @@
                 },
                 "columnSorting": {
                     "type": "boolean"
+                },
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/numericColumn"
+                            },
+                            {
+                                "$ref": "#/definitions/dateColumn"
+                            },
+                            {
+                                "$ref": "#/definitions/checkboxColumn"
+                            }
+                        ]
+                    }
                 },
                 "commentedCellClassName": {
                     "type": "string"
@@ -290,24 +307,31 @@
                 "wordWrap": {
                     "type": "boolean"
                 }
-            }
+            },
+            "type": "object",
+            "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions"
         },
         "column": {
             "type": "object",
             "extends": {
                 "$ref": "#/definitions/options"
             },
-            "properties": {
-                "data": {
-                    "type": "string"
-                }
-            }
+            "javatype": "mx.infotec.dads.kukulkan.tables.handsontable.Column"
+        },
+        "numericColumn": {
+            "type": "object",
+            "extends": {
+                "$ref": "#/definitions/column"
+            },
+            "javatype": "mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn"
         }
     },
     "properties": {
         "data": {
-            "items": {},
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
         },
         "columns": {
             "type": "array",
@@ -315,6 +339,5 @@
                 "$ref": "#/definitions/column"
             }
         }
-    },
-    "type": "object"
+    }
 }

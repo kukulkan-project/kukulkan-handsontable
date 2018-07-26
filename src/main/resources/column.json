@@ -1,0 +1,15 @@
+{
+    "$id": "handsontableOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "numericColumn": {
+            "type": "object",
+            "javatype": "mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn"
+        }
+    },
+    "properties": {},
+    "type": "object",
+    "extends": {
+        "$ref": "options.json"
+    }
+}
