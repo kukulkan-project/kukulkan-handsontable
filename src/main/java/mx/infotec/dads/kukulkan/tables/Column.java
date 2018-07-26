@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
+    "data",
     "allowEmpty",
     "allowHtml",
     "allowInsertColumn",
@@ -47,7 +48,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "currentHeaderClassName",
     "currentRowClassName",
     "customBorders",
-    "data",
     "dateFormat",
     "debug",
     "defaultDate",
@@ -113,6 +113,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class Column implements Serializable
 {
 
+    @JsonProperty("data")
+    private String data;
     @JsonProperty("allowEmpty")
     private Boolean allowEmpty;
     @JsonProperty("allowHtml")
@@ -144,7 +146,7 @@ public class Column implements Serializable
     @JsonProperty("className")
     private String className;
     @JsonProperty("colHeaders")
-    private Boolean colHeaders;
+    private List<String> colHeaders = null;
     @JsonProperty("colWidths")
     private Double colWidths;
     @JsonProperty("columnHeaderHeight")
@@ -175,8 +177,6 @@ public class Column implements Serializable
     private String currentRowClassName;
     @JsonProperty("customBorders")
     private Boolean customBorders;
-    @JsonProperty("data")
-    private List<Object> data = null;
     @JsonProperty("dateFormat")
     private String dateFormat;
     @JsonProperty("debug")
@@ -228,7 +228,7 @@ public class Column implements Serializable
     @JsonProperty("minSpareCols")
     private Double minSpareCols;
     @JsonProperty("minSpareRows")
-    private Double minSpareRows;
+    private Boolean minSpareRows;
     @JsonProperty("noWordWrapClassName")
     private String noWordWrapClassName;
     @JsonProperty("observeChanges")
@@ -301,7 +301,22 @@ public class Column implements Serializable
     private Boolean wordWrap;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 8707275912224351808L;
+    private final static long serialVersionUID = 6809658289801168645L;
+
+    @JsonProperty("data")
+    public String getData() {
+        return data;
+    }
+
+    @JsonProperty("data")
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public Column withData(String data) {
+        this.data = data;
+        return this;
+    }
 
     @JsonProperty("allowEmpty")
     public Boolean getAllowEmpty() {
@@ -529,16 +544,16 @@ public class Column implements Serializable
     }
 
     @JsonProperty("colHeaders")
-    public Boolean getColHeaders() {
+    public List<String> getColHeaders() {
         return colHeaders;
     }
 
     @JsonProperty("colHeaders")
-    public void setColHeaders(Boolean colHeaders) {
+    public void setColHeaders(List<String> colHeaders) {
         this.colHeaders = colHeaders;
     }
 
-    public Column withColHeaders(Boolean colHeaders) {
+    public Column withColHeaders(List<String> colHeaders) {
         this.colHeaders = colHeaders;
         return this;
     }
@@ -765,21 +780,6 @@ public class Column implements Serializable
 
     public Column withCustomBorders(Boolean customBorders) {
         this.customBorders = customBorders;
-        return this;
-    }
-
-    @JsonProperty("data")
-    public List<Object> getData() {
-        return data;
-    }
-
-    @JsonProperty("data")
-    public void setData(List<Object> data) {
-        this.data = data;
-    }
-
-    public Column withData(List<Object> data) {
-        this.data = data;
         return this;
     }
 
@@ -1159,16 +1159,16 @@ public class Column implements Serializable
     }
 
     @JsonProperty("minSpareRows")
-    public Double getMinSpareRows() {
+    public Boolean getMinSpareRows() {
         return minSpareRows;
     }
 
     @JsonProperty("minSpareRows")
-    public void setMinSpareRows(Double minSpareRows) {
+    public void setMinSpareRows(Boolean minSpareRows) {
         this.minSpareRows = minSpareRows;
     }
 
-    public Column withMinSpareRows(Double minSpareRows) {
+    public Column withMinSpareRows(Boolean minSpareRows) {
         this.minSpareRows = minSpareRows;
         return this;
     }
