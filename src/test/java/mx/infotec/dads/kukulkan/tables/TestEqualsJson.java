@@ -38,7 +38,7 @@ public class TestEqualsJson extends TestCase {
     private Handsontable table;
 
     @Test
-    public void testFluentApi() {
+    public void testFluentApi() throws JsonProcessingException {
         table = new Handsontable();
         
         List<String> colHeaders = new ArrayList<>();
@@ -53,7 +53,15 @@ public class TestEqualsJson extends TestCase {
         colHeaders.add("Modified date");
         
         List<Column> columns = new ArrayList<>();
-        columns.add(new Column().withData("id").withType("text").withReadOnly(true));
+        columns.add(new Column().withData("id").withReadOnly(true));
+        columns.add(new Column().withData("login").withReadOnly(true));
+        columns.add(new Column().withData("email").withReadOnly(true));
+        columns.add(new CheckboxColumn().withData("active").withReadOnly(true));
+        columns.add(new Column().withData("language").withReadOnly(true));
+        columns.add(new Column().withData("profiles").withReadOnly(true));
+        columns.add(new Column().withData("createdDate").withReadOnly(true));
+        columns.add(new Column().withData("modifiedBy").withReadOnly(true));
+        columns.add(new Column().withData("modifiedDate").withReadOnly(true));
         
         table
             .withRowHeaders(true)
@@ -67,11 +75,9 @@ public class TestEqualsJson extends TestCase {
             .withMinRows(20.0)
             .withData(new ArrayList<>())
             .withColumns(columns);
-    }
-    
-    public void testDeserialization() throws JsonProcessingException {
+        
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValueAsString(table);
+        System.out.println(mapper.writeValueAsString(table));
     }
 
 }

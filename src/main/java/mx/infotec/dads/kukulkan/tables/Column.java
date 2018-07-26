@@ -302,6 +302,10 @@ public class Column implements Serializable {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private static final long serialVersionUID = 6809658289801168645L;
 
+    public Column() {
+        this.withType(CellTypes.TEXT);
+    }
+    
     @JsonProperty("data")
     public String getData() {
         return data;
