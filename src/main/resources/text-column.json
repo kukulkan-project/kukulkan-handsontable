@@ -4,15 +4,12 @@
     "properties": {
         "type": {
             "type": "string",
-            "default": "handsontable"
-        },
-        "handsontable": {
-            "$ref": "handsontable.json/#/definitions/options"
+            "default": "text"
         }
     },
     "type": "object",
     "extends": {
         "$ref": "handsontable.json/#/definitions/column"
     },
-    "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.HandsontableColumn"
+    "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.TextColumn"
 }

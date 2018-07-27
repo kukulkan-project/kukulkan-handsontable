@@ -306,7 +306,8 @@
                     "javaName": "data"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "text"
                 }
             },
             "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.Column"

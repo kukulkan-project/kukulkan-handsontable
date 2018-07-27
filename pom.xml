@@ -161,6 +161,15 @@
 							<goal>generate</goal>
 						</goals>
 					</execution>
+					<execution>
+					<id>text-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/text-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>

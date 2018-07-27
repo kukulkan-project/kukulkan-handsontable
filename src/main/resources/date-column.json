@@ -1,7 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {},
-    "properties": {},
+    "properties": {
+        "type": {
+            "type": "string",
+            "default": "date"
+        }
+    },
     "type": "object",
     "extends": {
         "$ref": "handsontable.json/#/definitions/column"
