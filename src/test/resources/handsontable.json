@@ -1,69 +1,82 @@
 {
-    "rowHeaders": true,
-    "colHeaders": [
-        "ID",
-        "Login",
-        "Email",
-        "Active",
-        "Language",
-        "Profiles",
-        "Created date",
-        "Modified by",
-        "Modified date"
-    ],
-    "height": 440,
-    "contextMenu": true,
-    "minSpareRows": true,
-    "columnSorting": true,
-    "colWidths": 125,
-    "rowHeights": 25,
-    "minRows": 20,
-    "columns": [
-        {
-            "data": "id",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "login",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "email",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "active",
-            "type": "checkbox",
-            "readOnly": true
-        },
-        {
-            "data": "language",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "profiles",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "createdDate",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "modifiedBy",
-            "type": "text",
-            "readOnly": true
-        },
-        {
-            "data": "modifiedDate",
-            "type": "text",
-            "readOnly": true
-        }
-    ]
+	"rowHeaders": true,
+	"colHeaders": [
+		"ID",
+		"Login",
+		"Email",
+		"Active",
+		"Language",
+		"Profiles",
+		"Created date",
+		"Modified by",
+		"Modified date"
+	],
+	"height": 440,
+	"contextMenu": true,
+	"minSpareRows": true,
+	"columnSorting": true,
+	"colWidths": 125,
+	"rowHeights": 25,
+	"minRows": 20,
+	"data": [
+		{
+			"id": "user-33",
+			"login": "admin",
+			"email": "admin@infotec.mx",
+			"active": "true",
+			"language": "es",
+			"profiles": "ROLE_USER",
+			"createdDate": "14/02/18 14:05",
+			"modifiedBy": "system",
+			"modifiedDate": "25/07/18 17:05"
+		}
+	],
+	"columns": [
+		{
+			"data": "id",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "login",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "email",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "active",
+			"type": "checkbox",
+			"readOnly": true
+		},
+		{
+			"data": "language",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "profiles",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "createdDate",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "modifiedBy",
+			"type": "text",
+			"readOnly": true
+		},
+		{
+			"data": "modifiedDate",
+			"type": "text",
+			"readOnly": true
+		}
+	]
 }
 

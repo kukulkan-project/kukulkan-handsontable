@@ -3,7 +3,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.json.JSONException;
@@ -77,6 +79,21 @@ public class TestFluentApi extends TestCase {
         columns.add(new Column().withData("modifiedBy").withReadOnly(true));
         columns.add(new Column().withData("modifiedDate").withReadOnly(true));
         
+        Map<String, Object> user;
+        user = new HashMap<>();
+        user.put("id", "user-33");
+        user.put("login", "admin");
+        user.put("email", "admin@infotec.mx");
+        user.put("active", "true");
+        user.put("language", "es");
+        user.put("profiles", "ROLE_USER");
+        user.put("createdDate", "14/02/18 14:05");
+        user.put("modifiedBy", "system");
+        user.put("modifiedDate", "25/07/18 17:05");
+        
+        List<Object> data = new ArrayList<>();
+        data.add(user);
+        
         table
             .withRowHeaders(true)
             .withColHeaders(colHeaders)
@@ -87,7 +104,7 @@ public class TestFluentApi extends TestCase {
             .withColWidths(125)
             .withRowHeights(25)
             .withMinRows(20)
-            .withData(new ArrayList<>())
+            .withData(data)
             .withColumns(columns);
         
         ObjectMapper mapper = new ObjectMapper();
