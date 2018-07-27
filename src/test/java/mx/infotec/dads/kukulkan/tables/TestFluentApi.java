@@ -1,8 +1,17 @@
 package mx.infotec.dads.kukulkan.tables;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.json.JSONException;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,12 +45,14 @@ import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
  * SOFTWARE.
  */
 
-public class TestEqualsJson extends TestCase {
+public class TestFluentApi extends TestCase {
     
-    private Handsontable table;
+    private Handsontable table;    
 
     @Test
-    public void testFluentApi() throws JsonProcessingException {
+    public void testValidHandsontableObject() throws JsonProcessingException, JSONException {
+        String json = getResourceFileAsString("handsontable.json");
+                
         table = new Handsontable();
         
         List<String> colHeaders = new ArrayList<>();
@@ -80,7 +91,16 @@ public class TestEqualsJson extends TestCase {
             .withColumns(columns);
         
         ObjectMapper mapper = new ObjectMapper();
-        System.out.println(mapper.writeValueAsString(table));
+        JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
+    }
+    
+    public static String getResourceFileAsString(String resource) {
+        InputStream is = TestFluentApi.class.getClassLoader().getResourceAsStream(resource);
+        if (is != null) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+        return null;
     }
 
 }
