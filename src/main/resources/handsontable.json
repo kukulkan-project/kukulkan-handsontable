@@ -58,10 +58,10 @@
                     "type": "array"
                 },
                 "colWidths": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "columnHeaderHeight": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "columnSorting": {
                     "type": "boolean"
@@ -76,13 +76,13 @@
                     "type": "boolean"
                 },
                 "copyColsLimit": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "copyPaste": {
                     "type": "boolean"
                 },
                 "copyRowsLimit": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "copyable": {
                     "type": "boolean"
@@ -130,13 +130,13 @@
                     "type": "boolean"
                 },
                 "fixedRowsTop": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "fragmentSelection": {
                     "type": "boolean"
                 },
                 "height": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "invalidCellClassName": {
                     "type": "string"
@@ -160,22 +160,22 @@
                     "type": "boolean"
                 },
                 "maxCols": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "maxRows": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "mergeCells": {
                     "type": "boolean"
                 },
                 "minCols": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "minRows": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "minSpareCols": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "minSpareRows": {
                     "type": "boolean"
@@ -214,13 +214,13 @@
                     "type": "string"
                 },
                 "rowHeaderWidth": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "rowHeaders": {
                     "type": "boolean"
                 },
                 "rowHeights": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "search": {
                     "type": "boolean"
@@ -247,10 +247,10 @@
                     "type": "array"
                 },
                 "startCols": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "startRows": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "stretchH": {
                     "type": "string"
@@ -283,10 +283,10 @@
                     "type": "boolean"
                 },
                 "visibleRows": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "width": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "wordWrap": {
                     "type": "boolean"

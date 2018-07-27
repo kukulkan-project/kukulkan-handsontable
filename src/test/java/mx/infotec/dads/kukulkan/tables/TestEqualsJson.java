@@ -68,13 +68,13 @@ public class TestEqualsJson extends TestCase {
         table
             .withRowHeaders(true)
             .withColHeaders(colHeaders)
-            .withHeight(440.0)
+            .withHeight(440)
             .withContextMenu(true)
             .withMinSpareRows(true)
             .withColumnSorting(true)
-            .withColWidths(125.0)
-            .withRowHeights(25.0)
-            .withMinRows(20.0)
+            .withColWidths(125)
+            .withRowHeights(25)
+            .withMinRows(20)
             .withData(new ArrayList<>())
             .withColumns(columns);
         
