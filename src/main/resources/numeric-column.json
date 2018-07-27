@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "numericFormat": {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                },
+                "culture": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "properties": {
+        "numericFormat": {
+            "$ref": "#/definitions/numericFormat"
+        }
+    },
+    "type": "object",
+    "extends": {
+        "$ref": "handsontable.json/#/definitions/column"
+    },
+    "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn"
+}

@@ -46,7 +46,7 @@
                     "type": "array"
                 },
                 "checkedTemplate": {
-                    "type": "boolean"
+                    "type": "string"
                 },
                 "className": {
                     "type": "string"
@@ -115,7 +115,7 @@
                     "type": "boolean"
                 },
                 "editor": {
-                    "type": "boolean"
+                    "type": "string"
                 },
                 "enterBeginsEditing": {
                     "type": "boolean"
@@ -274,7 +274,7 @@
                     "type": "string"
                 },
                 "uncheckedTemplate": {
-                    "type": "boolean"
+                    "type": "string"
                 },
                 "undo": {
                     "type": "boolean"

@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -76,6 +75,88 @@
 				</configuration>
 				<executions>
 					<execution>
+					<id>core-classes</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>numeric-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/numeric-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>checkbox-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/checkbox-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>date-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/date-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>select-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/select-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>time-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/time-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>dropdown-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/dropdown-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>autocomplete-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/autocomplete-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>password-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/password-column.json</sourceDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+					<id>handsontable-column</id>
+						<configuration>
+							<sourceDirectory>${basedir}/src/main/resources/handsontable-column.json</sourceDirectory>
+						</configuration>
 						<goals>
 							<goal>generate</goal>
 						</goals>
