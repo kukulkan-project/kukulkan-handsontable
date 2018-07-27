@@ -8,9 +8,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.TestCase;
-import mx.infotec.dads.kukulkan.tables.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
-import mx.infotec.dads.kukulkan.tables.Handsontable;
+import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 
 /*
  *  

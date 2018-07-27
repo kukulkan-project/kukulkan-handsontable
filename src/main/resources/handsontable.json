@@ -66,22 +66,6 @@
                 "columnSorting": {
                     "type": "boolean"
                 },
-                "columns": {
-                    "type": "array",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/numericColumn"
-                            },
-                            {
-                                "$ref": "#/definitions/dateColumn"
-                            },
-                            {
-                                "$ref": "#/definitions/checkboxColumn"
-                            }
-                        ]
-                    }
-                },
                 "commentedCellClassName": {
                     "type": "string"
                 },
@@ -316,22 +300,22 @@
             "extends": {
                 "$ref": "#/definitions/options"
             },
-            "javatype": "mx.infotec.dads.kukulkan.tables.handsontable.Column"
-        },
-        "numericColumn": {
-            "type": "object",
-            "extends": {
-                "$ref": "#/definitions/column"
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "javaName": "data"
+                },
+                "type": {
+                    "type": "string"
+                }
             },
-            "javatype": "mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn"
+            "javaType": "mx.infotec.dads.kukulkan.tables.handsontable.Column"
         }
     },
     "properties": {
         "data": {
             "type": "array",
-            "items": {
-                "type": "object"
-            }
+            "javaName": "data"
         },
         "columns": {
             "type": "array",
@@ -339,5 +323,8 @@
                 "$ref": "#/definitions/column"
             }
         }
+    },
+    "extends": {
+        "$ref": "#/definitions/options"
     }
 }

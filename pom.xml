@@ -15,6 +15,8 @@
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jackson.version>2.8.10</jackson.version>
+		<jsonschematopojo.outputDirectory>${project.build.directory}/generated-sources/jsonschematopojo</jsonschematopojo.outputDirectory>
+		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -63,18 +65,39 @@
 					<targetPackage>mx.infotec.dads.kukulkan.tables.handsontable</targetPackage>
 					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
 					<annotationStyle>jackson2</annotationStyle>
-					<generateBuilders>false</generateBuilders>
+					<generateBuilders>true</generateBuilders>
 					<refFragmentPathDelimiters>#/</refFragmentPathDelimiters>
 					<sourceType>jsonschema</sourceType>
 					<serializable>true</serializable>
 					<includeHashcodeAndEquals>false</includeHashcodeAndEquals>
 					<includeToString>false</includeToString>
+					<includeAdditionalProperties>false</includeAdditionalProperties>
+					<outputDirectory>${jsonschematopojo.outputDirectory}</outputDirectory>
 				</configuration>
 				<executions>
 					<execution>
 						<goals>
 							<goal>generate</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>${build-helper-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${jsonschematopojo.outputDirectory}</source>
+							</sources>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
