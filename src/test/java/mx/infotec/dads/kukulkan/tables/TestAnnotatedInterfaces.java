@@ -51,7 +51,8 @@ public class TestAnnotatedInterfaces extends TestCase {
             .withColumnSorting(true)
             .withColWidths(125)
             .withRowHeights(25)
-            .withMinRows(20);
+            .withMinRows(20)
+            .withReadOnly(true);
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);

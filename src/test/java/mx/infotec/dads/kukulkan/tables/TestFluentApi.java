@@ -67,15 +67,15 @@ public class TestFluentApi extends TestCase {
         colHeaders.add("Modified date");
         
         List<Column> columns = new ArrayList<>();
-        columns.add(new NumericColumn().withData("id").withReadOnly(true));
-        columns.add(new Column().withData("login").withReadOnly(true));
-        columns.add(new Column().withData("email").withReadOnly(true));
-        columns.add(new CheckboxColumn().withData("activated").withReadOnly(true));
-        columns.add(new Column().withData("langKey").withReadOnly(true));
-        columns.add(new Column().withData("authorities").withReadOnly(true));
-        columns.add(new DateColumn().withData("createdDate").withReadOnly(true));
-        columns.add(new Column().withData("lastModifiedBy").withReadOnly(true));
-        columns.add(new DateColumn().withData("lastModifiedDate").withReadOnly(true));
+        columns.add(new NumericColumn().withData("id"));
+        columns.add(new Column().withData("login"));
+        columns.add(new Column().withData("email"));
+        columns.add(new CheckboxColumn().withData("activated"));
+        columns.add(new Column().withData("langKey"));
+        columns.add(new Column().withData("authorities"));
+        columns.add(new DateColumn().withData("createdDate"));
+        columns.add(new Column().withData("lastModifiedBy"));
+        columns.add(new DateColumn().withData("lastModifiedDate"));
         
         table
             .withRowHeaders(true)
@@ -88,7 +88,8 @@ public class TestFluentApi extends TestCase {
             .withRowHeights(25)
             .withMinRows(20)
             .withData(getUsersData())
-            .withColumns(columns);
+            .withColumns(columns)
+            .withReadOnly(true);
         return table;
     }
     
