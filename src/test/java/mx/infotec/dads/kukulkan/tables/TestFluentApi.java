@@ -15,7 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
+import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
 
 /*
  *  
@@ -43,14 +45,16 @@ import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 
 public class TestFluentApi extends TestCase {
     
-    private Handsontable table;    
-
     @Test
     public void testValidHandsontableObject() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
-                
-        table = new Handsontable();
-        
+        Handsontable table = getHandsontable();        
+        ObjectMapper mapper = new ObjectMapper();
+        JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
+    }
+    
+    public static Handsontable getHandsontable() {
+        Handsontable table = new Handsontable(); 
         List<String> colHeaders = new ArrayList<>();
         colHeaders.add("ID");
         colHeaders.add("Login");
@@ -63,30 +67,15 @@ public class TestFluentApi extends TestCase {
         colHeaders.add("Modified date");
         
         List<Column> columns = new ArrayList<>();
-        columns.add(new Column().withData("id").withReadOnly(true));
+        columns.add(new NumericColumn().withData("id").withReadOnly(true));
         columns.add(new Column().withData("login").withReadOnly(true));
         columns.add(new Column().withData("email").withReadOnly(true));
-        columns.add(new CheckboxColumn().withData("active").withReadOnly(true));
-        columns.add(new Column().withData("language").withReadOnly(true));
-        columns.add(new Column().withData("profiles").withReadOnly(true));
-        columns.add(new Column().withData("createdDate").withReadOnly(true));
-        columns.add(new Column().withData("modifiedBy").withReadOnly(true));
-        columns.add(new Column().withData("modifiedDate").withReadOnly(true));
-        
-        Map<String, Object> user;
-        user = new HashMap<>();
-        user.put("id", "user-33");
-        user.put("login", "admin");
-        user.put("email", "admin@infotec.mx");
-        user.put("active", "true");
-        user.put("language", "es");
-        user.put("profiles", "ROLE_USER");
-        user.put("createdDate", "14/02/18 14:05");
-        user.put("modifiedBy", "system");
-        user.put("modifiedDate", "25/07/18 17:05");
-        
-        List<Object> data = new ArrayList<>();
-        data.add(user);
+        columns.add(new CheckboxColumn().withData("activated").withReadOnly(true));
+        columns.add(new Column().withData("langKey").withReadOnly(true));
+        columns.add(new Column().withData("authorities").withReadOnly(true));
+        columns.add(new DateColumn().withData("createdDate").withReadOnly(true));
+        columns.add(new Column().withData("lastModifiedBy").withReadOnly(true));
+        columns.add(new DateColumn().withData("lastModifiedDate").withReadOnly(true));
         
         table
             .withRowHeaders(true)
@@ -98,11 +87,27 @@ public class TestFluentApi extends TestCase {
             .withColWidths(125)
             .withRowHeights(25)
             .withMinRows(20)
-            .withData(data)
+            .withData(getUsersData())
             .withColumns(columns);
+        return table;
+    }
+    
+    public static List<Object> getUsersData() {
+        Map<String, Object> user;
+        user = new HashMap<>();
+        user.put("id", "user-33");
+        user.put("login", "admin");
+        user.put("email", "admin@infotec.mx");
+        user.put("activated", "true");
+        user.put("langKey", "es");
+        user.put("authorities", "ROLE_USER");
+        user.put("createdDate", "14/02/18 14:05");
+        user.put("lastModifiedBy", "system");
+        user.put("lastModifiedDate", "25/07/18 17:05");
         
-        ObjectMapper mapper = new ObjectMapper();
-        JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
+        List<Object> data = new ArrayList<>();
+        data.add(user);
+        return data;
     }
 
 }

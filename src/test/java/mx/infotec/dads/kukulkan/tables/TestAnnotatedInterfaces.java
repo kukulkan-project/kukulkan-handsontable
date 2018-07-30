@@ -24,10 +24,14 @@
 
 package mx.infotec.dads.kukulkan.tables;
 
+import org.json.JSONException;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import static mx.infotec.dads.kukulkan.tables.TestFluentApi.getUsersData;
 
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
@@ -36,10 +40,21 @@ import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilder;
 public class TestAnnotatedInterfaces extends TestCase {
 
     @Test
-    public void testAnnotatedPojo() throws JsonProcessingException {
-        Handsontable table = HandsontableBuilder.createHansontable(UserDTO.class);
+    public void testAnnotatedPojo() throws JsonProcessingException, JSONException {
+        String json = TestUtils.getResourceFileAsString("handsontable.json");
+        Handsontable table = HandsontableBuilder.createHandsontable(UserDTO.class, getUsersData());
+        table
+            .withRowHeaders(true)
+            .withHeight(440)
+            .withContextMenu(true)
+            .withMinSpareRows(true)
+            .withColumnSorting(true)
+            .withColWidths(125)
+            .withRowHeights(25)
+            .withMinRows(20);
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
+        JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
     }
 
 }

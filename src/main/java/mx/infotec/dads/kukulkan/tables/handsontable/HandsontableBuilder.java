@@ -35,7 +35,11 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 public class HandsontableBuilder {
 
-    public static Handsontable createHansontable(Class clazz) {
+    public static Handsontable createHandsontable(Class clazz, List<Object> data) {
+        return createHandsontable(clazz).withData(data);
+    }
+
+    public static Handsontable createHandsontable(Class clazz) {
         Handsontable table = new Handsontable();
         Map<Field, SheetColumn> annotatedFields = getColumnAnnotatedFields(clazz);
         addHeaders(table, annotatedFields);
@@ -65,9 +69,9 @@ public class HandsontableBuilder {
         List<String> colHeaders = new ArrayList<>();
         for (Entry<Field, SheetColumn> entry : annotatedFields.entrySet()) {
             SheetColumn annotation = entry.getValue();
-            Field fielt = entry.getKey();
+            Field field = entry.getKey();
             if (annotation.title() == null || "".equals(annotation.title())) {
-                colHeaders.add(entry.getKey().getName());
+                colHeaders.add(field.getName());
             } else {
                 colHeaders.add(annotation.title());
             }
@@ -76,26 +80,48 @@ public class HandsontableBuilder {
     }
 
     private static Column buildColumn(Field field, SheetColumn annotation) {
-        Column column = new Column();
+        Column column;
         switch (annotation.type()) {
-        case "text":
-            column = new Column();
-            break;
-
         case "numeric":
             column = new NumericColumn();
+            break;
+
+        case "date":
+            column = new DateColumn();
+            break;
+
+        case "time":
+            column = new TimeColumn();
             break;
 
         case "checkbox":
             column = new CheckboxColumn();
             break;
 
-        // TODO: add missing cell types
+        case "select":
+            column = new SelectColumn();
+            break;
+
+        case "dropdown":
+            column = new DropdownColumn();
+            break;
+
+        case "autocomplete":
+            column = new AutocompleteColumn();
+            break;
+
+        case "password":
+            column = new PasswordColumn();
+            break;
+
+        case "handsontable":
+            column = new HandsontableColumn();
+            break;
 
         default:
-            return null;
+            column = new TextColumn();
         }
-        return column;
+        return column.withData(field.getName()).withReadOnly(true);
     }
 
 }

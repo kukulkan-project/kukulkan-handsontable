@@ -33,15 +33,16 @@ public class UserDTO {
 
     private String createdBy;
 
-    @SheetColumn(type = "text", title = "Created date")
+    @SheetColumn(type = "date", title = "Created date")
     private ZonedDateTime createdDate;
 
     @SheetColumn(type = "text", title = "Modified by")
     private String lastModifiedBy;
 
-    @SheetColumn(type = "text", title = "Modified date")
+    @SheetColumn(type = "date", title = "Modified date")
     private ZonedDateTime lastModifiedDate;
 
+    @SheetColumn(type = "text", title = "Profiles")
     private Set<String> authorities;
 
     public UserDTO() {
