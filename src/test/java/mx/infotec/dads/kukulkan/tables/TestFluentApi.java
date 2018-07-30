@@ -1,16 +1,10 @@
 package mx.infotec.dads.kukulkan.tables;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.json.JSONException;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
@@ -53,7 +47,7 @@ public class TestFluentApi extends TestCase {
 
     @Test
     public void testValidHandsontableObject() throws JsonProcessingException, JSONException {
-        String json = getResourceFileAsString("handsontable.json");
+        String json = TestUtils.getResourceFileAsString("handsontable.json");
                 
         table = new Handsontable();
         
@@ -109,15 +103,6 @@ public class TestFluentApi extends TestCase {
         
         ObjectMapper mapper = new ObjectMapper();
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
-    }
-    
-    public static String getResourceFileAsString(String resource) {
-        InputStream is = TestFluentApi.class.getClassLoader().getResourceAsStream(resource);
-        if (is != null) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
-        }
-        return null;
     }
 
 }
