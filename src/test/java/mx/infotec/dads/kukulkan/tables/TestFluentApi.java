@@ -1,8 +1,11 @@
 package mx.infotec.dads.kukulkan.tables;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.JSONException;
 import org.junit.Test;
@@ -48,13 +51,14 @@ public class TestFluentApi extends TestCase {
     @Test
     public void testValidHandsontableObject() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
-        Handsontable table = getHandsontable();        
+        Handsontable<UserDTO> table = getHandsontable();        
         ObjectMapper mapper = new ObjectMapper();
+        System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
     }
     
-    public static Handsontable getHandsontable() {
-        Handsontable table = new Handsontable(); 
+    public static Handsontable<UserDTO> getHandsontable() {
+        Handsontable<UserDTO> table = new Handsontable<>(); 
         List<String> colHeaders = new ArrayList<>();
         colHeaders.add("ID");
         colHeaders.add("Login");
@@ -87,28 +91,21 @@ public class TestFluentApi extends TestCase {
             .withColWidths(125)
             .withRowHeights(25)
             .withMinRows(20)
-            .withData(getUsersData())
+//            .withData(getUsersData())
             .withColumns(columns)
             .withReadOnly(true);
+            table.setData(getUsersData());
         return table;
     }
-    
-    public static List<Object> getUsersData() {
-        Map<String, Object> user;
-        user = new HashMap<>();
-        user.put("id", "user-33");
-        user.put("login", "admin");
-        user.put("email", "admin@infotec.mx");
-        user.put("activated", "true");
-        user.put("langKey", "es");
-        user.put("authorities", "ROLE_USER");
-        user.put("createdDate", "14/02/18 14:05");
-        user.put("lastModifiedBy", "system");
-        user.put("lastModifiedDate", "25/07/18 17:05");
-        
-        List<Object> data = new ArrayList<>();
-        data.add(user);
-        return data;
+
+    public static List<UserDTO> getUsersData() {
+        List<UserDTO> users = new ArrayList<>();
+        Set<String> authorities = new HashSet<>();
+        authorities.add("ROLE_USER");
+        UserDTO user = new UserDTO("user-33", "admin", "firstName", "lastName", "admin@infotec.mx", true, null, "es",
+                "system", null, "system", null, authorities);
+        users.add(user);
+        return users;
     }
 
 }

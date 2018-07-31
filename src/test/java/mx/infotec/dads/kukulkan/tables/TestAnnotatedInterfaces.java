@@ -33,6 +33,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import static mx.infotec.dads.kukulkan.tables.TestFluentApi.getUsersData;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilder;
@@ -42,7 +44,7 @@ public class TestAnnotatedInterfaces extends TestCase {
     @Test
     public void testAnnotatedPojo() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
-        Handsontable table = HandsontableBuilder.createHandsontable(UserDTO.class, getUsersData());
+        Handsontable table = HandsontableBuilder.createHandsontable(UserDTO.class, new ArrayList<UserDTO>());
         table
             .withRowHeaders(true)
             .withHeight(440)

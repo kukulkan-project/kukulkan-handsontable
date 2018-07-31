@@ -35,12 +35,14 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 public class HandsontableBuilder {
 
-    public static Handsontable createHandsontable(Class clazz, List<Object> data) {
-        return createHandsontable(clazz).withData(data);
+    public static <T> Handsontable createHandsontable(Class<T> clazz, List<? extends T> data) {
+        Handsontable<T> table = createHandsontable(clazz);
+        table.setData(data);
+        return table;
     }
 
-    public static Handsontable createHandsontable(Class clazz) {
-        Handsontable table = new Handsontable();
+    public static <T> Handsontable createHandsontable(Class<T> clazz) {
+        Handsontable<T> table = new Handsontable<T>();
         Map<Field, SheetColumn> annotatedFields = getColumnAnnotatedFields(clazz);
         addHeaders(table, annotatedFields);
         addColumns(table, annotatedFields);
@@ -55,7 +57,7 @@ public class HandsontableBuilder {
         table.withColumns(columns);
     }
 
-    private static Map<Field, SheetColumn> getColumnAnnotatedFields(Class clazz) {
+    private static <T> Map<Field, SheetColumn> getColumnAnnotatedFields(Class<T> clazz) {
         Map<Field, SheetColumn> annotatedFields = new HashMap<>();
         for (Field field : clazz.getDeclaredFields()) {
             if (field.isAnnotationPresent(SheetColumn.class)) {
@@ -121,7 +123,7 @@ public class HandsontableBuilder {
         default:
             column = new TextColumn();
         }
-        return column.withData(field.getName()).withReadOnly(true);
+        return column.withData(field.getName());
     }
 
 }

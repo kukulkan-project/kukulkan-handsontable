@@ -316,7 +316,10 @@
     "properties": {
         "data": {
             "type": "array",
-            "javaName": "data"
+            "javaName": "data",
+            "items": {
+                "javaType": "T"
+            }
         },
         "columns": {
             "type": "array",
@@ -325,6 +328,7 @@
             }
         }
     },
+    "type": "object",
     "extends": {
         "$ref": "#/definitions/options"
     }
