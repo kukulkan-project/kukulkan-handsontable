@@ -45,15 +45,10 @@ public class TestAnnotatedInterfaces extends TestCase {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
         Handsontable<UserDTO> table = HandsontableBuilder.createHandsontable(UserDTO.class, getUsersData());
         table
-            .withRowHeaders(true)
             .withHeight(440)
-            .withContextMenu(true)
             .withMinSpareRows(true)
-            .withColumnSorting(true)
             .withColWidths(125)
-            .withRowHeights(25)
-            .withMinRows(20)
-            .withReadOnly(true);
+            .withRowHeights(25);
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);

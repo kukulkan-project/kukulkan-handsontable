@@ -32,5 +32,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Sheet {
+
+    public boolean rowHeaders() default true;
     
+    public boolean contextMenu() default true;
+    
+    public boolean columnSorting() default true;
+    
+    public int minRows() default 20;
+    
+    public boolean readOnly() default true;
+
 }

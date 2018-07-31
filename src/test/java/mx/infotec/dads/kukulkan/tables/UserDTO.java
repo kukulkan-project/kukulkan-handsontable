@@ -2,11 +2,13 @@ package mx.infotec.dads.kukulkan.tables;
 
 import java.util.Set;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 /**
  * A DTO representing a user, with his authorities.
  */
+@Sheet(minRows = 20)
 public class UserDTO {
 
     @SheetColumn(type = "numeric", title = "ID")

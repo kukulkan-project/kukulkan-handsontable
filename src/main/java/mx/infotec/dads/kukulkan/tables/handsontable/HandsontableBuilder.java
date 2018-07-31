@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 public class HandsontableBuilder {
@@ -48,6 +49,7 @@ public class HandsontableBuilder {
     public static <T> Handsontable<T> createHandsontable(Class<T> clazz) {
         Handsontable<T> table = new Handsontable<>();
         Map<Field, SheetColumn> annotatedFields = getColumnAnnotatedFields(clazz);
+        addOptionsToHandsontable(table, mapSheetAnnotationToHandsontableOptions(clazz));
         addHeaders(table, annotatedFields);
         addColumns(table, annotatedFields);
         return table;
@@ -59,6 +61,19 @@ public class HandsontableBuilder {
             columns.add(buildColumn(entry.getKey(), entry.getValue()));
         }
         table.withColumns(columns);
+    }
+
+    public static <T> HandsontableOptions mapSheetAnnotationToHandsontableOptions(Class<T> clazz) {
+        HandsontableOptions options = new HandsontableOptions();
+        if (clazz.isAnnotationPresent(Sheet.class)) {
+            Sheet annotation = clazz.getAnnotation(Sheet.class);
+            options.withColumnSorting(annotation.columnSorting());
+            options.withContextMenu(annotation.contextMenu());
+            options.withMinRows(annotation.minRows());
+            options.withReadOnly(annotation.readOnly());
+            options.withRowHeaders(annotation.rowHeaders());
+        }
+        return options;
     }
 
     private static <T> Map<Field, SheetColumn> getColumnAnnotatedFields(Class<T> clazz) {
@@ -128,6 +143,15 @@ public class HandsontableBuilder {
             column = new TextColumn();
         }
         return column.withData(field.getName());
+    }
+
+    public static <T> Handsontable<T> addOptionsToHandsontable(Handsontable<T> table, HandsontableOptions options) {
+        table.setColumnSorting(options.getColumnSorting());
+        table.setContextMenu(options.getContextMenu());
+        table.setMinRows(options.getMinRows());
+        table.setReadOnly(options.getReadOnly());
+        table.setRowHeaders(options.getRowHeaders());
+        return table;
     }
 
 }
