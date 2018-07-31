@@ -66,7 +66,7 @@
 				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
 				<version>0.5.1</version>
 				<configuration>
-					<sourceDirectory>${basedir}/src/main/resources/handsontable.json</sourceDirectory>
+					<sourceDirectory>${basedir}/src/main/resources/handsontable-options.json</sourceDirectory>
 					<targetPackage>mx.infotec.dads.kukulkan.tables.handsontable</targetPackage>
 					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
 					<annotationStyle>jackson2</annotationStyle>
@@ -81,97 +81,6 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>core-classes</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>numeric-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/numeric-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>checkbox-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/checkbox-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>date-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/date-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>select-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/select-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>time-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/time-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>dropdown-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/dropdown-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>autocomplete-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/autocomplete-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>password-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/password-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>handsontable-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/handsontable-column.json</sourceDirectory>
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>text-column</id>
-						<configuration>
-							<sourceDirectory>${basedir}/src/main/resources/text-column.json</sourceDirectory>
-						</configuration>
 						<goals>
 							<goal>generate</goal>
 						</goals>

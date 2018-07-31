@@ -17,7 +17,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
 import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
-import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
 
 /*
  *  
@@ -68,7 +68,7 @@ public class TestFluentApi extends TestCase {
         colHeaders.add("Modified date");
         
         List<Column> columns = new ArrayList<>();
-        columns.add(new NumericColumn().withData("id"));
+        columns.add(new TextColumn().withData("id"));
         columns.add(new Column().withData("login"));
         columns.add(new Column().withData("email"));
         columns.add(new CheckboxColumn().withData("activated"));
@@ -79,6 +79,8 @@ public class TestFluentApi extends TestCase {
         columns.add(new DateColumn().withData("lastModifiedDate"));
         
         table
+            .withData(getUsersData())
+            .withColumns(columns)
             .withRowHeaders(true)
             .withColHeaders(colHeaders)
             .withHeight(440)
@@ -88,8 +90,6 @@ public class TestFluentApi extends TestCase {
             .withColWidths(125)
             .withRowHeights(25)
             .withMinRows(20)
-            .withData(getUsersData())
-            .withColumns(columns)
             .withReadOnly(true);
         return table;
     }
