@@ -24,12 +24,12 @@
 			"id": "user-33",
 			"login": "admin",
 			"email": "admin@infotec.mx",
-			"activated": "true",
+			"activated": true,
 			"langKey": "es",
-			"authorities": "ROLE_USER",
+			"authorities": ["ROLE_USER"],
 			"createdDate": "14/02/18 14:05",
 			"lastModifiedBy": "system",
-			"lastModifiedDate": "25/07/18 17:05"
+			"lastModifiedDate": "14/02/18 14:05"
 		}
 	],
 	"columns": [

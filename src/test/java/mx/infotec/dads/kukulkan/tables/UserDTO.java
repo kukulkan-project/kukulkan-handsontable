@@ -1,6 +1,5 @@
 package mx.infotec.dads.kukulkan.tables;
 
-import java.time.ZonedDateTime;
 import java.util.Set;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
@@ -34,13 +33,13 @@ public class UserDTO {
     private String createdBy;
 
     @SheetColumn(type = "date", title = "Created date")
-    private ZonedDateTime createdDate;
+    private String createdDate;
 
     @SheetColumn(type = "text", title = "Modified by")
     private String lastModifiedBy;
 
     @SheetColumn(type = "date", title = "Modified date")
-    private ZonedDateTime lastModifiedDate;
+    private String lastModifiedDate;
 
     @SheetColumn(type = "text", title = "Profiles")
     private Set<String> authorities;
@@ -50,8 +49,8 @@ public class UserDTO {
     }
 
     public UserDTO(String id, String login, String firstName, String lastName, String email, boolean activated,
-            String imageUrl, String langKey, String createdBy, ZonedDateTime createdDate, String lastModifiedBy,
-            ZonedDateTime lastModifiedDate, Set<String> authorities) {
+            String imageUrl, String langKey, String createdBy, String createdDate, String lastModifiedBy,
+            String lastModifiedDate, Set<String> authorities) {
 
         this.id = id;
         this.login = login;
@@ -112,7 +111,7 @@ public class UserDTO {
         return createdBy;
     }
 
-    public ZonedDateTime getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
@@ -120,11 +119,11 @@ public class UserDTO {
         return lastModifiedBy;
     }
 
-    public ZonedDateTime getLastModifiedDate() {
+    public String getLastModifiedDate() {
         return lastModifiedDate;
     }
 
-    public void setLastModifiedDate(ZonedDateTime lastModifiedDate) {
+    public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
 

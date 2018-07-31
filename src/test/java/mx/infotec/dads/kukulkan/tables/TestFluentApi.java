@@ -1,10 +1,7 @@
 package mx.infotec.dads.kukulkan.tables;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.json.JSONException;
@@ -91,10 +88,9 @@ public class TestFluentApi extends TestCase {
             .withColWidths(125)
             .withRowHeights(25)
             .withMinRows(20)
-//            .withData(getUsersData())
+            .withData(getUsersData())
             .withColumns(columns)
             .withReadOnly(true);
-            table.setData(getUsersData());
         return table;
     }
 
@@ -103,7 +99,7 @@ public class TestFluentApi extends TestCase {
         Set<String> authorities = new HashSet<>();
         authorities.add("ROLE_USER");
         UserDTO user = new UserDTO("user-33", "admin", "firstName", "lastName", "admin@infotec.mx", true, null, "es",
-                "system", null, "system", null, authorities);
+                "system", "14/02/18 14:05", "system", "14/02/18 14:05", authorities);
         users.add(user);
         return users;
     }

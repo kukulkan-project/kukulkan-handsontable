@@ -35,21 +35,25 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 public class HandsontableBuilder {
 
-    public static <T> Handsontable createHandsontable(Class<T> clazz, List<? extends T> data) {
+    private HandsontableBuilder() {
+
+    }
+
+    public static <T> Handsontable<T> createHandsontable(Class<T> clazz, List<T> data) {
         Handsontable<T> table = createHandsontable(clazz);
-        table.setData(data);
+        table.withData(data);
         return table;
     }
 
-    public static <T> Handsontable createHandsontable(Class<T> clazz) {
-        Handsontable<T> table = new Handsontable<T>();
+    public static <T> Handsontable<T> createHandsontable(Class<T> clazz) {
+        Handsontable<T> table = new Handsontable<>();
         Map<Field, SheetColumn> annotatedFields = getColumnAnnotatedFields(clazz);
         addHeaders(table, annotatedFields);
         addColumns(table, annotatedFields);
         return table;
     }
 
-    public static void addColumns(Handsontable table, Map<Field, SheetColumn> annotatedFields) {
+    public static <T> void addColumns(Handsontable<T> table, Map<Field, SheetColumn> annotatedFields) {
         List<Column> columns = new ArrayList<>();
         for (Entry<Field, SheetColumn> entry : annotatedFields.entrySet()) {
             columns.add(buildColumn(entry.getKey(), entry.getValue()));
@@ -67,7 +71,7 @@ public class HandsontableBuilder {
         return annotatedFields;
     }
 
-    public static void addHeaders(Handsontable table, Map<Field, SheetColumn> annotatedFields) {
+    public static <T> void addHeaders(Handsontable<T> table, Map<Field, SheetColumn> annotatedFields) {
         List<String> colHeaders = new ArrayList<>();
         for (Entry<Field, SheetColumn> entry : annotatedFields.entrySet()) {
             SheetColumn annotation = entry.getValue();

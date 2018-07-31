@@ -316,10 +316,7 @@
     "properties": {
         "data": {
             "type": "array",
-            "javaName": "data",
-            "items": {
-                "javaType": "T"
-            }
+            "javaName": "data"
         },
         "columns": {
             "type": "array",
