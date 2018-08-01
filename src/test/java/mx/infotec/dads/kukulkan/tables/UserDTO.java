@@ -11,7 +11,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 @Sheet(minRows = 20)
 public class UserDTO {
 
-    @SheetColumn(type = "numeric", title = "ID")
+    @SheetColumn(type = "text", title = "ID")
     private String id;
 
     @SheetColumn(type = "text", title = "Login")

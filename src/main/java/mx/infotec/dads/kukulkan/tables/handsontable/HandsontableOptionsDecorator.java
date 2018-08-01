@@ -26,7 +26,7 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import java.util.List;
 
-public class HandsontableOptionsDecorator extends HandsontableOptions {
+public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
 
     /**
      * 

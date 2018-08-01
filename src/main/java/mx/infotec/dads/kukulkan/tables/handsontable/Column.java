@@ -24,7 +24,7 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-public class Column extends HandsontableOptionsDecorator {
+public abstract class Column extends HandsontableOptionsDecorator {
 
     /**
      * 

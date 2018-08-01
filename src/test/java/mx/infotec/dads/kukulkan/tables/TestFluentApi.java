@@ -69,13 +69,13 @@ public class TestFluentApi extends TestCase {
         
         List<Column> columns = new ArrayList<>();
         columns.add(new TextColumn().withData("id"));
-        columns.add(new Column().withData("login"));
-        columns.add(new Column().withData("email"));
+        columns.add(new TextColumn().withData("login"));
+        columns.add(new TextColumn().withData("email"));
         columns.add(new CheckboxColumn().withData("activated"));
-        columns.add(new Column().withData("langKey"));
-        columns.add(new Column().withData("authorities"));
+        columns.add(new TextColumn().withData("langKey"));
+        columns.add(new TextColumn().withData("authorities"));
         columns.add(new DateColumn().withData("createdDate"));
-        columns.add(new Column().withData("lastModifiedBy"));
+        columns.add(new TextColumn().withData("lastModifiedBy"));
         columns.add(new DateColumn().withData("lastModifiedDate"));
         
         table

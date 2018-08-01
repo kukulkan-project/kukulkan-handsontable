@@ -35,7 +35,7 @@
 	"columns": [
 		{
 			"data": "id",
-			"type": "numeric"
+			"type": "text"
 		},
 		{
 			"data": "login",
