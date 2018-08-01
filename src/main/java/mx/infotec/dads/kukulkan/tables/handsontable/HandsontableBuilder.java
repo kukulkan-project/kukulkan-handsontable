@@ -85,10 +85,13 @@ public class HandsontableBuilder {
             .withColumnHeaderHeight(annotation.columnHeaderHeight())
             .withColumnSorting(annotation.columnSorting())
             .withContextMenu(annotation.contextMenu())
+            .withHeight(annotation.height())
             .withMinRows(annotation.minRows())
             .withReadOnly(annotation.readOnly())
-            .withRowHeaders(annotation.rowHeaders());
-        }
+            .withRowHeaders(annotation.rowHeaders())
+            .withRowHeights(annotation.rowHeights())
+            .withMinSpareRows(annotation.minSpareRows());
+            }
         return options;
     }
 

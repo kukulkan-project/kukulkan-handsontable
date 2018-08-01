@@ -58,14 +58,14 @@ public class TestFluentApi extends TestCase {
         Handsontable<UserDTO> table = new Handsontable<>(); 
         List<String> colHeaders = new ArrayList<>();
         colHeaders.add("ID");
-        colHeaders.add("Login");
-        colHeaders.add("Email");
-        colHeaders.add("Active");
-        colHeaders.add("Language");
-        colHeaders.add("Profiles");
-        colHeaders.add("Created date");
-        colHeaders.add("Modified by");
-        colHeaders.add("Modified date");
+        colHeaders.add("login");
+        colHeaders.add("email");
+        colHeaders.add("activated");
+        colHeaders.add("langKey");
+        colHeaders.add("authorities");
+        colHeaders.add("createdDate");
+        colHeaders.add("lastModifiedBy");
+        colHeaders.add("lastModifiedDate");
         
         List<Column> columns = new ArrayList<>();
         columns.add(new TextColumn().withData("id"));

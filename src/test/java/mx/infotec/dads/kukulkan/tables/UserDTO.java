@@ -9,42 +9,42 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 /**
  * A DTO representing a user, with his authorities.
  */
-@Sheet(minRows = 20)
+@Sheet(minRows = 20, height = 440, colWidths = 125, rowHeights = 25)
 public class UserDTO {
 
     @SheetColumn(type = Type.TEXT, title = "ID")
     private String id;
 
-    @SheetColumn(type = Type.TEXT, title = "Login")
+    @SheetColumn(type = Type.TEXT)
     private String login;
 
     private String firstName;
 
     private String lastName;
 
-    @SheetColumn(type = Type.TEXT, title = "Email")
+    @SheetColumn(type = Type.TEXT)
     private String email;
 
     private String imageUrl;
 
-    @SheetColumn(type = Type.CHECKBOX, title = "Active")
+    @SheetColumn(type = Type.CHECKBOX)
     private boolean activated = false;
 
-    @SheetColumn(type = Type.TEXT, title = "Language")
+    @SheetColumn(type = Type.TEXT)
     private String langKey;
 
     private String createdBy;
 
-    @SheetColumn(type = Type.DATE, title = "Created date")
+    @SheetColumn(type = Type.DATE)
     private String createdDate;
 
-    @SheetColumn(type = Type.TEXT, title = "Modified by")
+    @SheetColumn(type = Type.TEXT)
     private String lastModifiedBy;
 
-    @SheetColumn(type = Type.DATE, title = "Modified date")
+    @SheetColumn(type = Type.DATE)
     private String lastModifiedDate;
 
-    @SheetColumn(type = Type.TEXT, title = "Profiles")
+    @SheetColumn(type = Type.TEXT)
     private Set<String> authorities;
 
     public UserDTO() {

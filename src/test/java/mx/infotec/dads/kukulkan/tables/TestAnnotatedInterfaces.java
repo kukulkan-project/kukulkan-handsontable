@@ -44,11 +44,6 @@ public class TestAnnotatedInterfaces extends TestCase {
     public void testAnnotatedPojo() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
         Handsontable<UserDTO> table = HandsontableBuilder.createHandsontable(UserDTO.class, getUsersData());
-        table
-            .withHeight(440)
-            .withMinSpareRows(true)
-            .withColWidths(125)
-            .withRowHeights(25);
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
