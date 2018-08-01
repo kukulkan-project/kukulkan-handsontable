@@ -92,6 +92,7 @@ public class TestFluentApi extends TestCase {
             .withMinRows(20)
             .withReadOnly(true);
         return table;
+        
     }
 
     public static List<UserDTO> getUsersData() {

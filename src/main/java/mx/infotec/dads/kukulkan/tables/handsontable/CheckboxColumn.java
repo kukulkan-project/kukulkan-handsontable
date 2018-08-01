@@ -38,10 +38,32 @@ public class CheckboxColumn extends Column {
     public CheckboxColumn() {
         super();
     }
-    
+
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.CHECKBOX;
+        return Type.CHECKBOX;
+    }
+
+    public class Label {
+        private String position;
+        private String value;
+
+        public String getPosition() {
+            return position;
+        }
+
+        public void setPosition(String position) {
+            this.position = position;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
     }
 
 }

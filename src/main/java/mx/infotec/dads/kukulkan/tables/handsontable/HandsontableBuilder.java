@@ -49,7 +49,7 @@ public class HandsontableBuilder {
     public static <T> Handsontable<T> createHandsontable(Class<T> clazz) {
         Handsontable<T> table = new Handsontable<>();
         Map<Field, SheetColumn> annotatedFields = getColumnAnnotatedFields(clazz);
-        addOptionsToHandsontable(table, mapSheetAnnotationToHandsontableOptions(clazz));
+        table.withOptions(mapSheetAnnotationToHandsontableOptions(clazz));
         addHeaders(table, annotatedFields);
         addColumns(table, annotatedFields);
         return table;
@@ -67,11 +67,27 @@ public class HandsontableBuilder {
         HandsontableOptions options = new HandsontableOptions();
         if (clazz.isAnnotationPresent(Sheet.class)) {
             Sheet annotation = clazz.getAnnotation(Sheet.class);
-            options.withColumnSorting(annotation.columnSorting());
-            options.withContextMenu(annotation.contextMenu());
-            options.withMinRows(annotation.minRows());
-            options.withReadOnly(annotation.readOnly());
-            options.withRowHeaders(annotation.rowHeaders());
+            options
+            .withAllowEmpty(annotation.allowEmpty())
+            .withAllowHtml(annotation.allowHtml())
+            .withAllowInsertColumn(annotation.allowInsertColumn())
+            .withAllowInsertRow(annotation.allowInsertRow())
+            .withAllowInvalid(annotation.allowInvalid())
+            .withAllowRemoveColumn(annotation.allowRemoveColumn())
+            .withAllowRemoveRow(annotation.allowRemoveRow())
+            .withAutoColumnSize(annotation.autoColumnSize())
+            .withAutoRowSize(annotation.autoRowSize())
+            .withAutoWrapCol(annotation.autoWrapCol())
+            .withAutoWrapRow(annotation.autoWrapRow())
+            .withCheckedTemplate(annotation.checkedTemplate())
+            .withClassName(annotation.className())
+//            .withColHeaders(annotation.colHeaders());
+            .withColumnHeaderHeight(annotation.columnHeaderHeight())
+            .withColumnSorting(annotation.columnSorting())
+            .withContextMenu(annotation.contextMenu())
+            .withMinRows(annotation.minRows())
+            .withReadOnly(annotation.readOnly())
+            .withRowHeaders(annotation.rowHeaders());
         }
         return options;
     }
@@ -143,15 +159,6 @@ public class HandsontableBuilder {
             column = new TextColumn();
         }
         return column.withData(field.getName());
-    }
-
-    public static <T> Handsontable<T> addOptionsToHandsontable(Handsontable<T> table, HandsontableOptions options) {
-        table.setColumnSorting(options.getColumnSorting());
-        table.setContextMenu(options.getContextMenu());
-        table.setMinRows(options.getMinRows());
-        table.setReadOnly(options.getReadOnly());
-        table.setRowHeaders(options.getRowHeaders());
-        return table;
     }
 
 }
