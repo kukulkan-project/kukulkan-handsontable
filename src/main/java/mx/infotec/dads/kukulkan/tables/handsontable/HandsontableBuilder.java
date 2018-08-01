@@ -67,31 +67,8 @@ public class HandsontableBuilder {
         HandsontableOptions options = new HandsontableOptions();
         if (clazz.isAnnotationPresent(Sheet.class)) {
             Sheet annotation = clazz.getAnnotation(Sheet.class);
-            options
-            .withAllowEmpty(annotation.allowEmpty())
-            .withAllowHtml(annotation.allowHtml())
-            .withAllowInsertColumn(annotation.allowInsertColumn())
-            .withAllowInsertRow(annotation.allowInsertRow())
-            .withAllowInvalid(annotation.allowInvalid())
-            .withAllowRemoveColumn(annotation.allowRemoveColumn())
-            .withAllowRemoveRow(annotation.allowRemoveRow())
-            .withAutoColumnSize(annotation.autoColumnSize())
-            .withAutoRowSize(annotation.autoRowSize())
-            .withAutoWrapCol(annotation.autoWrapCol())
-            .withAutoWrapRow(annotation.autoWrapRow())
-            .withCheckedTemplate(annotation.checkedTemplate())
-            .withClassName(annotation.className())
-//            .withColHeaders(annotation.colHeaders());
-            .withColumnHeaderHeight(annotation.columnHeaderHeight())
-            .withColumnSorting(annotation.columnSorting())
-            .withContextMenu(annotation.contextMenu())
-            .withHeight(annotation.height())
-            .withMinRows(annotation.minRows())
-            .withReadOnly(annotation.readOnly())
-            .withRowHeaders(annotation.rowHeaders())
-            .withRowHeights(annotation.rowHeights())
-            .withMinSpareRows(annotation.minSpareRows());
-            }
+            return new AnnotatedOptions(annotation);
+        }
         return options;
     }
 
