@@ -2,6 +2,7 @@ package mx.infotec.dads.kukulkan.tables;
 
 import java.util.Set;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
@@ -11,39 +12,39 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 @Sheet(minRows = 20)
 public class UserDTO {
 
-    @SheetColumn(type = "text", title = "ID")
+    @SheetColumn(type = Type.TEXT, title = "ID")
     private String id;
 
-    @SheetColumn(type = "text", title = "Login")
+    @SheetColumn(type = Type.TEXT, title = "Login")
     private String login;
 
     private String firstName;
 
     private String lastName;
 
-    @SheetColumn(type = "text", title = "Email")
+    @SheetColumn(type = Type.TEXT, title = "Email")
     private String email;
 
     private String imageUrl;
 
-    @SheetColumn(type = "checkbox", title = "Active")
+    @SheetColumn(type = Type.CHECKBOX, title = "Active")
     private boolean activated = false;
 
-    @SheetColumn(type = "text", title = "Language")
+    @SheetColumn(type = Type.TEXT, title = "Language")
     private String langKey;
 
     private String createdBy;
 
-    @SheetColumn(type = "date", title = "Created date")
+    @SheetColumn(type = Type.DATE, title = "Created date")
     private String createdDate;
 
-    @SheetColumn(type = "text", title = "Modified by")
+    @SheetColumn(type = Type.TEXT, title = "Modified by")
     private String lastModifiedBy;
 
-    @SheetColumn(type = "date", title = "Modified date")
+    @SheetColumn(type = Type.DATE, title = "Modified date")
     private String lastModifiedDate;
 
-    @SheetColumn(type = "text", title = "Profiles")
+    @SheetColumn(type = Type.TEXT, title = "Profiles")
     private Set<String> authorities;
 
     public UserDTO() {

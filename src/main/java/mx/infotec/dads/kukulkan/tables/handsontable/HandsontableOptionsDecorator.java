@@ -1698,5 +1698,10 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     public HandsontableOptions getOptions() {
         return options;
     }
+    
+    public HandsontableOptionsDecorator withOptions(HandsontableOptions options) {
+        this.options = options;
+        return this;
+    }
 
 }

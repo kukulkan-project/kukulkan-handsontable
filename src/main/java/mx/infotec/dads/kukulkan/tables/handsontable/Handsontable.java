@@ -69,4 +69,10 @@ public class Handsontable<T> extends HandsontableOptionsDecorator {
         return this;
     }
 
+    @Override
+    public Handsontable<T> withOptions(HandsontableOptions options) {
+        this.options = options;
+        return this;
+    }
+
 }

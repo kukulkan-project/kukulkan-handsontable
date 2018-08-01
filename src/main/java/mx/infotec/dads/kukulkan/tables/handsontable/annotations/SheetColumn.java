@@ -29,12 +29,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface SheetColumn {
 
-    public String type() default "text";
+    public HandsontableOptions.Type type() default HandsontableOptions.Type.TEXT;
 
     public String title() default "";
-
+    
 }

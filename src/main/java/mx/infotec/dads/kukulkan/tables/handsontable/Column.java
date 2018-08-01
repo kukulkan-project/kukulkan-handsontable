@@ -53,4 +53,10 @@ public abstract class Column extends HandsontableOptionsDecorator {
         return this;
     }
 
+    @Override
+    public Column withOptions(HandsontableOptions options) {
+        this.options = options;
+        return this;
+    }
+
 }

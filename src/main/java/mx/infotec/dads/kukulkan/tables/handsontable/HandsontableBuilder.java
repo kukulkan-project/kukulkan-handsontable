@@ -103,39 +103,39 @@ public class HandsontableBuilder {
     private static Column buildColumn(Field field, SheetColumn annotation) {
         Column column;
         switch (annotation.type()) {
-        case "numeric":
+        case NUMERIC:
             column = new NumericColumn();
             break;
 
-        case "date":
+        case DATE:
             column = new DateColumn();
             break;
 
-        case "time":
+        case TIME:
             column = new TimeColumn();
             break;
 
-        case "checkbox":
+        case CHECKBOX:
             column = new CheckboxColumn();
             break;
 
-        case "select":
+        case SELECT:
             column = new SelectColumn();
             break;
 
-        case "dropdown":
+        case DROPDOWN:
             column = new DropdownColumn();
             break;
 
-        case "autocomplete":
+        case AUTOCOMPLETE:
             column = new AutocompleteColumn();
             break;
 
-        case "password":
+        case PASSWORD:
             column = new PasswordColumn();
             break;
 
-        case "handsontable":
+        case HANDSONTABLE:
             column = new HandsontableColumn();
             break;
 
