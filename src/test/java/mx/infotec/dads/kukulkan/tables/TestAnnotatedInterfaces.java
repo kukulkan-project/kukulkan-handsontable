@@ -36,17 +36,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
-import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilder;
 
 public class TestAnnotatedInterfaces extends TestCase {
 
     @Test
     public void testAnnotatedPojo() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
-        Handsontable<UserDTO> table = HandsontableBuilder.createHandsontable(UserDTO.class, getUsersData());
+
+        Handsontable<UserDTO> table2 = 
+                Handsontable
+                .createHandsontable(UserDTO.class)
+                .withData(getUsersData());
+
         ObjectMapper mapper = new ObjectMapper();
-        System.out.println(mapper.writeValueAsString(table));
-        JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
+        System.out.println(mapper.writeValueAsString(table2));
+        JSONAssert.assertEquals(json, mapper.writeValueAsString(table2), JSONCompareMode.LENIENT);
     }
 
 }

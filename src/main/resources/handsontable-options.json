@@ -279,7 +279,8 @@
                 "time",
                 "numeric",
                 "text",
-                "checkbox"
+                "checkbox",
+                "none"
             ]
         },
         "uncheckedTemplate": {

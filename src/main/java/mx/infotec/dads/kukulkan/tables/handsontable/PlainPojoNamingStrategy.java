@@ -22,21 +22,23 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable.annotations;
+package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.buildColumn;
 
-import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.inferHandsontableType;
+import java.lang.reflect.Field;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface SheetColumn {
+public class PlainPojoNamingStrategy extends AbstractNamingStrategy {
 
-    public HandsontableOptions.Type type() default HandsontableOptions.Type.NONE;
+    @Override
+    public Column makeColumn(Field field) {
+        return buildColumn(inferHandsontableType(field)).withData(field.getName());
+    }
 
-    public String title() default "";
-    
+    @Override
+    public String makeHeader(Field field) {
+        return field.getName();
+    }
+
 }

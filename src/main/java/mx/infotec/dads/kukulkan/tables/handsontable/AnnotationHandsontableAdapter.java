@@ -26,7 +26,7 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 
-public class AnnotatedOptions extends HandsontableOptionsDecorator {
+public class AnnotationHandsontableAdapter extends HandsontableOptionsDecorator {
 
     /**
      * 
@@ -35,7 +35,7 @@ public class AnnotatedOptions extends HandsontableOptionsDecorator {
 
     private Sheet annotation;
 
-    public AnnotatedOptions(Sheet annotation) {
+    public AnnotationHandsontableAdapter(Sheet annotation) {
         this.annotation = annotation;
     }
 
