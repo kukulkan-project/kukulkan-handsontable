@@ -3,14 +3,14 @@
 	"rowHeaders": true,
 	"colHeaders": [
 		"ID",
-		"login",
-		"email",
-		"activated",
-		"langKey",
-		"authorities",
-		"createdDate",
-		"lastModifiedBy",
-		"lastModifiedDate"
+		"Login",
+		"Email",
+		"Activated",
+		"Lang Key",
+		"Authorities",
+		"Created Date",
+		"Last Modified By",
+		"Last Modified Date"
 	],
 	"height": 440,
 	"contextMenu": true,

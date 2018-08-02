@@ -25,8 +25,9 @@
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.buildColumn;
-
+import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.camelCaseToHumanReadable;
 import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.inferHandsontableType;
+
 import java.lang.reflect.Field;
 
 public class PlainPojoNamingStrategy extends AbstractNamingStrategy {
@@ -38,7 +39,7 @@ public class PlainPojoNamingStrategy extends AbstractNamingStrategy {
 
     @Override
     public String makeHeader(Field field) {
-        return field.getName();
+        return camelCaseToHumanReadable(field.getName());
     }
 
 }

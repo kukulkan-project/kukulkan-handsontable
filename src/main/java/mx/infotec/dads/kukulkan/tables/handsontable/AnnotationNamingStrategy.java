@@ -27,6 +27,8 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.buildColumn;
 import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.inferHandsontableType;
 
+import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.camelCaseToHumanReadable;
+
 import java.lang.reflect.Field;
 import java.util.Optional;
 
@@ -58,7 +60,7 @@ public class AnnotationNamingStrategy extends AbstractNamingStrategy {
             if (!"".equals(annotation.get().title())) {
                 return annotation.get().title();
             } else {
-                return field.getName();
+                return camelCaseToHumanReadable(field.getName());
             }
         }
         return null;
