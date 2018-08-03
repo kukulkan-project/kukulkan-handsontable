@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.utils;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -30,14 +30,36 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.AutocompleteColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.PasswordColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.SelectColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
+/**
+ * Utils for Handsontable building
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class HandsontableBuilderUtils {
 
     private HandsontableBuilderUtils() {
 
     }
 
+    /**
+     * Infers the Handsontable Column type from the Type of field
+     * @param field
+     * @return
+     */
     public static HandsontableOptions.Type inferHandsontableType(Field field) {
         Class<?> clazz = field.getType();
         if (clazz.equals(String.class)) {
@@ -53,7 +75,12 @@ public class HandsontableBuilderUtils {
         return Type.TEXT;
     }
 
-    public static Column buildColumn(Type type) {
+    /**
+     * Instantiates a new column of given type
+     * @param type
+     * @return the concrete column
+     */
+    public static Column getColumn(Type type) {
         Column column;
         switch (type) {
         case NUMERIC:
@@ -98,11 +125,22 @@ public class HandsontableBuilderUtils {
         return column;
     }
 
+    /**
+     * Split a camel case string into tokens
+     * @param s the camel case string
+     * @return the tokens
+     */
     public static String splitCamelCase(String s) {
         return s.replaceAll(String.format("%s|%s|%s", "(?<=[A-Z])(?=[A-Z][a-z])", "(?<=[^A-Z])(?=[A-Z])",
                 "(?<=[A-Za-z])(?=[^A-Za-z])"), " ");
     }
 
+    /**
+     * Converts a camel case string to human readable string 
+     * 
+     * @param camelCase
+     * @return the human readable string
+     */
     public static String camelCaseToHumanReadable(String camelCase) {
         String element = splitCamelCase(camelCase);
         return element.replaceFirst(Character.toString(element.charAt(0)),

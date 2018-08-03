@@ -31,6 +31,11 @@ import java.lang.annotation.Target;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 
+/**
+ * Annotation for POJO field. Used to overwrite default Column options
+ * @author Roberto Villarejo Martínez
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface SheetColumn {

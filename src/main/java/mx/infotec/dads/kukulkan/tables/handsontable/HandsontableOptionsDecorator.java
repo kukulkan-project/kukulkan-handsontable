@@ -26,6 +26,13 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * Decorator for HandsontableOptions
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
 
     /**
@@ -33,6 +40,7 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
      */
     private static final long serialVersionUID = -668790819887164240L;
 
+    @JsonIgnore
     protected HandsontableOptions options;
 
     public HandsontableOptionsDecorator() {

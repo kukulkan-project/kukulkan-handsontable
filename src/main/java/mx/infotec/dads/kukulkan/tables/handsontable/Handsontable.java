@@ -24,10 +24,14 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A Handsontable
+ * @author Roberto Villarejo Martínez
+ *
+ * @param <T> the Type of data that will contain this table
+ */
 public class Handsontable<T> extends HandsontableOptionsDecorator {
 
     /**
@@ -43,32 +47,6 @@ public class Handsontable<T> extends HandsontableOptionsDecorator {
 
     public Handsontable(HandsontableOptions options) {
         this.options = options;
-    }
-
-    public static <T> Handsontable<T> createHandsontable(Class<T> clazz, NamingStrategy strategy) {
-        Handsontable<T> table = new Handsontable<>();
-        Field[] fields = clazz.getDeclaredFields();
-        List<String> colHeaders = new ArrayList<>();
-        List<Column> columns = new ArrayList<>();
-        for (Field field : fields) {
-            Column col = strategy.makeColumn(field);
-            if (col != null) {
-                columns.add(col);
-
-            }
-            String header = strategy.makeHeader(field);
-            if (header != null) {
-                colHeaders.add(header);
-            }
-        }
-        table.withOptions(strategy.makeOptions(clazz));
-        table.withColHeaders(colHeaders);
-        table.withColumns(columns);
-        return table;
-    }
-
-    public static <T> Handsontable<T> createHandsontable(Class<T> clazz) {
-        return createHandsontable(clazz, new AnnotationNamingStrategy());
     }
 
     public List<T> getData() {

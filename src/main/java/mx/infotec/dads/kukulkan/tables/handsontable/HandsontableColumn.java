@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Handsontable column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class HandsontableColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class HandsontableColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.HANDSONTABLE;
+        return Type.HANDSONTABLE;
     }
 
 }

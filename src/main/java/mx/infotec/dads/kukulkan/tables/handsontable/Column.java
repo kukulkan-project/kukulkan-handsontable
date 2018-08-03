@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * An abstract column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public abstract class Column extends HandsontableOptionsDecorator {
 
     /**

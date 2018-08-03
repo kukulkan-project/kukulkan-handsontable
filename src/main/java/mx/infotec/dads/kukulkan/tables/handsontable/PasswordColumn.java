@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Password column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class PasswordColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class PasswordColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.PASSWORD;
+        return Type.PASSWORD;
     }
 
 }

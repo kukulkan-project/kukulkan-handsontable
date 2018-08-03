@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * Autocomplete column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class AutocompleteColumn extends Column {
     
     /**

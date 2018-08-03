@@ -26,20 +26,34 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import java.lang.reflect.Field;
 
-public abstract class AbstractNamingStrategy implements NamingStrategy {
+/**
+ * Abstract Build Strategy
+ * @author Roberto Villarejo Martínez
+ *
+ */
+public abstract class AbstractBuildStrategy implements BuildStrategy {
 
+    /**
+     * Builds a {@link HandsontableOptions} using the information from clazz
+     */
     @Override
-    public <T> HandsontableOptions makeOptions(Class<T> clazz) {
+    public <T> HandsontableOptions buildOptions(Class<T> clazz) {
         return new HandsontableOptions();
     }
 
+    /**
+     * Builds a concrete {@link Column} using information from field
+     */
     @Override
-    public Column makeColumn(Field field) {
+    public Column buildColumn(Field field) {
         return new TextColumn().withData(field.getName());
     }
 
+    /**
+     * Buils a header using information from the field
+     */
     @Override
-    public String makeHeader(Field field) {
+    public String builderHeader(Field field) {
         return field.getName();
     }
 

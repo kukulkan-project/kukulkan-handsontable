@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Select column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class SelectColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class SelectColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.SELECT;
+        return Type.SELECT;
     }
 
 }

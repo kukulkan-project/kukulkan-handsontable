@@ -26,6 +26,11 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 
+/**
+ * An adapter from Sheet annotation to HandsontableOptions
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class AnnotationHandsontableAdapter extends HandsontableOptionsDecorator {
 
     /**

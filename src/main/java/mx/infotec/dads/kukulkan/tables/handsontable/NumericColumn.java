@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Numeric column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class NumericColumn extends Column {
 
     /**
@@ -50,7 +55,7 @@ public class NumericColumn extends Column {
     
     @Override
     public Type getType() {
-        return HandsontableOptions.Type.NUMERIC;
+        return Type.NUMERIC;
     }
 
 }

@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Dropdown column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class DropdownColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class DropdownColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.DROPDOWN;
+        return Type.DROPDOWN;
     }
 
 }

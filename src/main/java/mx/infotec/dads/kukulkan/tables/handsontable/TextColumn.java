@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Text Column (also called cell type) 
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class TextColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class TextColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.TEXT;
+        return Type.TEXT;
     }
 
 }

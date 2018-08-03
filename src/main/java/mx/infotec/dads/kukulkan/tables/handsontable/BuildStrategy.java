@@ -26,12 +26,17 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 import java.lang.reflect.Field;
 
-public interface NamingStrategy {
+/**
+ * Build Strategy interface
+ * @author Roberto Villarejo Martínez
+ *
+ */
+public interface BuildStrategy {
     
-    Column makeColumn(Field field);
+    Column buildColumn(Field field);
     
-    String makeHeader(Field field);
+    String builderHeader(Field field);
     
-    <T> HandsontableOptions makeOptions(Class<T> clazz);
+    <T> HandsontableOptions buildOptions(Class<T> clazz);
 
 }

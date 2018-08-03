@@ -1,227 +1,300 @@
 {
     "$id": "handsontableOptions",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A Handsontable Options object",
     "properties": {
         "allowEmpty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, Handsontable will accept values that are empty (null, undefined or ''). If set to false, Handsontable will not accept the empty values and mark cell as invalid."
         },
         "allowHtml": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, data defined in source of the autocomplete or dropdown cell will be treated as HTML"
         },
         "allowInsertColumn": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to false, there won't be an option to insert new columns in the Context Menu."
         },
         "allowInsertRow": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to false, there won't be an option to insert new rows in the Context Menu"
         },
         "allowInvalid": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, Handsontable will accept values that were marked as invalid by the cell validator. It will result with invalid cells being treated as valid (will save the invalid value into the Handsontable data source). If set to false, Handsontable will not accept the invalid values and won't allow the user to close the editor. This option will be particularly useful when used with the Autocomplete's strict mode"
         },
         "allowRemoveColumn": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to false, there won't be an option to remove columns in the Context Menu"
         },
         "allowRemoveRow": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to false, there won't be an option to remove rows in the Context Menu"
         },
         "autoColumnSize": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Enables or disables the AutoColumnSize plugin. Default value is undefined, which has the same effect as true. Disabling this plugin can increase performance, as no size-related calculations would be done. Column width calculations are divided into sync and async part. Each of those parts has their own advantages and disadvantages. Synchronous calculations are faster but they block the browser UI, while the slower asynchronous operations don't block the browser UI. To configure the sync/async distribution, you can pass an absolute value (number of columns) or a percentage value. You can also use the useHeaders option to take the column headers width into calculation"
         },
         "autoComplete": {
             "items": {},
-            "type": "array"
+            "type": "array",
+            "description": ""
         },
         "autoRowSize": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Enables or disables AutoRowSize plugin. Default value is undefined, which has the same effect as false (disabled). Enabling this plugin can decrease performance, as size-related calculations would be performed. Row height calculations are divided into sync and async stages. Each of these stages has their own advantages and disadvantages. Synchronous calculations are faster but they block the browser UI, while the slower asynchronous operations don't block the browser UI. To configure the sync/async distribution, you can pass an absolute value (number of columns) or a percentage value"
         },
         "autoWrapCol": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, pressing ENTER or down arrow in the last row will move to the first row in the next column"
         },
         "autoWrapRow": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, pressing TAB or right arrow in the last column will move to first column in next row"
         },
         "cell": {
             "items": {},
-            "type": "array"
+            "type": "array",
+            "description": "Any constructor or column option may be overwritten for a particular cell (row/column combination), using cell array passed to the Handsontable constructor"
         },
         "checkedTemplate": {
-            "type": "string"
+            "type": "string",
+            "description": "Data template for 'checkbox' type when checkbox is checked"
         },
         "className": {
-            "type": "string"
+            "type": "string",
+            "description": "Class name for the Handsontable container element."
         },
         "colHeaders": {
             "items": {
                 "type": "string"
             },
-            "type": "array"
+            "type": "array",
+            "description": "Setting true or false will enable or disable the default column headers (A, B, C). You can also define an array ['One', 'Two', 'Three', ...] or a function to define the headers. If a function is set, then the index of the column is passed as a parameter"
         },
         "colWidths": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Defines column widths in pixels. Accepts number, string (that will be converted to a number), array of numbers (if you want to define column width separately for each column) or a function (if you want to set column width dynamically on each render)"
         },
         "columnHeaderHeight": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Allows setting a custom height of the column headers. You can provide a number or an array of heights, if many column header levels are defined"
         },
         "columnSorting": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on Column sorting"
         },
         "commentedCellClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "CSS class name added to the commented cells"
         },
         "comments": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, enables the Comments plugin, which enables an option to apply cell comments through the context menu (configurable with context menu keys commentsAddEdit, commentsRemove)"
         },
         "contextMenu": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Defines if the right-click context menu should be enabled. Context menu allows to create new row or column at any place in the grid among other features"
         },
         "copyColsLimit": {
-            "type": "integer"
+            "type": "integer",
+            "description": ""
         },
         "copyPaste": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Disables or enables the copy/paste functionality"
         },
         "copyRowsLimit": {
-            "type": "integer"
+            "type": "integer",
+            "description": ""
         },
         "copyable": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Makes a cell copyable (pressing CTRL + C on your keyboard moves its value to system clipboard)"
         },
         "correctFormat": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true then dates will be automatically formatted to match the desired format"
         },
         "currentColClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "Class name for all visible columns in the current selection"
         },
         "currentHeaderClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "Class name for all visible headers in current selection"
         },
         "currentRowClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "Class name for all visible rows in the current selection"
         },
         "customBorders": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, enables the CustomBorders plugin, which enables an option to apply custom borders through the context menu (configurable with context menu key borders). To initialize Handsontable with predefined custom borders, provide cell coordinates and border styles in a form of an array"
         },
         "dateFormat": {
-            "type": "string"
+            "type": "string",
+            "description": "Date validation format"
         },
         "debug": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Setting to true enables the debug mode, currently used to test the correctness of the row and column header fixed positioning on a layer above the master table"
         },
         "defaultDate": {
-            "type": "string"
+            "type": "string",
+            "description": "Definition of default value which will fill the empty cells"
         },
         "disableVisualSelection": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Disables visual cells selection"
         },
         "editor": {
-            "type": "string"
+            "type": "string",
+            "description": "Defines the editor for the table/column/cell"
         },
         "enterBeginsEditing": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, ENTER begins editing mode (like in Google Docs). If false, ENTER moves to next row (like Excel) and adds a new row if necessary. TAB adds new column if necessary"
         },
         "fillHandle": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Enables the fill handle (drag-down and copy-down) functionality, which shows a small rectangle in bottom right corner of the selected area, that let's you expand values to the adjacent cells"
         },
         "filter": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If defined as true, when the user types into the input area the Autocomplete's suggestion list is updated to only include those choices starting with what has been typed; if defined as false all suggestions remain shown, with those matching what has been typed marked in bold"
         },
         "filteringCaseSensitive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If defined as true, filtering in the Autocomplete Editor will be case-sensitive"
         },
         "fixedRowsTop": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Allows to specify the number of fixed (or frozen) rows at the top of the table"
         },
         "fragmentSelection": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, it enables the browser's native selection of a fragment of the text within a single cell, between  adjacent cells or in a whole table. If set to 'cell', it enables the possibility of selecting a fragment of the text within a single cell's body"
         },
         "height": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Height of the grid. Can be a number or a function that returns a number"
         },
         "invalidCellClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "CSS class name for cells that did not pass validation"
         },
         "language": {
-            "type": "string"
+            "type": "string",
+            "description": "Language for Handsontable translation"
         },
         "manualColumnFreeze": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Disables or enables ManualColumnFreeze plugin"
         },
         "manualColumnMove": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on Manual column move, if set to a boolean or define initial column order (as an array of column indexes)"
         },
         "manualColumnResize": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on Manual column resize, if set to a boolean or define initial column resized widths (an an array of widths)"
         },
         "manualRowMove": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on Manual row move, if set to a boolean or define initial row order (as an array of row indexes)"
         },
         "manualRowResize": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on Manual row resize, if set to a boolean or define initial row resized heights (as an array of heights)"
         },
         "maxCols": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Maximum number of cols. If set to a value lower than the initial col count, the data will be trimmed to the provided value as the number of cols"
         },
         "maxRows": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Maximum number of rows. If set to a value lower than the initial row count, the data will be trimmed to the provided value as the number of rows."
         },
         "mergeCells": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, it enables a possibility to merge cells. If set to an array of objects, it merges the cells provided in the objects (see the example below). More information on the demo page"
         },
         "minCols": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Minimum number of columns. At least that number of columns will be created during initialization"
         },
         "minRows": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Minimum number of rows. At least that number of rows will be created during initialization"
         },
         "minSpareCols": {
-            "type": "integer"
+            "type": "integer",
+            "description": "When set to 1 (or more), Handsontable will add a new column at the end of grid if there are no more empty columns. (unless the number of rows exceeds the one set in the maxCols property)"
         },
         "minSpareRows": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When set to 1 (or more), Handsontable will add a new row at the end of grid if there are no more empty rows. (unless the number of rows exceeds the one set in the maxRows property)"
         },
         "noWordWrapClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "CSS class name added to cells with cell meta wordWrap: false"
         },
         "observeChanges": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Enables the ObserveChanges plugin switches table into one-way data binding where changes are applied into data source (from outside table) will be automatically reflected in the table"
         },
         "observeDOMVisibility": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When set to true, the table is re-rendered when it is detected that it was made visible in DOM"
         },
         "pasteMode": {
-            "type": "string"
+            "type": "string",
+            "description": ""
         },
         "persistentState": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Turns on saving the state of column sorting, column positions and column sizes in local storage"
         },
         "placeholderCellClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "CSS class name for cells that have a placeholder in use."
         },
         "preventOverflow": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Prevents table to overlap outside the parent element. If 'horizontal' option is chosen then table will show a horizontal scrollbar if parent's width is narrower then table's width"
         },
         "readOnly": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Makes cell read only"
         },
         "readOnlyCellClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "CSS class name for read-only cells."
         },
         "renderAllRows": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If typed true then virtual rendering mechanism for handsontable will be disabled"
         },
         "renderer": {
-            "type": "string"
+            "type": "string",
+            "description": "If a string is provided, it may be one of the following predefined values: autocomplete, checkbox, html, numeric, password. text"
         },
         "rowHeaderWidth": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Allows setting a custom width of the row headers. You can provide a number or an array of widths, if many row header levels are defined"
         },
         "rowHeaders": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Setting true or false will enable or disable the default row headers (1, 2, 3). You can also define an array ['One', 'Two', 'Three', ...] or a function to define the headers. If a function is set the index of the row is passed as a parameter"
         },
         "rowHeights": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Defines row heights in pixels. Accepts numbers, strings (that will be converted into a number), array of numbers (if you want to define row height separately for each row) or a function (if you want to set row height dynamically on each render)"
         },
         "search": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Setting to true enables the Search plugin (see demo)"
         },
         "selectionMode": {
             "enum": [
@@ -229,44 +302,57 @@
                 "range",
                 "single"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Defines how the table selection reacts"
         },
         "skipColumnOnPaste": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When added to a column property, it skips the column on paste and pastes the data on the next column to the right"
         },
         "sortByRelevance": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If defined as true, the Autocomplete's suggestion list would be sorted by relevance (the closer to the left the match is, the higher the suggestion)"
         },
         "sortIndicator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Set whether to display the current sorting order indicator (a triangle icon in the column header, specifying the sorting order)"
         },
         "source": {
             "items": {},
-            "type": "array"
+            "type": "array",
+            "description": "Defines data source for Autocomplete or Dropdown cell types"
         },
         "startCols": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Initial number of columns"
         },
         "startRows": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Initial number of rows"
         },
         "stretchH": {
-            "type": "string"
+            "type": "string",
+            "description": "Defines how the columns react, when the declared table width is different than the calculated sum of all column widths. See more mode. Possible values: 'none' Disable stretching 'last' Stretch only the last column 'all' Stretch all the columns evenly"
         },
         "strict": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If set to true, the value entered into the cell must match (case-sensitive) the autocomplete source. Otherwise, cell won't pass the validation. When filtering the autocomplete source list, the editor will be working in case-insensitive mode"
         },
         "tableClassName": {
-            "type": "string"
+            "type": "string",
+            "description": "Class name for all tables inside container element"
         },
         "title": {
-            "type": "string"
+            "type": "string",
+            "description": "Defines the column header name"
         },
         "trimDropdown": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Makes autocomplete or dropdown width the same as the edited cell width. If false then editor will be scaled according to its content"
         },
         "trimWhitespace": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Defines whether Handsontable should trim the whitespace at the beginning and the end of the cell contents"
         },
         "type": {
             "enum": [
@@ -281,25 +367,32 @@
                 "text",
                 "checkbox",
                 "none"
-            ]
+            ],
+            "description": "Shortcut to define the combination of the cell renderer, editor and validator for the column, cell or whole table"
         },
         "uncheckedTemplate": {
-            "type": "string"
+            "type": "string",
+            "description": "Data template for 'checkbox' type when checkbox is unchecked"
         },
         "undo": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "If true, undo/redo functionality is enabled"
         },
         "valid": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": ""
         },
         "visibleRows": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Control number of choices for the autocomplete (or dropdown) typed cells. After exceeding it, a scrollbar for the dropdown list of choices will appear"
         },
         "width": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Width of the grid. Can be a value or a function that returns a value"
         },
         "wordWrap": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When set to true, the text of the cell content is wrapped if it does not fit in the fixed column width"
         }
     },
     "type": "object"

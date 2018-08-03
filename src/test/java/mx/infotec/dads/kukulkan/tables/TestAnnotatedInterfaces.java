@@ -36,6 +36,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableFactory;
 
 public class TestAnnotatedInterfaces extends TestCase {
 
@@ -43,10 +44,7 @@ public class TestAnnotatedInterfaces extends TestCase {
     public void testAnnotatedPojo() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
 
-        Handsontable<UserDTO> table2 = 
-                Handsontable
-                .createHandsontable(UserDTO.class)
-                .withData(getUsersData());
+        Handsontable<UserDTO> table2 = HandsontableFactory.createHandsontable(UserDTO.class).withData(getUsersData());
 
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table2));

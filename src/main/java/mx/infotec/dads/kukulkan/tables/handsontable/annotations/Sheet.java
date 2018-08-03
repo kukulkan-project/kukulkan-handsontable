@@ -31,6 +31,11 @@ import java.lang.annotation.Target;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 
+/**
+ * Annotation for POJO class used to overwrite default Handsontable options
+ * @author Roberto Villarejo Martínez
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Sheet {

@@ -24,21 +24,27 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.buildColumn;
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.camelCaseToHumanReadable;
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.inferHandsontableType;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
 
 import java.lang.reflect.Field;
 
-public class PlainPojoNamingStrategy extends AbstractNamingStrategy {
+/**
+ * The POJO Build Strategy
+ * Used for build a Handsontable from a POJO class (with no annotations)
+ * @author Roberto Villarejo Martínez
+ *
+ */
+public class PojoBuildStrategy extends AbstractBuildStrategy {
 
     @Override
-    public Column makeColumn(Field field) {
-        return buildColumn(inferHandsontableType(field)).withData(field.getName());
+    public Column buildColumn(Field field) {
+        return getColumn(inferHandsontableType(field)).withData(field.getName());
     }
 
     @Override
-    public String makeHeader(Field field) {
+    public String builderHeader(Field field) {
         return camelCaseToHumanReadable(field.getName());
     }
 

@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A Time column (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class TimeColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class TimeColumn extends Column {
 
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.TIME;
+        return Type.TIME;
     }
 
 }

@@ -24,10 +24,9 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.buildColumn;
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.inferHandsontableType;
-
-import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilderUtils.camelCaseToHumanReadable;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
 
 import java.lang.reflect.Field;
 import java.util.Optional;
@@ -36,10 +35,16 @@ import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
-public class AnnotationNamingStrategy extends AbstractNamingStrategy {
+/**
+ * The Annotation Build Strategy
+ * Used for build a Handsontable from an annotated class
+ * @author Roberto Villarejo Martínez
+ *
+ */
+public class AnnotationBuildStrategy extends AbstractBuildStrategy {
 
     @Override
-    public Column makeColumn(Field field) {
+    public Column buildColumn(Field field) {
         Optional<SheetColumn> annotation = getSheetColumnAnnotation(field);
         if (annotation.isPresent()) {
             HandsontableOptions.Type type;
@@ -48,13 +53,13 @@ public class AnnotationNamingStrategy extends AbstractNamingStrategy {
             } else {
                 type = annotation.get().type();
             }
-            return buildColumn(type).withData(field.getName());
+            return getColumn(type).withData(field.getName());
         }
         return null;
     }
 
     @Override
-    public String makeHeader(Field field) {
+    public String builderHeader(Field field) {
         Optional<SheetColumn> annotation = getSheetColumnAnnotation(field);
         if (annotation.isPresent()) {
             if (!"".equals(annotation.get().title())) {
@@ -67,11 +72,11 @@ public class AnnotationNamingStrategy extends AbstractNamingStrategy {
     }
 
     @Override
-    public <T> HandsontableOptions makeOptions(Class<T> clazz) {
+    public <T> HandsontableOptions buildOptions(Class<T> clazz) {
         if (clazz.isAnnotationPresent(Sheet.class)) {
             return new AnnotationHandsontableAdapter(clazz.getAnnotation(Sheet.class));
         }
-        return super.makeOptions(clazz);
+        return super.buildOptions(clazz);
     }
 
     private Optional<SheetColumn> getSheetColumnAnnotation(Field field) {

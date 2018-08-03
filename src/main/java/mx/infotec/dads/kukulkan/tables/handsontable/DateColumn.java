@@ -24,6 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+/**
+ * A DateColumn (also called cell type)
+ * @author Roberto Villarejo Martínez
+ *
+ */
 public class DateColumn extends Column {
 
     /**
@@ -41,7 +46,7 @@ public class DateColumn extends Column {
     
     @Override
     public Type getType() {
-        return Type.HANDSONTABLE.DATE;
+        return Type.DATE;
     }
 
 }
