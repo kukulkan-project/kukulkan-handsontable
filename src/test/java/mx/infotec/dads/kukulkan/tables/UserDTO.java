@@ -12,25 +12,25 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 @Sheet(minRows = 20, readOnly = true)
 public class UserDTO {
 
-    @SheetColumn(type = Type.TEXT, title = "ID")
+    @SheetColumn(title = "ID")
     private String id;
 
-    @SheetColumn(type = Type.TEXT)
+    @SheetColumn
     private String login;
 
     private String firstName;
 
     private String lastName;
 
-    @SheetColumn(type = Type.TEXT)
+    @SheetColumn
     private String email;
 
     private String imageUrl;
 
-    @SheetColumn(type = Type.CHECKBOX)
+    @SheetColumn
     private boolean activated = false;
 
-    @SheetColumn(type = Type.TEXT)
+    @SheetColumn
     private String langKey;
 
     private String createdBy;
@@ -38,13 +38,13 @@ public class UserDTO {
     @SheetColumn(type = Type.DATE)
     private String createdDate;
 
-    @SheetColumn(type = Type.TEXT)
+    @SheetColumn
     private String lastModifiedBy;
 
     @SheetColumn(type = Type.DATE)
     private String lastModifiedDate;
 
-    @SheetColumn(type = Type.TEXT)
+    @SheetColumn
     private Set<String> authorities;
 
     public UserDTO() {

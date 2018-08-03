@@ -37,15 +37,16 @@ import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.PasswordColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.SelectColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
  * Utils for Handsontable building
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -57,26 +58,39 @@ public class HandsontableBuilderUtils {
 
     /**
      * Infers the Handsontable Column type from the Type of field
+     * 
      * @param field
      * @return
      */
     public static HandsontableOptions.Type inferHandsontableType(Field field) {
         Class<?> clazz = field.getType();
-        if (clazz.equals(String.class)) {
-            return Type.TEXT;
-        } else if (clazz.equals(Integer.class) || clazz.equals(Long.class) || clazz.equals(BigDecimal.class)) {
+        if (isNumeric(clazz)) {
             return Type.NUMERIC;
-        } else if (clazz.equals(Boolean.class)) {
+        } else if (isBoolean(clazz)) {
             return Type.CHECKBOX;
-        } else if (clazz.equals(LocalDate.class) || (clazz.equals(ZonedDateTime.class))
-                || clazz.equals(Instant.class)) {
+        } else if (isDate(clazz)) {
             return Type.DATE;
         }
         return Type.TEXT;
     }
 
+    public static boolean isDate(Class<?> clazz) {
+        return clazz.equals(LocalDate.class) || (clazz.equals(ZonedDateTime.class)) || clazz.equals(Instant.class);
+    }
+
+    public static boolean isBoolean(Class<?> clazz) {
+        return clazz.equals(Boolean.class) || clazz.equals(boolean.class);
+    }
+
+    public static boolean isNumeric(Class<?> clazz) {
+        return clazz.equals(Integer.class) || clazz.equals(int.class) || clazz.equals(Long.class)
+                || clazz.equals(long.class) || clazz.equals(Float.class) || clazz.equals(float.class)
+                || clazz.equals(Double.class) || clazz.equals(double.class) || clazz.equals(BigDecimal.class);
+    }
+
     /**
      * Instantiates a new column of given type
+     * 
      * @param type
      * @return the concrete column
      */
@@ -127,7 +141,9 @@ public class HandsontableBuilderUtils {
 
     /**
      * Split a camel case string into tokens
-     * @param s the camel case string
+     * 
+     * @param s
+     *            the camel case string
      * @return the tokens
      */
     public static String splitCamelCase(String s) {
@@ -136,7 +152,7 @@ public class HandsontableBuilderUtils {
     }
 
     /**
-     * Converts a camel case string to human readable string 
+     * Converts a camel case string to human readable string
      * 
      * @param camelCase
      * @return the human readable string
