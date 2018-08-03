@@ -12,12 +12,8 @@
 		"Last Modified By",
 		"Last Modified Date"
 	],
-	"height": 440,
 	"contextMenu": true,
-	"minSpareRows": true,
 	"columnSorting": true,
-	"colWidths": 125,
-	"rowHeights": 25,
 	"minRows": 20,
 	"data": [
 		{

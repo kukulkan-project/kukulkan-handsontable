@@ -9,7 +9,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 /**
  * A DTO representing a user, with his authorities.
  */
-@Sheet(minRows = 20, height = 440, colWidths = 125, rowHeights = 25)
+@Sheet(minRows = 20, readOnly = true)
 public class UserDTO {
 
     @SheetColumn(type = Type.TEXT, title = "ID")

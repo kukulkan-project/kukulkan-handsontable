@@ -148,10 +148,6 @@
             "type": "boolean",
             "description": "Disables visual cells selection"
         },
-        "editor": {
-            "type": "string",
-            "description": "Defines the editor for the table/column/cell"
-        },
         "enterBeginsEditing": {
             "type": "boolean",
             "description": "If true, ENTER begins editing mode (like in Google Docs). If false, ENTER moves to next row (like Excel) and adds a new row if necessary. TAB adds new column if necessary"
@@ -216,10 +212,6 @@
             "type": "integer",
             "description": "Maximum number of rows. If set to a value lower than the initial row count, the data will be trimmed to the provided value as the number of rows."
         },
-        "mergeCells": {
-            "type": "boolean",
-            "description": "If set to true, it enables a possibility to merge cells. If set to an array of objects, it merges the cells provided in the objects (see the example below). More information on the demo page"
-        },
         "minCols": {
             "type": "integer",
             "description": "Minimum number of columns. At least that number of columns will be created during initialization"
@@ -275,10 +267,6 @@
         "renderAllRows": {
             "type": "boolean",
             "description": "If typed true then virtual rendering mechanism for handsontable will be disabled"
-        },
-        "renderer": {
-            "type": "string",
-            "description": "If a string is provided, it may be one of the following predefined values: autocomplete, checkbox, html, numeric, password. text"
         },
         "rowHeaderWidth": {
             "type": "integer",
@@ -341,10 +329,6 @@
         "tableClassName": {
             "type": "string",
             "description": "Class name for all tables inside container element"
-        },
-        "title": {
-            "type": "string",
-            "description": "Defines the column header name"
         },
         "trimDropdown": {
             "type": "boolean",

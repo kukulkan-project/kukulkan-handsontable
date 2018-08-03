@@ -255,12 +255,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public String getEditor() {
-
-        return options.getEditor();
-    }
-
-    @Override
     public Boolean getEnterBeginsEditing() {
 
         return options.getEnterBeginsEditing();
@@ -357,12 +351,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public Boolean getMergeCells() {
-
-        return options.getMergeCells();
-    }
-
-    @Override
     public Integer getMinCols() {
 
         return options.getMinCols();
@@ -447,12 +435,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public String getRenderer() {
-
-        return options.getRenderer();
-    }
-
-    @Override
     public Boolean getRowHeaders() {
 
         return options.getRowHeaders();
@@ -534,12 +516,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     public String getTableClassName() {
 
         return options.getTableClassName();
-    }
-
-    @Override
-    public String getTitle() {
-
-        return options.getTitle();
     }
 
     @Override
@@ -807,12 +783,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public void setEditor(String editor) {
-
-        options.setEditor(editor);
-    }
-
-    @Override
     public void setEnterBeginsEditing(Boolean enterBeginsEditing) {
 
         options.setEnterBeginsEditing(enterBeginsEditing);
@@ -909,12 +879,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public void setMergeCells(Boolean mergeCells) {
-
-        options.setMergeCells(mergeCells);
-    }
-
-    @Override
     public void setMinCols(Integer minCols) {
 
         options.setMinCols(minCols);
@@ -999,12 +963,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public void setRenderer(String renderer) {
-
-        options.setRenderer(renderer);
-    }
-
-    @Override
     public void setRowHeaders(Boolean rowHeaders) {
 
         options.setRowHeaders(rowHeaders);
@@ -1086,12 +1044,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     public void setTableClassName(String tableClassName) {
 
         options.setTableClassName(tableClassName);
-    }
-
-    @Override
-    public void setTitle(String title) {
-
-        options.setTitle(title);
     }
 
     @Override
@@ -1358,12 +1310,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public HandsontableOptions withEditor(String editor) {
-
-        return options.withEditor(editor);
-    }
-
-    @Override
     public HandsontableOptions withEnterBeginsEditing(Boolean enterBeginsEditing) {
 
         return options.withEnterBeginsEditing(enterBeginsEditing);
@@ -1460,12 +1406,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public HandsontableOptions withMergeCells(Boolean mergeCells) {
-
-        return options.withMergeCells(mergeCells);
-    }
-
-    @Override
     public HandsontableOptions withMinCols(Integer minCols) {
 
         return options.withMinCols(minCols);
@@ -1550,12 +1490,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public HandsontableOptions withRenderer(String renderer) {
-
-        return options.withRenderer(renderer);
-    }
-
-    @Override
     public HandsontableOptions withRowHeaders(Boolean rowHeaders) {
 
         return options.withRowHeaders(rowHeaders);
@@ -1637,12 +1571,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     public HandsontableOptions withTableClassName(String tableClassName) {
 
         return options.withTableClassName(tableClassName);
-    }
-
-    @Override
-    public HandsontableOptions withTitle(String title) {
-
-        return options.withTitle(title);
     }
 
     @Override
