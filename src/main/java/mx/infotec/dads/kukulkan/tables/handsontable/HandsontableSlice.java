@@ -10,17 +10,64 @@ import org.springframework.data.domain.Sort;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * A Handsontable Slice
+ * 
+ * @author Roberto Villarejo Martínez
+ *
+ * @param <T>
+ */
 public class HandsontableSlice<T> extends Handsontable<T> implements Slice<T> {
 
     /**
      * 
      */
     private static final long serialVersionUID = -8044172177535025004L;
-    protected transient Slice<T> slice;
+    private transient Slice<T> slice;
+    private Handsontable<T> table;
 
-    public HandsontableSlice(Slice<T> slice) {
-        super();
+    public HandsontableSlice(Handsontable<T> table, Slice<T> slice) {
+        super(table);
         this.slice = slice;
+        this.table = table;
+    }
+
+    @Override
+    public List<T> getData() {
+        return slice.getContent();
+    }
+
+    @Override
+    public void setData(List<T> data) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<Column> getColumns() {
+        return table.getColumns();
+    }
+
+    @Override
+    public void setColumns(List<Column> columns) {
+        table.setColumns(columns);
+    }
+
+    @Override
+    public HandsontableSlice<T> withData(List<T> data) {
+        table.setData(data);
+        return this;
+    }
+
+    @Override
+    public HandsontableSlice<T> withColumns(List<Column> columns) {
+        table.setColumns(columns);
+        return this;
+    }
+
+    @Override
+    public HandsontableSlice<T> withOptions(HandsontableOptions options) {
+        this.options = options;
+        return this;
     }
 
     @JsonIgnore
