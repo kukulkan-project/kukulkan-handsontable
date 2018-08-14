@@ -26,6 +26,7 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 /**
  * A Checkbox column (also called cell type)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -36,12 +37,22 @@ public class CheckboxColumn extends Column {
      */
     private static final long serialVersionUID = -3611024490311044626L;
 
+    private Label label = null;
+
     public CheckboxColumn(HandsontableOptions options) {
         super(options);
     }
 
     public CheckboxColumn() {
         super();
+    }
+
+    public Label getLabel() {
+        return label;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
     }
 
     @Override

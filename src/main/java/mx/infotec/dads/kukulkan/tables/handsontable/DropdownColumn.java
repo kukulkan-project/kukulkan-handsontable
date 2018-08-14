@@ -24,8 +24,6 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import java.util.List;
-
 /**
  * A Dropdown column (also called cell type)
  * 
