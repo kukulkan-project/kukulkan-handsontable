@@ -29,6 +29,8 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.AutocompleteColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
@@ -70,8 +72,14 @@ public class HandsontableBuilderUtils {
             return Type.CHECKBOX;
         } else if (isDate(clazz)) {
             return Type.DATE;
+        } else if (isEnum(clazz)) {
+            return Type.DROPDOWN;
         }
         return Type.TEXT;
+    }
+
+    private static boolean isEnum(Class<?> clazz) {
+        return clazz.isEnum();
     }
 
     public static boolean isDate(Class<?> clazz) {
@@ -135,6 +143,41 @@ public class HandsontableBuilderUtils {
 
         default:
             column = new TextColumn();
+        }
+        return column;
+    }
+
+    public static Column rebuildColumn(HandsontableOptions.Type type, Column column, Class<?> clazz) {
+        switch (type) {
+        case NUMERIC:
+            break;
+
+        case DATE:
+            break;
+
+        case TIME:
+            break;
+
+        case CHECKBOX:
+            break;
+
+        case SELECT:
+            break;
+
+        case DROPDOWN:
+            column.withSource(
+                    Arrays.stream(clazz.getEnumConstants()).map(Object::toString).collect(Collectors.toList()));
+            break;
+
+        case AUTOCOMPLETE:
+            break;
+
+        case PASSWORD:
+            break;
+
+        case HANDSONTABLE:
+            break;
+        default:
         }
         return column;
     }

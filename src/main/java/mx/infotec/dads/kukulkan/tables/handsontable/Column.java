@@ -24,8 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+import java.util.List;
+
 /**
  * An abstract column (also called cell type)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -61,6 +64,12 @@ public abstract class Column extends HandsontableOptionsDecorator {
     @Override
     public Column withOptions(HandsontableOptions options) {
         this.options = options;
+        return this;
+    }
+
+    @Override
+    public Column withSource(List<Object> source) {
+        this.setSource(source);
         return this;
     }
 

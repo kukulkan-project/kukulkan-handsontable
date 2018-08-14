@@ -1,8 +1,11 @@
 package mx.infotec.dads.kukulkan.tables;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.json.JSONException;
 import org.junit.Test;
@@ -13,9 +16,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.TestCase;
+import mx.infotec.dads.kukulkan.tables.UserDTO.Genre;
 import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
 import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
 
@@ -44,18 +49,18 @@ import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
  */
 
 public class TestFluentApi extends TestCase {
-    
+
     @Test
     public void testValidHandsontableObject() throws JsonProcessingException, JSONException {
         String json = TestUtils.getResourceFileAsString("handsontable.json");
-        Handsontable<UserDTO> table = getHandsontable();        
+        Handsontable<UserDTO> table = getHandsontable();
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
     }
-    
+
     public static Handsontable<UserDTO> getHandsontable() {
-        Handsontable<UserDTO> table = new Handsontable<>(); 
+        Handsontable<UserDTO> table = new Handsontable<>();
         List<String> colHeaders = new ArrayList<>();
         colHeaders.add("ID");
         colHeaders.add("Login");
@@ -66,7 +71,8 @@ public class TestFluentApi extends TestCase {
         colHeaders.add("Created Date");
         colHeaders.add("Last Modified By");
         colHeaders.add("Last Modified Date");
-        
+        colHeaders.add("Genre");
+
         List<Column> columns = new ArrayList<>();
         columns.add(new TextColumn().withData("id"));
         columns.add(new TextColumn().withData("login"));
@@ -77,22 +83,14 @@ public class TestFluentApi extends TestCase {
         columns.add(new DateColumn().withData("createdDate"));
         columns.add(new TextColumn().withData("lastModifiedBy"));
         columns.add(new DateColumn().withData("lastModifiedDate"));
-        
-        table
-            .withData(getUsersData())
-            .withColumns(columns)
-            .withRowHeaders(true)
-            .withColHeaders(colHeaders)
-            .withHeight(440)
-            .withContextMenu(true)
-            .withMinSpareRows(true)
-            .withColumnSorting(true)
-            .withColWidths(125)
-            .withRowHeights(25)
-            .withMinRows(20)
-            .withReadOnly(true);
+        columns.add(new DropdownColumn().withData("genre")
+                .withSource(Arrays.stream(UserDTO.Genre.values()).map(Object::toString).collect(Collectors.toList())));
+
+        table.withData(getUsersData()).withColumns(columns).withRowHeaders(true).withColHeaders(colHeaders)
+                .withHeight(440).withContextMenu(true).withMinSpareRows(true).withColumnSorting(true).withColWidths(125)
+                .withRowHeights(25).withMinRows(20).withReadOnly(true);
         return table;
-        
+
     }
 
     public static List<UserDTO> getUsersData() {
@@ -100,7 +98,7 @@ public class TestFluentApi extends TestCase {
         Set<String> authorities = new HashSet<>();
         authorities.add("ROLE_USER");
         UserDTO user = new UserDTO("user-33", "admin", "firstName", "lastName", "admin@infotec.mx", true, null, "es",
-                "system", "14/02/18 14:05", "system", "14/02/18 14:05", authorities);
+                "system", "14/02/18 14:05", "system", "14/02/18 14:05", authorities, Genre.MALE);
         users.add(user);
         return users;
     }

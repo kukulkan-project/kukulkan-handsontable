@@ -27,6 +27,7 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.rebuildColumn;
 
 import java.lang.reflect.Field;
 import java.util.Optional;
@@ -36,8 +37,9 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 /**
- * The Annotation Build Strategy
- * Used for build a Handsontable from an annotated class
+ * The Annotation Build Strategy Used for build a Handsontable from an annotated
+ * class
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -53,7 +55,7 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
             } else {
                 type = annotation.get().type();
             }
-            return getColumn(type).withData(field.getName());
+            return rebuildColumn(type, getColumn(type).withData(field.getName()), field.getType());
         }
         return null;
     }

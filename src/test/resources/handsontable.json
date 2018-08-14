@@ -10,7 +10,8 @@
 		"Authorities",
 		"Created Date",
 		"Last Modified By",
-		"Last Modified Date"
+		"Last Modified Date",
+		"Genre"
 	],
 	"contextMenu": true,
 	"columnSorting": true,
@@ -22,10 +23,13 @@
 			"email": "admin@infotec.mx",
 			"activated": true,
 			"langKey": "es",
-			"authorities": ["ROLE_USER"],
+			"authorities": [
+				"ROLE_USER"
+			],
 			"createdDate": "14/02/18 14:05",
 			"lastModifiedBy": "system",
-			"lastModifiedDate": "14/02/18 14:05"
+			"lastModifiedDate": "14/02/18 14:05",
+			"genre": "MALE"
 		}
 	],
 	"columns": [
@@ -64,6 +68,14 @@
 		{
 			"data": "lastModifiedDate",
 			"type": "date"
+		},
+		{
+			"data": "genre",
+			"type": "dropdown",
+			"source": [
+				"MALE",
+				"FEMALE"
+			]
 		}
 	]
 }

@@ -47,13 +47,16 @@ public class UserDTO {
     @SheetColumn
     private Set<String> authorities;
 
+    @SheetColumn
+    private Genre genre;
+
     public UserDTO() {
         // Empty constructor needed for MapStruct.
     }
 
     public UserDTO(String id, String login, String firstName, String lastName, String email, boolean activated,
             String imageUrl, String langKey, String createdBy, String createdDate, String lastModifiedBy,
-            String lastModifiedDate, Set<String> authorities) {
+            String lastModifiedDate, Set<String> authorities, Genre genre) {
 
         this.id = id;
         this.login = login;
@@ -68,6 +71,7 @@ public class UserDTO {
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
         this.authorities = authorities;
+        this.genre = genre;
     }
 
     public String getId() {
@@ -132,6 +136,18 @@ public class UserDTO {
 
     public Set<String> getAuthorities() {
         return authorities;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    enum Genre {
+        MALE, FEMALE
     }
 
     @Override
