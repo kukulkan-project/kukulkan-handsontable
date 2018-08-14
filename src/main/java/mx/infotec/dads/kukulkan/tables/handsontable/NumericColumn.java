@@ -24,8 +24,11 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+import java.io.Serializable;
+
 /**
  * A Numeric column (also called cell type)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -35,9 +38,9 @@ public class NumericColumn extends Column {
      * 
      */
     private static final long serialVersionUID = -7520540712401891657L;
-    
-    protected String numericFormat;
-    
+
+    private NumericFormat numericFormat = new NumericFormat();
+
     public NumericColumn() {
         super();
     }
@@ -45,17 +48,47 @@ public class NumericColumn extends Column {
     public NumericColumn(HandsontableOptions options) {
     }
 
-    public String getNumericFormat() {
+    public NumericFormat getNumericFormat() {
         return numericFormat;
     }
 
-    public void setNumericFormat(String numericFormat) {
+    public void setNumericFormat(NumericFormat numericFormat) {
         this.numericFormat = numericFormat;
     }
-    
+
+    public NumericColumn withNumericFormat(NumericFormat numericFormat) {
+        this.numericFormat = numericFormat;
+        return this;
+    }
+
     @Override
     public Type getType() {
         return Type.NUMERIC;
+    }
+
+    public class NumericFormat implements Serializable {
+        /**
+         * 
+         */
+        private static final long serialVersionUID = -747188278509123735L;
+        String pattern = "0,00";
+        String culture = "es-MX";
+
+        public String getPattern() {
+            return pattern;
+        }
+
+        public void setPattern(String pattern) {
+            this.pattern = pattern;
+        }
+
+        public String getCulture() {
+            return culture;
+        }
+
+        public void setCulture(String culture) {
+            this.culture = culture;
+        }
     }
 
 }

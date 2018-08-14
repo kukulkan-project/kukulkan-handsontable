@@ -1,6 +1,5 @@
 package mx.infotec.dads.kukulkan.tables;
 
-import java.time.LocalTime;
 import java.util.Set;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
@@ -54,13 +53,16 @@ public class UserDTO {
     @SheetColumn(type = Type.TIME)
     private String lastLogin;
 
+    @SheetColumn
+    private Integer followers;
+
     public UserDTO() {
         // Empty constructor needed for MapStruct.
     }
 
     public UserDTO(String id, String login, String firstName, String lastName, String email, boolean activated,
             String imageUrl, String langKey, String createdBy, String createdDate, String lastModifiedBy,
-            String lastModifiedDate, Set<String> authorities, Genre genre, String lastLogin) {
+            String lastModifiedDate, Set<String> authorities, Genre genre, String lastLogin, Integer followers) {
 
         this.id = id;
         this.login = login;
@@ -77,6 +79,7 @@ public class UserDTO {
         this.authorities = authorities;
         this.genre = genre;
         this.lastLogin = lastLogin;
+        this.followers = followers;
     }
 
     public String getId() {
@@ -157,6 +160,14 @@ public class UserDTO {
 
     public void setLastLogin(String lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public Integer getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Integer followers) {
+        this.followers = followers;
     }
 
     enum Genre {

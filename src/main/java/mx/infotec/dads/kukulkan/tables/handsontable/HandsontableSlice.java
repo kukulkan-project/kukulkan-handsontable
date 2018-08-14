@@ -154,4 +154,16 @@ public class HandsontableSlice<T> extends Handsontable<T> implements Slice<T> {
         return slice.map(converter);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", data=").append(slice.getContent());
+        sb.append(", columns=").append(table.columns);
+        sb.append("]");
+        return sb.toString();
+    }
+
 }

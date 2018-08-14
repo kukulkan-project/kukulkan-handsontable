@@ -28,9 +28,11 @@ import java.util.List;
 
 /**
  * A Handsontable
+ * 
  * @author Roberto Villarejo Martínez
  *
- * @param <T> the Type of data that will contain this table
+ * @param <T>
+ *            the Type of data that will contain this table
  */
 public class Handsontable<T> extends HandsontableOptionsDecorator {
 
@@ -79,6 +81,18 @@ public class Handsontable<T> extends HandsontableOptionsDecorator {
     public Handsontable<T> withOptions(HandsontableOptions options) {
         this.options = options;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", data=").append(data);
+        sb.append(", columns=").append(columns);
+        sb.append("]");
+        return sb.toString();
     }
 
 }
