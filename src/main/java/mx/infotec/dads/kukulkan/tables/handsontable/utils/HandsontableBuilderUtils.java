@@ -28,6 +28,8 @@ import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.OffsetTime;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -74,11 +76,17 @@ public class HandsontableBuilderUtils {
             return Type.DATE;
         } else if (isEnum(clazz)) {
             return Type.DROPDOWN;
+        } else if (isTime(clazz)) {
+            return Type.TIME;
         }
         return Type.TEXT;
     }
 
-    private static boolean isEnum(Class<?> clazz) {
+    public static boolean isTime(Class<?> clazz) {
+        return clazz.equals(LocalTime.class) || clazz.equals(OffsetTime.class);
+    }
+
+    public static boolean isEnum(Class<?> clazz) {
         return clazz.isEnum();
     }
 
@@ -157,7 +165,6 @@ public class HandsontableBuilderUtils {
 
         case TIME:
             break;
-
         case CHECKBOX:
             break;
 

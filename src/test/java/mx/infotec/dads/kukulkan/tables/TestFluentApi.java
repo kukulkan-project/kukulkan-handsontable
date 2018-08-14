@@ -1,5 +1,6 @@
 package mx.infotec.dads.kukulkan.tables;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
 
 /*
  *  
@@ -72,6 +74,7 @@ public class TestFluentApi extends TestCase {
         colHeaders.add("Last Modified By");
         colHeaders.add("Last Modified Date");
         colHeaders.add("Genre");
+        colHeaders.add("Last Login");
 
         List<Column> columns = new ArrayList<>();
         columns.add(new TextColumn().withData("id"));
@@ -85,6 +88,7 @@ public class TestFluentApi extends TestCase {
         columns.add(new DateColumn().withData("lastModifiedDate"));
         columns.add(new DropdownColumn().withData("genre")
                 .withSource(Arrays.stream(UserDTO.Genre.values()).map(Object::toString).collect(Collectors.toList())));
+        columns.add(new TimeColumn().withData("lastLogin"));
 
         table.withData(getUsersData()).withColumns(columns).withRowHeaders(true).withColHeaders(colHeaders)
                 .withHeight(440).withContextMenu(true).withMinSpareRows(true).withColumnSorting(true).withColWidths(125)
@@ -98,7 +102,7 @@ public class TestFluentApi extends TestCase {
         Set<String> authorities = new HashSet<>();
         authorities.add("ROLE_USER");
         UserDTO user = new UserDTO("user-33", "admin", "firstName", "lastName", "admin@infotec.mx", true, null, "es",
-                "system", "14/02/18 14:05", "system", "14/02/18 14:05", authorities, Genre.MALE);
+                "system", "14/02/18 14:05", "system", "14/02/18 14:05", authorities, Genre.MALE, "10:15:30");
         users.add(user);
         return users;
     }

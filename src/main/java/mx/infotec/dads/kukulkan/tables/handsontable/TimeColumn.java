@@ -26,6 +26,7 @@ package mx.infotec.dads.kukulkan.tables.handsontable;
 
 /**
  * A Time column (also called cell type)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -35,6 +36,11 @@ public class TimeColumn extends Column {
      * 
      */
     private static final long serialVersionUID = 4504992923353059350L;
+
+    /**
+     * The time format for data
+     */
+    private String timeFormat = null;
 
     public TimeColumn(HandsontableOptions options) {
         super(options);
@@ -47,6 +53,19 @@ public class TimeColumn extends Column {
     @Override
     public Type getType() {
         return Type.TIME;
+    }
+
+    public String getTimeFormat() {
+        return timeFormat;
+    }
+
+    public void setTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+    }
+
+    public TimeColumn withTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+        return this;
     }
 
 }

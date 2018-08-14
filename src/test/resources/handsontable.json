@@ -11,7 +11,8 @@
 		"Created Date",
 		"Last Modified By",
 		"Last Modified Date",
-		"Genre"
+		"Genre",
+		"Last Login"
 	],
 	"contextMenu": true,
 	"columnSorting": true,
@@ -29,7 +30,8 @@
 			"createdDate": "14/02/18 14:05",
 			"lastModifiedBy": "system",
 			"lastModifiedDate": "14/02/18 14:05",
-			"genre": "MALE"
+			"genre": "MALE",
+			"lastLogin": "10:15:30"
 		}
 	],
 	"columns": [
@@ -76,6 +78,10 @@
 				"MALE",
 				"FEMALE"
 			]
+		},
+		{
+			"type": "time",
+			"data": "lastLogin"
 		}
 	]
 }
