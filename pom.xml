@@ -5,7 +5,7 @@
 
 	<groupId>mx.infotec.dads.kukulkan</groupId>
 	<artifactId>kukulkan-tables</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>kukulkan-tables</name>

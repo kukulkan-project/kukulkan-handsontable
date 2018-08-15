@@ -23,7 +23,6 @@ import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
 import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn.NumericFormat;
 import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
 
