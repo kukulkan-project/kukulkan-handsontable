@@ -26,6 +26,8 @@ import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
 
+import static mx.infotec.dads.kukulkan.tables.handsontable.HandsontableBuilder.Handsontable;
+
 /*
  *  
  * The MIT License (MIT)
@@ -59,6 +61,21 @@ public class TestFluentApi extends TestCase {
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(table));
         JSONAssert.assertEquals(json, mapper.writeValueAsString(table), JSONCompareMode.LENIENT);
+    }
+    
+    public void testDsl() {
+        Handsontable()
+            .colHeaders("ID", "Login")
+            .columns()
+                .numericColumn()
+                    .numericFormatPattern("")
+                .textColumn()
+                    .data("")
+             .options()
+                 .allowEmpty(true)
+                 .readOnly(true)
+             .fromClass(UserDTO.class)
+             .data(getUsersData());
     }
 
     public static Handsontable<UserDTO> getHandsontable() {

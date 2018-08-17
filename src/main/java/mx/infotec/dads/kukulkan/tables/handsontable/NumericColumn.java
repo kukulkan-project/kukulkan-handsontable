@@ -76,7 +76,7 @@ public class NumericColumn extends Column {
 
         public NumericFormat() {
         }
-        
+
         public NumericFormat(String pattern) {
             this.pattern = pattern;
         }
