@@ -99,9 +99,13 @@ public class HandsontableBuilderUtils {
     }
 
     public static boolean isNumeric(Class<?> clazz) {
-        return clazz.equals(Integer.class) || clazz.equals(int.class) || clazz.equals(Long.class)
-                || clazz.equals(long.class) || clazz.equals(Float.class) || clazz.equals(float.class)
+        return isRealNumeric(clazz) || clazz.equals(Float.class) || clazz.equals(float.class)
                 || clazz.equals(Double.class) || clazz.equals(double.class) || clazz.equals(BigDecimal.class);
+    }
+
+    public static boolean isRealNumeric(Class<?> clazz) {
+        return clazz.equals(Integer.class) || clazz.equals(int.class) || clazz.equals(Long.class)
+                || clazz.equals(long.class);
     }
 
     /**
@@ -110,11 +114,15 @@ public class HandsontableBuilderUtils {
      * @param type
      * @return the concrete column
      */
-    public static Column getColumn(Type type) {
+    public static Column getColumn(Type type, Class<?> clazz) {
         Column column;
         switch (type) {
         case NUMERIC:
-            column = new NumericColumn();
+            NumericColumn numericColumn = new NumericColumn();
+            if (isRealNumeric(clazz)) {
+                numericColumn.getNumericFormat().setPattern("0,00");
+            }
+            column = numericColumn;
             break;
 
         case DATE:
@@ -134,7 +142,8 @@ public class HandsontableBuilderUtils {
             break;
 
         case DROPDOWN:
-            column = new DropdownColumn();
+            column = new DropdownColumn().withSource(
+                    Arrays.stream(clazz.getEnumConstants()).map(Object::toString).collect(Collectors.toList()));
             break;
 
         case AUTOCOMPLETE:
@@ -151,40 +160,6 @@ public class HandsontableBuilderUtils {
 
         default:
             column = new TextColumn();
-        }
-        return column;
-    }
-
-    public static Column rebuildColumn(HandsontableOptions.Type type, Column column, Class<?> clazz) {
-        switch (type) {
-        case NUMERIC:
-            break;
-
-        case DATE:
-            break;
-
-        case TIME:
-            break;
-        case CHECKBOX:
-            break;
-
-        case SELECT:
-            break;
-
-        case DROPDOWN:
-            column.withSource(
-                    Arrays.stream(clazz.getEnumConstants()).map(Object::toString).collect(Collectors.toList()));
-            break;
-
-        case AUTOCOMPLETE:
-            break;
-
-        case PASSWORD:
-            break;
-
-        case HANDSONTABLE:
-            break;
-        default:
         }
         return column;
     }

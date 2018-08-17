@@ -71,8 +71,15 @@ public class NumericColumn extends Column {
          * 
          */
         private static final long serialVersionUID = -747188278509123735L;
-        String pattern = "0,00";
+        String pattern = "0,00.00";
         String culture = "es-MX";
+
+        public NumericFormat() {
+        }
+        
+        public NumericFormat(String pattern) {
+            this.pattern = pattern;
+        }
 
         public String getPattern() {
             return pattern;
@@ -88,6 +95,18 @@ public class NumericColumn extends Column {
 
         public void setCulture(String culture) {
             this.culture = culture;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getSimpleName());
+            sb.append(" [");
+            sb.append("Hash = ").append(hashCode());
+            sb.append(", pattern=").append(pattern);
+            sb.append(", culture=").append(culture);
+            sb.append("]");
+            return sb.toString();
         }
     }
 

@@ -40,7 +40,7 @@ public class PojoBuildStrategy extends AbstractBuildStrategy {
 
     @Override
     public Column buildColumn(Field field) {
-        return getColumn(inferHandsontableType(field)).withData(field.getName());
+        return getColumn(inferHandsontableType(field), field.getType()).withData(field.getName());
     }
 
     @Override

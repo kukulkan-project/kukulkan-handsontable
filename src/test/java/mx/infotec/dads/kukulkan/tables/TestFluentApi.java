@@ -90,7 +90,9 @@ public class TestFluentApi extends TestCase {
         columns.add(new DropdownColumn().withData("genre")
                 .withSource(Arrays.stream(UserDTO.Genre.values()).map(Object::toString).collect(Collectors.toList())));
         columns.add(new TimeColumn().withData("lastLogin"));
-        columns.add(new NumericColumn().withData("followers"));
+        NumericColumn followersColumn = new NumericColumn();
+        followersColumn.getNumericFormat().setPattern("0,00");
+        columns.add(followersColumn.withData("followers"));
 
         table.withData(getUsersData()).withColumns(columns).withRowHeaders(true).withColHeaders(colHeaders)
                 .withHeight(440).withContextMenu(true).withMinSpareRows(true).withColumnSorting(true).withColWidths(125)
