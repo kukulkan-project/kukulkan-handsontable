@@ -39,7 +39,7 @@ public class AnnotationHandsontableAdapter extends HandsontableOptionsDecorator 
      */
     private static final long serialVersionUID = 1L;
 
-    private Sheet annotation;
+    private transient Sheet annotation;
 
     public AnnotationHandsontableAdapter(Sheet annotation) {
         this.annotation = annotation;

@@ -35,7 +35,7 @@ public interface BuildStrategy {
     
     Column buildColumn(Field field);
     
-    String builderHeader(Field field);
+    String buildHeader(Field field);
     
     <T> HandsontableOptions buildOptions(Class<T> clazz);
 

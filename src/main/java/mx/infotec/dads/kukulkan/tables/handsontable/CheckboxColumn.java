@@ -24,6 +24,8 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
+import java.io.Serializable;
+
 /**
  * A Checkbox column (also called cell type)
  * 
@@ -37,7 +39,7 @@ public class CheckboxColumn extends Column {
      */
     private static final long serialVersionUID = -3611024490311044626L;
 
-    private Label label = null;
+    private Label label;
 
     public CheckboxColumn(HandsontableOptions options) {
         super(options);
@@ -60,7 +62,7 @@ public class CheckboxColumn extends Column {
         return Type.CHECKBOX;
     }
 
-    public class Label {
+    public class Label implements Serializable {
         private String position;
         private String value;
 

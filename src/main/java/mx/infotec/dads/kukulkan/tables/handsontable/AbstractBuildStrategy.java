@@ -53,7 +53,7 @@ public abstract class AbstractBuildStrategy implements BuildStrategy {
      * Buils a header using information from the field
      */
     @Override
-    public String builderHeader(Field field) {
+    public String buildHeader(Field field) {
         return field.getName();
     }
 

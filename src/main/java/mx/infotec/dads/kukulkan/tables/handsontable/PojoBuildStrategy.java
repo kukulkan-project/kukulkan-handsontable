@@ -44,7 +44,7 @@ public class PojoBuildStrategy extends AbstractBuildStrategy {
     }
 
     @Override
-    public String builderHeader(Field field) {
+    public String buildHeader(Field field) {
         return camelCaseToHumanReadable(field.getName());
     }
 

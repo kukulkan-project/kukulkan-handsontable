@@ -61,7 +61,7 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
     }
 
     @Override
-    public String builderHeader(Field field) {
+    public String buildHeader(Field field) {
         Optional<SheetColumn> annotation = getSheetColumnAnnotation(field);
         if (annotation.isPresent()) {
             if (!"".equals(annotation.get().title())) {

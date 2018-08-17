@@ -1,7 +1,9 @@
 package mx.infotec.dads.kukulkan.tables.handsontable;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.AnnotationBuildStrategy;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
@@ -34,21 +36,31 @@ import mx.infotec.dads.kukulkan.tables.handsontable.BuildStrategy;
 
 /**
  * A Factory for Handsontable building
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
 public final class HandsontableFactory {
+
+    @SuppressWarnings("rawtypes")
+    private static WeakHashMap<Class, Handsontable> weakHashMap = new WeakHashMap<>();
 
     private HandsontableFactory() {
     }
 
     /**
      * Creates a Handsontable of type <T> with given {@link BuildStrategy} strategy
+     * 
      * @param clazz
      * @param strategy
      * @return the Handsontable
      */
+    @SuppressWarnings("unchecked")
     public static <T> Handsontable<T> getHandsontable(Class<T> clazz, BuildStrategy strategy) {
+        if (weakHashMap.containsKey(clazz)) {
+            return weakHashMap.get(clazz);
+        }
+
         Handsontable<T> table = new Handsontable<>();
         Field[] fields = clazz.getDeclaredFields();
         List<String> colHeaders = new ArrayList<>();
@@ -59,7 +71,7 @@ public final class HandsontableFactory {
                 columns.add(col);
 
             }
-            String header = strategy.builderHeader(field);
+            String header = strategy.buildHeader(field);
             if (header != null) {
                 colHeaders.add(header);
             }
@@ -67,11 +79,13 @@ public final class HandsontableFactory {
         table.withOptions(strategy.buildOptions(clazz));
         table.withColHeaders(colHeaders);
         table.withColumns(columns);
+        weakHashMap.put(clazz, table);
         return table;
     }
 
     /**
      * Creates a Handsontable of type <T>
+     * 
      * @param clazz
      * @return
      */
