@@ -22,31 +22,35 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
+
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * A Select column (also called cell type)
+ * A Password column (also called cell type)
  * @author Roberto Villarejo Martínez
  *
  */
-public class SelectColumn extends Column {
+public class PasswordColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = 6392896378029014887L;
-
-    public SelectColumn(HandsontableOptions options) {
+    private static final long serialVersionUID = 3607202508670375919L;
+    
+    public PasswordColumn(HandsontableOptions options) {
         super(options);
     }
-
-    public SelectColumn() {
+    
+    public PasswordColumn() {
         super();
     }
     
     @Override
     public Type getType() {
-        return Type.SELECT;
+        return Type.PASSWORD;
     }
 
 }

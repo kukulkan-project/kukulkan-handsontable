@@ -22,31 +22,35 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
+
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * A Password column (also called cell type)
+ * Autocomplete column (also called cell type)
  * @author Roberto Villarejo Martínez
  *
  */
-public class PasswordColumn extends Column {
-
+public class AutocompleteColumn extends Column {
+    
     /**
      * 
      */
-    private static final long serialVersionUID = 3607202508670375919L;
-    
-    public PasswordColumn(HandsontableOptions options) {
+    private static final long serialVersionUID = 426421856159787859L;
+
+    public AutocompleteColumn(HandsontableOptions options) {
         super(options);
     }
     
-    public PasswordColumn() {
+    public AutocompleteColumn() {
         super();
     }
     
     @Override
     public Type getType() {
-        return Type.PASSWORD;
+        return HandsontableOptions.Type.AUTOCOMPLETE;
     }
 
 }

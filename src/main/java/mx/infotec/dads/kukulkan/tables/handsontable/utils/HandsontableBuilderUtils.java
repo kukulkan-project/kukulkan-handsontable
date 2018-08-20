@@ -24,6 +24,8 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable.utils;
 
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
+
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -32,21 +34,23 @@ import java.time.LocalTime;
 import java.time.OffsetTime;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-import mx.infotec.dads.kukulkan.tables.handsontable.AutocompleteColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
-import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
-import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.PasswordColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.SelectColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.AutocompleteColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.CheckboxColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.DateColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.DropdownColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.HandsontableColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.NumericColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.PasswordColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.SelectColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.TextColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.TimeColumn;
 
 /**
  * Utils for Handsontable building
@@ -186,6 +190,25 @@ public class HandsontableBuilderUtils {
         String element = splitCamelCase(camelCase);
         return element.replaceFirst(Character.toString(element.charAt(0)),
                 Character.toString(element.charAt(0)).toUpperCase());
+    }
+
+    public static String buildHeaderFromAnnotatedProperty(Field field) {
+        Optional<SheetColumn> annotation = getSheetColumnAnnotation(field);
+        if (annotation.isPresent()) {
+            if (!"".equals(annotation.get().title())) {
+                return annotation.get().title();
+            } else {
+                return camelCaseToHumanReadable(field.getName());
+            }
+        }
+        return null;
+    }
+
+    private static Optional<SheetColumn> getSheetColumnAnnotation(Field field) {
+        if (field.isAnnotationPresent(SheetColumn.class)) {
+            return Optional.of(field.getAnnotation(SheetColumn.class));
+        }
+        return Optional.empty();
     }
 
 }

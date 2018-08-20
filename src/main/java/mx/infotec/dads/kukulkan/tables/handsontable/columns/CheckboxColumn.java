@@ -22,50 +22,70 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
+
+import java.io.Serializable;
+
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * A Time column (also called cell type)
+ * A Checkbox column (also called cell type)
  * 
  * @author Roberto Villarejo Martínez
  *
  */
-public class TimeColumn extends Column {
+public class CheckboxColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = 4504992923353059350L;
+    private static final long serialVersionUID = -3611024490311044626L;
 
-    /**
-     * The time format for data
-     */
-    private String timeFormat = null;
+    private Label label;
 
-    public TimeColumn(HandsontableOptions options) {
+    public CheckboxColumn(HandsontableOptions options) {
         super(options);
     }
 
-    public TimeColumn() {
+    public CheckboxColumn() {
         super();
+    }
+
+    public Label getLabel() {
+        return label;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
     }
 
     @Override
     public Type getType() {
-        return Type.TIME;
+        return Type.CHECKBOX;
     }
 
-    public String getTimeFormat() {
-        return timeFormat;
-    }
+    public class Label implements Serializable {
+        private String position;
+        private String value;
 
-    public void setTimeFormat(String timeFormat) {
-        this.timeFormat = timeFormat;
-    }
+        public String getPosition() {
+            return position;
+        }
 
-    public TimeColumn withTimeFormat(String timeFormat) {
-        this.timeFormat = timeFormat;
-        return this;
+        public void setPosition(String position) {
+            this.position = position;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
     }
 
 }

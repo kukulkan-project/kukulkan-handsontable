@@ -22,66 +22,54 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
 
-import java.io.Serializable;
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * A Checkbox column (also called cell type)
+ * A Time column (also called cell type)
  * 
  * @author Roberto Villarejo Martínez
  *
  */
-public class CheckboxColumn extends Column {
+public class TimeColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -3611024490311044626L;
+    private static final long serialVersionUID = 4504992923353059350L;
 
-    private Label label;
+    /**
+     * The time format for data
+     */
+    private String timeFormat = null;
 
-    public CheckboxColumn(HandsontableOptions options) {
+    public TimeColumn(HandsontableOptions options) {
         super(options);
     }
 
-    public CheckboxColumn() {
+    public TimeColumn() {
         super();
-    }
-
-    public Label getLabel() {
-        return label;
-    }
-
-    public void setLabel(Label label) {
-        this.label = label;
     }
 
     @Override
     public Type getType() {
-        return Type.CHECKBOX;
+        return Type.TIME;
     }
 
-    public class Label implements Serializable {
-        private String position;
-        private String value;
+    public String getTimeFormat() {
+        return timeFormat;
+    }
 
-        public String getPosition() {
-            return position;
-        }
+    public void setTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+    }
 
-        public void setPosition(String position) {
-            this.position = position;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
-
+    public TimeColumn withTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+        return this;
     }
 
 }

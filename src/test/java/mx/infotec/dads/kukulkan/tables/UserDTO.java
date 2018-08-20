@@ -1,5 +1,6 @@
 package mx.infotec.dads.kukulkan.tables;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
@@ -10,7 +11,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
  * A DTO representing a user, with his authorities.
  */
 @Sheet(minRows = 20, readOnly = true)
-public class UserDTO {
+public class UserDTO implements Serializable {
 
     @SheetColumn(title = "ID")
     private String id;

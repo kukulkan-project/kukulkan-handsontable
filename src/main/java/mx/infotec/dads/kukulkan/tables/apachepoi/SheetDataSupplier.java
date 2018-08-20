@@ -1,3 +1,14 @@
+package mx.infotec.dads.kukulkan.tables.apachepoi;
+
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
+
 /*
  *  
  * The MIT License (MIT)
@@ -22,41 +33,32 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+public class SheetDataSupplier<T> implements Supplier<Slice<T>> {
 
-import java.lang.reflect.Field;
+    private Function<Pageable, Page<T>> function;
 
-import mx.infotec.dads.kukulkan.tables.handsontable.columns.TextColumn;
+    private boolean hasNext = false;
 
-/**
- * Abstract Build Strategy
- * @author Roberto Villarejo Martínez
- *
- */
-public abstract class AbstractBuildStrategy implements BuildStrategy {
+    private Pageable pageable;
 
-    /**
-     * Builds a {@link HandsontableOptions} using the information from clazz
-     */
-    @Override
-    public <T> HandsontableOptions buildOptions(Class<T> clazz) {
-        return new HandsontableOptions();
+    private int pageNumber = 0;
+
+    private int sizePage = 100;
+
+    public SheetDataSupplier(Function<Pageable, Page<T>> function) {
+        this.function = function;
+        this.pageable = new PageRequest(pageNumber, sizePage);
     }
 
-    /**
-     * Builds a concrete {@link Column} using information from field
-     */
     @Override
-    public Column buildColumn(Field field) {
-        return new TextColumn().withData(field.getName());
-    }
-
-    /**
-     * Buils a header using information from the field
-     */
-    @Override
-    public String buildHeader(Field field) {
-        return field.getName();
+    public Slice<T> get() {
+        if (pageable.getPageNumber() == 0 || hasNext) {
+            Page<T> page = function.apply(pageable);
+            hasNext = page.hasNext();
+            pageable = new PageRequest(pageable.getPageNumber() + 1, sizePage);
+            return new SliceImpl<>(page.getContent(), pageable, page.hasNext());
+        }
+        return null;
     }
 
 }

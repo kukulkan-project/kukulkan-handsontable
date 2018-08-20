@@ -24,9 +24,9 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.buildHeaderFromAnnotatedProperty;
 
 import java.lang.reflect.Field;
 import java.util.Optional;
@@ -61,15 +61,7 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
 
     @Override
     public String buildHeader(Field field) {
-        Optional<SheetColumn> annotation = getSheetColumnAnnotation(field);
-        if (annotation.isPresent()) {
-            if (!"".equals(annotation.get().title())) {
-                return annotation.get().title();
-            } else {
-                return camelCaseToHumanReadable(field.getName());
-            }
-        }
-        return null;
+        return buildHeaderFromAnnotatedProperty(field);
     }
 
     @Override

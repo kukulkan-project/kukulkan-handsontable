@@ -17,14 +17,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.TestCase;
 import mx.infotec.dads.kukulkan.tables.UserDTO.Genre;
-import mx.infotec.dads.kukulkan.tables.handsontable.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
-import mx.infotec.dads.kukulkan.tables.handsontable.DateColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.DropdownColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Handsontable;
-import mx.infotec.dads.kukulkan.tables.handsontable.NumericColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.TextColumn;
-import mx.infotec.dads.kukulkan.tables.handsontable.TimeColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.CheckboxColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.DateColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.DropdownColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.NumericColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.TextColumn;
+import mx.infotec.dads.kukulkan.tables.handsontable.columns.TimeColumn;
 
 /*
  *  

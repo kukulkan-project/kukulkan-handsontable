@@ -22,31 +22,36 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
+
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * Autocomplete column (also called cell type)
+ * A Dropdown column (also called cell type)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
-public class AutocompleteColumn extends Column {
-    
+public class DropdownColumn extends Column {
+
     /**
      * 
      */
-    private static final long serialVersionUID = 426421856159787859L;
+    private static final long serialVersionUID = 1L;
 
-    public AutocompleteColumn(HandsontableOptions options) {
+    public DropdownColumn(HandsontableOptions options) {
         super(options);
     }
-    
-    public AutocompleteColumn() {
+
+    public DropdownColumn() {
         super();
     }
-    
+
     @Override
     public Type getType() {
-        return HandsontableOptions.Type.AUTOCOMPLETE;
+        return Type.DROPDOWN;
     }
 
 }

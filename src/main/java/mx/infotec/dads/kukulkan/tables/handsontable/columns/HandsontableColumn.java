@@ -22,32 +22,35 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable;
+package mx.infotec.dads.kukulkan.tables.handsontable.columns;
+
+import mx.infotec.dads.kukulkan.tables.handsontable.Column;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 
 /**
- * A Dropdown column (also called cell type)
- * 
+ * A Handsontable column (also called cell type)
  * @author Roberto Villarejo Martínez
  *
  */
-public class DropdownColumn extends Column {
+public class HandsontableColumn extends Column {
 
     /**
      * 
      */
-    private static final long serialVersionUID = 1L;
-
-    public DropdownColumn(HandsontableOptions options) {
+    private static final long serialVersionUID = 6949126174683467541L;
+    
+    public HandsontableColumn(HandsontableOptions options) {
         super(options);
     }
-
-    public DropdownColumn() {
+    
+    public HandsontableColumn() {
         super();
     }
-
+    
     @Override
     public Type getType() {
-        return Type.DROPDOWN;
+        return Type.HANDSONTABLE;
     }
 
 }
