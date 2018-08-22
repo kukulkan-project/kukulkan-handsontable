@@ -24,8 +24,6 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable.utils;
 
-import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.camelCaseToHumanReadable;
-
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.Instant;
