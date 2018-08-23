@@ -202,7 +202,7 @@ public class HandsontableBuilderUtils {
         return null;
     }
 
-    private static Optional<SheetColumn> getSheetColumnAnnotation(Field field) {
+    public static Optional<SheetColumn> getSheetColumnAnnotation(Field field) {
         if (field.isAnnotationPresent(SheetColumn.class)) {
             return Optional.of(field.getAnnotation(SheetColumn.class));
         }

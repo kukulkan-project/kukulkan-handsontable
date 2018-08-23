@@ -44,4 +44,6 @@ public @interface SheetColumn {
 
     public String title() default "";
     
+    public boolean readOnly() default false;
+    
 }

@@ -24,9 +24,10 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
-import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.buildHeaderFromAnnotatedProperty;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getColumn;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.getSheetColumnAnnotation;
+import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferHandsontableType;
 
 import java.lang.reflect.Field;
 import java.util.Optional;
@@ -54,7 +55,11 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
             } else {
                 type = annotation.get().type();
             }
-            return getColumn(type, field.getType()).withData(field.getName());
+            Column column = getColumn(type, field.getType()).withData(field.getName());
+            if (annotation.get().readOnly()) {
+                column.setReadOnly(true);
+            }
+            return column;
         }
         return null;
     }
@@ -70,13 +75,6 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
             return new AnnotationHandsontableAdapter(clazz.getAnnotation(Sheet.class));
         }
         return super.buildOptions(clazz);
-    }
-
-    private Optional<SheetColumn> getSheetColumnAnnotation(Field field) {
-        if (field.isAnnotationPresent(SheetColumn.class)) {
-            return Optional.of(field.getAnnotation(SheetColumn.class));
-        }
-        return Optional.empty();
     }
 
 }
