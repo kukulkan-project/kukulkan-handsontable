@@ -25,7 +25,6 @@
 package mx.infotec.dads.kukulkan.tables.apachepoi;
 
 import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.buildHeaderFromAnnotatedProperty;
-import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBuilderUtils.inferApacheCellType;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -34,7 +33,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.WeakHashMap;
 
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -54,9 +52,6 @@ public class WorkbookFactory {
 
     @SuppressWarnings("rawtypes")
     private static WeakHashMap<Class, List<Method>> getterMethods = new WeakHashMap<>();
-
-    @SuppressWarnings("rawtypes")
-    private static WeakHashMap<Class, List<CellType>> cellTypeList = new WeakHashMap<>();
 
     @SuppressWarnings("rawtypes")
     public static XSSFWorkbook getWorkbook(Class clazz) {
@@ -107,19 +102,6 @@ public class WorkbookFactory {
             }
             return methods;
         }
-    }
-
-    public static List<CellType> getCellTypes(Class<?> clazz) {
-        if (cellTypeList.containsKey(clazz)) {
-            return cellTypeList.get(clazz);
-        }
-        Field[] fields = clazz.getDeclaredFields();
-        List<CellType> cellTypes = new ArrayList<>();
-        for (Field field : fields) {
-            cellTypes.add(inferApacheCellType(field));
-        }
-        cellTypeList.put(clazz, cellTypes);
-        return cellTypes;
     }
 
     private static void addHeaders(XSSFSheet sheet, List<String> headers) {

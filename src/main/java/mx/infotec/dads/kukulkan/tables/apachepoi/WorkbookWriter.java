@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.streaming.SXSSFCell;
 import org.apache.poi.xssf.streaming.SXSSFRow;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -51,13 +50,10 @@ public class WorkbookWriter<T> {
 
     private SXSSFSheet sheet;
 
-    private List<CellType> cellTypes;
-
     public WorkbookWriter(Class<T> clazz) {
         this.workbook = new SXSSFWorkbook(WorkbookFactory.getWorkbook(clazz));
         this.sheet = workbook.getSheetAt(0);
         this.methods = WorkbookFactory.getGetterMethods(clazz);
-        this.cellTypes = WorkbookFactory.getCellTypes(clazz);
     }
 
     /**
@@ -86,7 +82,6 @@ public class WorkbookWriter<T> {
         for (String dataCell : data) {
             SXSSFCell cell = row.createCell(currentCol);
             cell.setCellValue(dataCell);
-            cell.setCellType(cellTypes.get(currentCol));
             currentCol++;
         }
         currentRowNumber++;
