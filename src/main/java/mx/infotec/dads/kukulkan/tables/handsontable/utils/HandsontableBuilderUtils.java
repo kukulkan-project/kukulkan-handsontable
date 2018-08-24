@@ -35,6 +35,8 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.poi.ss.usermodel.CellType;
+
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
@@ -82,6 +84,16 @@ public class HandsontableBuilderUtils {
             return Type.TIME;
         }
         return Type.TEXT;
+    }
+
+    public static CellType inferApacheCellType(Field field) {
+        Class<?> clazz = field.getType();
+        if (isNumeric(clazz)) {
+            return CellType.NUMERIC;
+        } else if (isBoolean(clazz)) {
+            return CellType.BOOLEAN;
+        }
+        return CellType.STRING;
     }
 
     public static boolean isTime(Class<?> clazz) {

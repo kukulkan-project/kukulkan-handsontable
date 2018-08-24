@@ -13,6 +13,11 @@ import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 @Sheet(minRows = 20, readOnly = true)
 public class UserDTO implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6215183916195869574L;
+
     @SheetColumn(title = "ID")
     private String id;
 
