@@ -31,8 +31,9 @@ import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBui
 import java.lang.reflect.Field;
 
 /**
- * The POJO Build Strategy
- * Used for build a Handsontable from a POJO class (with no annotations)
+ * The POJO Build Strategy Used for build a Handsontable from a POJO class (with
+ * no annotations)
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -40,7 +41,7 @@ public class PojoBuildStrategy extends AbstractBuildStrategy {
 
     @Override
     public Column buildColumn(Field field) {
-        return getColumn(inferHandsontableType(field), field.getType()).withData(field.getName());
+        return getColumn(inferHandsontableType(field), field.getType());
     }
 
     @Override

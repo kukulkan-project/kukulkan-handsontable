@@ -129,6 +129,7 @@ public class HandsontableBuilderUtils {
 
         case DATE:
             column = new DateColumn();
+            column.withDateFormat("YYYY-MM-DD");
             break;
 
         case TIME:
