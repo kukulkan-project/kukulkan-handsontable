@@ -345,12 +345,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public Integer getMaxRows() {
-
-        return options.getMaxRows();
-    }
-
-    @Override
     public Integer getMinCols() {
 
         return options.getMinCols();
@@ -873,12 +867,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     }
 
     @Override
-    public void setMaxRows(Integer maxRows) {
-
-        options.setMaxRows(maxRows);
-    }
-
-    @Override
     public void setMinCols(Integer minCols) {
 
         options.setMinCols(minCols);
@@ -1397,12 +1385,6 @@ public abstract class HandsontableOptionsDecorator extends HandsontableOptions {
     public HandsontableOptions withMaxCols(Integer maxCols) {
 
         return options.withMaxCols(maxCols);
-    }
-
-    @Override
-    public HandsontableOptions withMaxRows(Integer maxRows) {
-
-        return options.withMaxRows(maxRows);
     }
 
     @Override

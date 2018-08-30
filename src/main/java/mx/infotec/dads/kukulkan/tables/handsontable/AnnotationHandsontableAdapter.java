@@ -69,12 +69,6 @@ public class AnnotationHandsontableAdapter extends HandsontableOptionsDecorator 
     }
 
     @Override
-    public Integer getMaxRows() {
-
-        return annotation.maxRows();
-    }
-
-    @Override
     public Integer getMinCols() {
 
         return annotation.minCols();
