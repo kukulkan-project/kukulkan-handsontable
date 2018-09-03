@@ -32,6 +32,8 @@ import static mx.infotec.dads.kukulkan.tables.handsontable.utils.HandsontableBui
 import java.lang.reflect.Field;
 import java.util.Optional;
 
+import org.springframework.util.StringUtils;
+
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
 import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
@@ -58,6 +60,9 @@ public class AnnotationBuildStrategy extends AbstractBuildStrategy {
             Column column = getColumn(type, field.getType()).withData(field.getName());
             if (annotation.get().readOnly()) {
                 column.setReadOnly(true);
+            }
+            if (!StringUtils.isEmpty(annotation.get().data())) {
+                column.data = annotation.get().data();
             }
             return column;
         }

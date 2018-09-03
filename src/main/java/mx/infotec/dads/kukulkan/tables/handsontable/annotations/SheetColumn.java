@@ -33,6 +33,7 @@ import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 
 /**
  * Annotation for POJO field. Used to overwrite default Column options
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
@@ -43,7 +44,9 @@ public @interface SheetColumn {
     public HandsontableOptions.Type type() default HandsontableOptions.Type.NONE;
 
     public String title() default "";
-    
+
     public boolean readOnly() default false;
-    
+
+    public String data() default "";
+
 }
