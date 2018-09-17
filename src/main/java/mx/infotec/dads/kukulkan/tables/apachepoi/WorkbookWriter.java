@@ -75,10 +75,14 @@ public class WorkbookWriter<T> {
         }
     }
 
-    private void addRowDataFromObject(T t) {
+    public void addRowDataFromObject(T t) {
+        List<String> data = getDataFromObject(t);
+        addData(data);
+    }
+
+    public void addData(List<String> data) {
         SXSSFRow row = sheet.createRow(currentRowNumber);
         int currentCol = 0;
-        List<String> data = getDataFromObject(t);
         for (String dataCell : data) {
             SXSSFCell cell = row.createCell(currentCol);
             cell.setCellValue(dataCell);

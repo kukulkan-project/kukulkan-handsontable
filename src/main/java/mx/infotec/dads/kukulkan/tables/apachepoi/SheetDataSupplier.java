@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.SliceImpl;
+import org.springframework.data.domain.Sort;
 
 /*
  *  
@@ -45,9 +46,17 @@ public class SheetDataSupplier<T> implements Supplier<Slice<T>> {
 
     private int sizePage = 100;
 
+    private Sort sort;
+
     public SheetDataSupplier(Function<Pageable, Page<T>> function) {
         this.function = function;
         this.pageable = new PageRequest(pageNumber, sizePage);
+    }
+
+    public SheetDataSupplier(Sort sort, Function<Pageable, Page<T>> function) {
+        this.function = function;
+        this.sort = sort;
+        this.pageable = new PageRequest(pageNumber, sizePage, sort);
     }
 
     @Override
@@ -55,7 +64,7 @@ public class SheetDataSupplier<T> implements Supplier<Slice<T>> {
         if (pageable.getPageNumber() == 0 || hasNext) {
             Page<T> page = function.apply(pageable);
             hasNext = page.hasNext();
-            pageable = new PageRequest(pageable.getPageNumber() + 1, sizePage);
+            pageable = new PageRequest(pageable.getPageNumber() + 1, sizePage, sort);
             return new SliceImpl<>(page.getContent(), pageable, page.hasNext());
         }
         return null;
