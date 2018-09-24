@@ -46,14 +46,14 @@ public class WorkbookWriter<T> {
 
     private int currentRowNumber = 1;
 
-    private List<Method> methods = new ArrayList<>();
-
     private SXSSFSheet sheet;
 
+    private WorkbookWriterContext workbookMetadata;
+
     public WorkbookWriter(Class<T> clazz) {
-        this.workbook = new SXSSFWorkbook(WorkbookFactory.getWorkbook(clazz));
+        this.workbookMetadata = WorkbookFactory.getWorkbookMetadata(clazz);
+        this.workbook = new SXSSFWorkbook(workbookMetadata.getworkbook());
         this.sheet = workbook.getSheetAt(0);
-        this.methods = WorkbookFactory.getGetterMethods(clazz);
     }
 
     /**
@@ -93,9 +93,9 @@ public class WorkbookWriter<T> {
 
     private List<String> getDataFromObject(T t) {
         List<String> result = new ArrayList<>();
-        for (Method method : methods) {
+        for (Method method : workbookMetadata.getGetterMethods()) {
             try {
-                Object obj = method.invoke(t, null);
+                Object obj = method.invoke(t);
                 String element = obj == null ? null : obj.toString();
                 result.add(element);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
