@@ -22,40 +22,31 @@
  * SOFTWARE.
  */
 
-package mx.infotec.dads.kukulkan.tables.handsontable.annotations;
+package mx.infotec.dads.kukulkan.tables.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
+
 /**
- * Annotation for POJO class used to overwrite default Handsontable options
+ * Annotation for POJO field. Used to overwrite default Column options
+ * 
  * @author Roberto Villarejo Martínez
  *
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Sheet {
+@Target(ElementType.FIELD)
+public @interface SheetColumn {
 
-    public boolean allowEmpty() default false;
+    public HandsontableOptions.Type type() default HandsontableOptions.Type.NONE;
 
-    public boolean columnSorting() default true;
-
-    public boolean contextMenu() default true;
-
-    public int maxCols() default 50;
-
-    public int maxRows() default 100;
-
-    public int minCols() default 10;
-
-    public int minRows() default 10;
+    public String title() default "";
 
     public boolean readOnly() default false;
 
-    public boolean rowHeaders() default true;
-
-    public boolean search() default true;
+    public String data() default "";
 
 }

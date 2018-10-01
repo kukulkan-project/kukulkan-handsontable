@@ -24,7 +24,7 @@
 
 package mx.infotec.dads.kukulkan.tables.handsontable;
 
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
+import mx.infotec.dads.kukulkan.tables.annotations.Sheet;
 
 /**
  * An adapter from Sheet annotation to HandsontableOptions

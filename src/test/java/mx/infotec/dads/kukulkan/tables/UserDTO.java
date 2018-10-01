@@ -3,9 +3,9 @@ package mx.infotec.dads.kukulkan.tables;
 import java.io.Serializable;
 import java.util.Set;
 
+import mx.infotec.dads.kukulkan.tables.annotations.Sheet;
+import mx.infotec.dads.kukulkan.tables.annotations.SheetColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 /**
  * A DTO representing a user, with his authorities.

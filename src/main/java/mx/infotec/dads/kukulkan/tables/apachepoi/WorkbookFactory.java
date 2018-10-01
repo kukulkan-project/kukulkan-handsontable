@@ -42,7 +42,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbookType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
+import mx.infotec.dads.kukulkan.tables.annotations.SheetColumn;
 
 public class WorkbookFactory {
 

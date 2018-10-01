@@ -35,10 +35,10 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import mx.infotec.dads.kukulkan.tables.annotations.SheetColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.Column;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.columns.AutocompleteColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.columns.CheckboxColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.columns.DateColumn;

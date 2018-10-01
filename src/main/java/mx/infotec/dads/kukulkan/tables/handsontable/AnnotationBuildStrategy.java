@@ -34,9 +34,9 @@ import java.util.Optional;
 
 import org.springframework.util.StringUtils;
 
+import mx.infotec.dads.kukulkan.tables.annotations.Sheet;
+import mx.infotec.dads.kukulkan.tables.annotations.SheetColumn;
 import mx.infotec.dads.kukulkan.tables.handsontable.HandsontableOptions.Type;
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.Sheet;
-import mx.infotec.dads.kukulkan.tables.handsontable.annotations.SheetColumn;
 
 /**
  * The Annotation Build Strategy Used for build a Handsontable from an annotated
